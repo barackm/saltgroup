@@ -9,9 +9,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const links = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/activities", label: "Activities" },
+    { href: "/", label: "Accueil" },
+    { href: "/about", label: "Notre Histoire" },
+    { href: "/activities", label: "Nos Activités" },
     { href: "/contacts", label: "Contact" },
   ];
 
@@ -79,7 +79,7 @@ const Navbar = () => {
               className="relative overflow-hidden px-5 py-1.5 text-sm text-white rounded-full bg-gradient-to-r from-[rgb(226,34,40)] to-black hover:from-black hover:to-[rgb(226,34,40)] transition-all duration-300"
             >
               <span className="relative z-10 font-medium tracking-wide">
-                Start Project
+                Commencer un Projet
               </span>
             </Link>
           </nav>

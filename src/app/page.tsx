@@ -70,12 +70,11 @@ export default function Home() {
         </motion.div>
       </motion.div>
 
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden -mt-40 md:-mt-24  pt-10">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-10">
         <div className="absolute inset-0 w-full h-full">
           <div className="absolute w-full h-full bg-[rgb(226,34,40)]/5" />
           <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[rgb(226,34,40)]/5 rounded-full filter blur-[128px]" />
         </div>
-
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <motion.div
@@ -90,23 +89,24 @@ export default function Home() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[rgb(226,34,40)]"></span>
                 </span>
                 <p className="text-xs font-medium text-black/60 tracking-wide">
-                  We&apos;re accepting new projects
+                  Nous acceptons de nouveaux projets
                 </p>
               </div>
 
               <div className="space-y-4">
                 <h2 className="text-sm font-mono text-[rgb(226,34,40)] tracking-wider">
-                  PREMIUM EVENT PLANNING
+                  PLANIFICATION D&apos;ÉVÉNEMENTS HAUT DE GAMME
                 </h2>
                 <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-black/90">
-                  Craft Your
+                  Créez Votre
                   <span className="block text-[rgb(226,34,40)] mt-2">
-                    Perfect Moment
+                    Moment Parfait
                   </span>
                 </h1>
                 <p className="text-lg sm:text-xl text-black/60 max-w-lg leading-relaxed">
-                  We specialize in turning ordinary occasions into extraordinary
-                  memories, with meticulous attention to every detail.
+                  Nous transformons vos occasions ordinaires en souvenirs
+                  extraordinaires, avec une attention méticuleuse portée à
+                  chaque détail.
                 </p>
               </div>
 
@@ -115,7 +115,7 @@ export default function Home() {
                   href="/contacts"
                   className="group relative px-8 py-4 bg-[rgb(226,34,40)] text-white rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-2"
                 >
-                  <span className="relative z-10">Start Planning</span>
+                  <span className="relative z-10">Commencer</span>
                   <FiArrowRight className="group-hover:translate-x-1 transition-transform relative z-10" />
                   <div className="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
                 </Link>
@@ -124,7 +124,7 @@ export default function Home() {
                     <FiPlay className="w-4 h-4 text-black/60 group-hover:text-[rgb(226,34,40)] transition-colors" />
                   </div>
                   <span className="text-sm font-medium text-black/60 group-hover:text-black transition-colors">
-                    Watch Showreel
+                    Voir la Vidéo
                   </span>
                 </button>
               </div>
@@ -163,7 +163,7 @@ export default function Home() {
                   </div>
                   <div className="backdrop-blur-none">
                     <p className="font-semibold text-2xl text-black/80">500+</p>
-                    <p className="text-sm text-black/60">Successful Events</p>
+                    <p className="text-sm text-black/60">Événements Réussis</p>
                   </div>
                 </div>
               </motion.div>
