@@ -1,10 +1,12 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiCircle } from "react-icons/fi";
+import { FiCircle, FiMenu, FiX } from "react-icons/fi";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const links = [
     { href: "/", label: "Home" },
@@ -21,7 +23,7 @@ const Navbar = () => {
       className="fixed w-full z-50"
     >
       <div className="absolute inset-0 backdrop-blur-md bg-white/60 border-b border-white/20" />
-      <div className="relative max-w-7xl mx-auto px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="h-16 flex items-center justify-between">
           <Link href="/" className="relative group">
             <div className="flex items-center gap-1">
@@ -44,7 +46,8 @@ const Navbar = () => {
             </div>
           </Link>
 
-          <nav className="flex items-center">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center">
             <div className="flex items-center space-x-8 mr-8">
               {links.map((link) => (
                 <Link
@@ -80,8 +83,52 @@ const Navbar = () => {
               </span>
             </Link>
           </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 text-black/80"
+          >
+            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Navigation */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="absolute top-16 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-white/20 px-4 py-8 md:hidden"
+          >
+            <div className="flex flex-col space-y-6">
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`text-lg ${
+                    pathname === link.href
+                      ? "text-[rgb(226,34,40)]"
+                      : "text-black/60"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href="/contacts"
+                onClick={() => setIsOpen(false)}
+                className="inline-flex items-center justify-center h-12 px-6 text-sm text-white rounded-full bg-gradient-to-r from-[rgb(226,34,40)] to-black"
+              >
+                Start Project
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 };

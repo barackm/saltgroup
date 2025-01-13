@@ -1,5 +1,5 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   FiInstagram,
@@ -11,14 +11,10 @@ import {
 } from "react-icons/fi";
 
 export default function Home() {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 300], [0, 100]);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
-      {/* Floating Navigation Indicator */}
       <motion.div
-        className="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-2"
+        className="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-2"
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1 }}
@@ -32,11 +28,10 @@ export default function Home() {
         ))}
       </motion.div>
 
-      {/* Enhanced Social Media Bar */}
       <motion.div
         initial={{ x: -100 }}
         animate={{ x: 0 }}
-        className="fixed left-8 top-1/2 -translate-y-1/2 z-50"
+        className="fixed left-8 top-1/2 -translate-y-1/2 z-50 hidden md:block"
       >
         <motion.div
           className="flex flex-col gap-6 items-center"
@@ -75,22 +70,19 @@ export default function Home() {
         </motion.div>
       </motion.div>
 
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden -mt-16">
-        {/* Glassmorphism Background */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden -mt-40 md:-mt-24  pt-10">
         <div className="absolute inset-0 w-full h-full">
           <div className="absolute w-full h-full bg-[rgb(226,34,40)]/5" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[rgb(226,34,40)]/10 rounded-full filter blur-3xl" />
-          <div className="absolute top-0 left-0 w-96 h-96 bg-black/5 rounded-full filter blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[rgb(226,34,40)]/5 rounded-full filter blur-[128px]" />
         </div>
 
-        {/* Main Content with enhanced glassmorphism */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-left space-y-8"
+              className="text-left space-y-6 sm:space-y-8 pt-12 lg:pt-0"
             >
               <div className="inline-flex items-center px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-full border border-black/5 shadow-sm">
                 <span className="relative flex h-2 w-2 mr-2">
@@ -106,19 +98,19 @@ export default function Home() {
                 <h2 className="text-sm font-mono text-[rgb(226,34,40)] tracking-wider">
                   PREMIUM EVENT PLANNING
                 </h2>
-                <h1 className="text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-black/90">
+                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-black/90">
                   Craft Your
                   <span className="block text-[rgb(226,34,40)] mt-2">
                     Perfect Moment
                   </span>
                 </h1>
-                <p className="text-xl text-black/60 max-w-lg leading-relaxed">
+                <p className="text-lg sm:text-xl text-black/60 max-w-lg leading-relaxed">
                   We specialize in turning ordinary occasions into extraordinary
                   memories, with meticulous attention to every detail.
                 </p>
               </div>
 
-              <div className="flex items-center gap-6">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
                 <Link
                   href="/contacts"
                   className="group relative px-8 py-4 bg-[rgb(226,34,40)] text-white rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-2"
@@ -142,7 +134,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="relative mt-8 lg:mt-0"
             >
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                 <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-black/5 to-transparent z-10" />
@@ -153,11 +145,10 @@ export default function Home() {
                 />
               </div>
 
-              {/* Updated Stats Card with Glassmorphism */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -bottom-8 -left-8 backdrop-blur-md bg-white/40 p-6 rounded-xl shadow-2xl z-20 border border-white/20"
+                className="absolute -bottom-8 left-1/2 -translate-x-1/2 lg:-left-8 lg:translate-x-0 backdrop-blur-md bg-white/40 p-6 rounded-xl shadow-2xl z-20 border border-white/20 w-[280px]"
               >
                 <div className="flex items-center gap-4">
                   <div className="relative">
@@ -180,12 +171,11 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
         >
           <span className="text-sm text-black/50">Scroll to explore</span>
           <motion.div
