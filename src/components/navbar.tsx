@@ -12,6 +12,7 @@ const Navbar = () => {
     { href: "/", label: "Accueil" },
     { href: "/about", label: "Notre Histoire" },
     { href: "/activities", label: "Nos Activités" },
+    { href: "/events", label: "Événements" },
     { href: "/contacts", label: "Contact" },
   ];
 

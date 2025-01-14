@@ -118,7 +118,7 @@ export default function Home() {
                   href="/contacts"
                   className="group relative px-8 py-4 bg-[rgb(226,34,40)] text-white rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-2"
                 >
-                  <span className="relative z-10">Commencer</span>
+                  <span className="relative z-10">Les activités</span>
                   <FiArrowRight className="group-hover:translate-x-1 transition-transform relative z-10" />
                   <div className="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
                 </Link>
