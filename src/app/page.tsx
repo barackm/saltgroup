@@ -9,10 +9,13 @@ import {
   FiArrowRight,
   FiPlay,
 } from "react-icons/fi";
+import About from "@/components/about";
+import Activities from "@/components/activities";
+import Contact from "@/components/contact";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
+    <main className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
       <motion.div
         className="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-2"
         initial={{ opacity: 0, x: 100 }}
@@ -170,7 +173,6 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -186,6 +188,9 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
-    </div>
+      <About />
+      <Activities />
+      <Contact />
+    </main>
   );
 }
