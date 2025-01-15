@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { motion } from "framer-motion";
 import { FiCalendar, FiMapPin, FiClock, FiHeart } from "react-icons/fi";
 import { Badge } from "@/components/ui/Badge";
@@ -22,7 +23,6 @@ export const EventCard = ({ event, index }: EventCardProps) => {
         className="bg-white rounded-2xl overflow-hidden h-full flex flex-col shadow-sm 
           transition-all duration-300 ease-out hover:shadow-xl hover:translate-y-[-4px]"
       >
-        {/* Image Container */}
         <div className="aspect-[5/3] relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
           <img
@@ -30,7 +30,6 @@ export const EventCard = ({ event, index }: EventCardProps) => {
             alt={event.title}
             className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
           />
-          {/* Enhanced Category Badge */}
           <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
             <Badge variant="primary" withAnimation>
               {event.category}
@@ -41,12 +40,10 @@ export const EventCard = ({ event, index }: EventCardProps) => {
               </Badge>
             )}
           </div>
-          {/* Enhanced Like Button */}
           <button className="absolute top-4 right-4 z-20 p-3 rounded-full bg-black/20 backdrop-blur-md hover:bg-white/90 transition-all duration-300 transform hover:scale-110 group/btn">
             <FiHeart className="w-4 h-4 text-white group-hover/btn:text-[rgb(226,34,40)]" />
           </button>
         </div>
-        {/* Content Container */}
         <div className="flex-1 p-6 space-y-6">
           <div className="space-y-3">
             <h3 className="font-display text-xl font-semibold text-gray-900 line-clamp-1">
@@ -56,7 +53,6 @@ export const EventCard = ({ event, index }: EventCardProps) => {
               {event.description}
             </p>
           </div>
-          {/* Enhanced Info Grid */}
           <div className="grid grid-cols-2 gap-4">
             {[
               { icon: <FiCalendar />, value: event.date },
@@ -74,7 +70,6 @@ export const EventCard = ({ event, index }: EventCardProps) => {
               </div>
             ))}
           </div>
-          {/* Enhanced Footer */}
           <div className="flex items-center justify-between pt-6 border-t border-gray-100">
             <div>
               <p className="text-xs uppercase tracking-wide text-gray-400 font-medium">

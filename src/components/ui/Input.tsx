@@ -2,13 +2,15 @@ import { twMerge } from "tailwind-merge";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface InputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type"> {
   label?: string;
   error?: string;
   fullWidth?: boolean;
   type?: "text" | "email" | "select" | "phone";
   options?: { value: string; label: string }[];
   onPhoneChange?: (phone: string) => void;
+  onChange?: React.ChangeEventHandler<HTMLInputElement | HTMLSelectElement>;
 }
 
 const inputStyles = {
@@ -34,6 +36,7 @@ export const Input = ({
       {label && <label className={inputStyles.label}>{label}</label>}
 
       {type === "select" ? (
+        // @ts-expect-error select element
         <select
           className={twMerge(
             inputStyles.base,

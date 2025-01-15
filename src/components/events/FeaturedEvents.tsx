@@ -18,7 +18,6 @@ const sansTabouEvent = {
 export const FeaturedEvents = () => {
   return (
     <div className="relative h-[500px] sm:h-[500px] rounded-xl sm:rounded-[32px] overflow-hidden bg-gradient-to-br from-gray-900 to-black shadow-2xl">
-      {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80 z-10" />
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[rgb(226,34,40)]/30 rounded-full blur-[100px]" />

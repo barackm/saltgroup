@@ -8,10 +8,15 @@ import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import "react-phone-input-2/lib/style.css";
 import { countries } from "@/utils/countries";
+import { sendRegistrationEmail } from "@/actions/sendEmail";
+import { toast } from "sonner";
 
-type Props = {
+interface Props {
   eventTitle: string;
-};
+  eventDate: string;
+  eventTime: string;
+  eventLocation: string;
+}
 
 const schema = z.object({
   firstName: z.string().min(2, "Le prénom doit contenir au moins 2 caractères"),
@@ -23,7 +28,12 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-export function RegistrationFormDialog({ eventTitle }: Props) {
+export function RegistrationFormDialog({
+  eventTitle,
+  eventDate,
+  eventTime,
+  eventLocation,
+}: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const {
     register,
@@ -37,11 +47,34 @@ export function RegistrationFormDialog({ eventTitle }: Props) {
 
   const onSubmit = async (data: FormData) => {
     try {
-      // Here you would typically send the data to your API
-      console.log(data);
-      reset(); // Reset form
-      setIsOpen(false); // Close dialog
+      const result = await sendRegistrationEmail({
+        ...data,
+        eventTitle,
+        date: eventDate,
+        time: eventTime,
+        location: eventLocation,
+      });
+
+      if (result.success) {
+        toast.success(
+          "Inscription réussie! Vérifiez votre email pour plus de détails.",
+          {
+            description: `Vous recevrez bientôt un email de confirmation pour ${eventTitle}.`,
+          }
+        );
+        reset();
+        setIsOpen(false);
+      } else {
+        toast.error("Échec de l'inscription", {
+          description:
+            "Une erreur est survenue lors de l'envoi du mail de confirmation. Veuillez réessayer.",
+        });
+      }
     } catch (error) {
+      toast.error("Erreur", {
+        description:
+          "Une erreur inattendue est survenue. Veuillez réessayer plus tard.",
+      });
       console.error("Error submitting form:", error);
     }
   };

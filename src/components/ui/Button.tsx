@@ -12,6 +12,7 @@ interface ButtonProps {
   className?: string;
   onClick?: () => void;
   disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
 const buttonStyles = {
@@ -44,12 +45,14 @@ export const Button = ({
   className,
   onClick,
   disabled,
+  type = "button",
   ...props
 }: ButtonProps) => {
   return (
     <motion.button
       whileHover={{ scale: disabled ? 1 : 1.02 }}
       whileTap={{ scale: disabled ? 1 : 0.98 }}
+      type={type}
       className={twMerge(
         buttonStyles.base,
         buttonStyles.variant[variant],

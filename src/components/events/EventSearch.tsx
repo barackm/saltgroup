@@ -1,6 +1,5 @@
-import { motion } from "framer-motion";
-import { FiSearch, FiFilter } from "react-icons/fi";
-import { categories, locations } from "../../data/events";
+import { FiSearch } from "react-icons/fi";
+import { categories } from "../../data/events";
 
 interface EventSearchProps {
   searchQuery: string;
