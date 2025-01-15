@@ -55,7 +55,7 @@ export const EventCard = ({ event, index }: EventCardProps) => {
         {/* Content Container */}
         <div className="flex-1 p-6 space-y-6">
           <div className="space-y-3">
-            <h3 className="text-xl font-semibold text-gray-900 line-clamp-1">
+            <h3 className="font-display text-xl font-semibold text-gray-900 line-clamp-1">
               {event.title}
             </h3>
             <p className="text-sm leading-relaxed text-gray-500 line-clamp-2">
@@ -89,7 +89,7 @@ export const EventCard = ({ event, index }: EventCardProps) => {
               <p className="text-xs uppercase tracking-wide text-gray-400 font-medium">
                 Starting from
               </p>
-              <p className="text-2xl font-bold text-[rgb(226,34,40)]">
+              <p className="font-display text-2xl font-bold text-[rgb(226,34,40)]">
                 €{event.price}
               </p>
             </div>

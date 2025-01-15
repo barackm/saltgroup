@@ -31,12 +31,12 @@ export const FeaturedEvents = ({
               <span className="px-3 sm:px-4 py-1 sm:py-1.5 bg-[rgb(226,34,40)] text-white text-xs sm:text-sm font-medium rounded-full">
                 {events[currentSlide].category}
               </span>
-              <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white text-center px-4">
+              <h1 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-white text-center px-4">
                 {events[currentSlide].title}
               </h1>
             </div>
 
-            <p className="text-base sm:text-lg text-white/80 max-w-xl mx-auto leading-relaxed line-clamp-2 sm:line-clamp-none px-4">
+            <p className="text-base sm:text-lg text-white/80 max-w-xl mx-auto leading-relaxed line-clamp-2 sm:line-clamp-none px-4 text-center">
               {events[currentSlide].description}
             </p>
 

@@ -1,20 +1,12 @@
 "use client";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { FiCircle, FiMenu, FiX } from "react-icons/fi";
+import { FiCircle, FiMenu } from "react-icons/fi";
+import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
 import { useState } from "react";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
-  const links = [
-    { href: "/", label: "Accueil" },
-    { href: "/about", label: "Notre Histoire" },
-    { href: "/activities", label: "Nos Activités" },
-    { href: "/events", label: "Événements" },
-    { href: "/contacts", label: "Contact" },
-  ];
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <motion.header
@@ -47,89 +39,109 @@ const Navbar = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center">
-            <div className="flex items-center space-x-8 mr-8">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`relative py-1.5 text-sm tracking-wide group ${
-                    pathname === link.href
-                      ? "text-[rgb(226,34,40)]"
-                      : "text-black/60 hover:text-black/80"
-                  }`}
+          <div className="hidden md:flex items-center gap-8">
+            <div className="flex items-center gap-6">
+              {[
+                { icon: FaInstagram, href: "https://instagram.com" },
+                { icon: FaFacebookF, href: "https://facebook.com" },
+                { icon: FaTwitter, href: "https://twitter.com" },
+              ].map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  className="text-black/60 hover:text-[rgb(226,34,40)] transition-all"
                 >
-                  <span className="relative">
-                    {link.label}
-                    <span className="absolute -right-3 -top-2 text-[8px] text-[rgb(226,34,40)] opacity-0 group-hover:opacity-100 transition-opacity">
-                      •
-                    </span>
-                  </span>
-                  {pathname === link.href && (
-                    <motion.div
-                      layoutId="nav-indicator"
-                      className="absolute -bottom-[2px] left-0 right-0 h-px bg-gradient-to-r from-[rgb(226,34,40)]/0 via-[rgb(226,34,40)] to-[rgb(226,34,40)]/0"
-                    />
-                  )}
-                </Link>
+                  <social.icon className="w-5 h-5" />
+                </motion.a>
               ))}
             </div>
-            <Link
-              href="/contacts"
-              className="relative overflow-hidden px-5 py-1.5 text-sm text-white rounded-full bg-gradient-to-r from-[rgb(226,34,40)] to-black hover:from-black hover:to-[rgb(226,34,40)] transition-all duration-300"
-            >
-              <span className="relative z-10 font-medium tracking-wide">
-                Commencer un Projet
-              </span>
-            </Link>
-          </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-black/80"
+            <motion.a
+              href="/contact"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ boxShadow: "0 0 0 rgba(226,34,40, 0)" }}
+              animate={{
+                boxShadow: "0 0 15px rgba(226,34,40, 0.3)",
+              }}
+              transition={{
+                duration: 1,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+              className="group relative px-6 py-2 bg-[rgb(226,34,40)] text-white 
+                        rounded-full text-sm font-medium hover:bg-[rgb(206,31,36)] 
+                        transition-all duration-300 border border-transparent 
+                        hover:border-red-200 w-[130px] text-center whitespace-nowrap"
+            >
+              <span className="inline-flex items-center justify-center">
+                Get in Touch
+              </span>
+            </motion.a>
+          </div>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 hover:bg-black/5 rounded-lg"
           >
-            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-          </button>
+            <FiMenu className="w-6 h-6 text-black/80" />
+          </motion.button>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="absolute top-16 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-white/20 px-4 py-8 md:hidden"
-          >
-            <div className="flex flex-col space-y-6">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`text-lg ${
-                    pathname === link.href
-                      ? "text-[rgb(226,34,40)]"
-                      : "text-black/60"
-                  }`}
+      {/* Mobile menu */}
+      <motion.div
+        initial={{ opacity: 0, height: 0 }}
+        animate={{
+          opacity: isMenuOpen ? 1 : 0,
+          height: isMenuOpen ? "auto" : 0,
+        }}
+        className="md:hidden relative bg-white/90 backdrop-blur-md"
+      >
+        {isMenuOpen && (
+          <div className="px-4 py-4 space-y-4">
+            <div className="flex justify-center gap-6">
+              {[
+                { icon: FaInstagram, href: "https://instagram.com" },
+                { icon: FaFacebookF, href: "https://facebook.com" },
+                { icon: FaTwitter, href: "https://twitter.com" },
+              ].map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  className="text-black/60 hover:text-[rgb(226,34,40)] transition-all"
                 >
-                  {link.label}
-                </Link>
+                  <social.icon className="w-5 h-5" />
+                </motion.a>
               ))}
-              <Link
-                href="/contacts"
-                onClick={() => setIsOpen(false)}
-                className="inline-flex items-center justify-center h-12 px-6 text-sm text-white rounded-full bg-gradient-to-r from-[rgb(226,34,40)] to-black"
-              >
-                Start Project
-              </Link>
             </div>
-          </motion.div>
+            <div className="text-center">
+              <motion.a
+                href="/contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative inline-block px-6 py-2 bg-[rgb(226,34,40)] 
+                          text-white rounded-full text-sm font-medium
+                          hover:bg-[rgb(206,31,36)] transition-all duration-300
+                          border border-transparent hover:border-red-200 
+                          w-[130px] text-center whitespace-nowrap"
+              >
+                <span className="inline-flex items-center justify-center">
+                  Get in Touch
+                </span>
+              </motion.a>
+            </div>
+          </div>
         )}
-      </AnimatePresence>
+      </motion.div>
     </motion.header>
   );
 };
