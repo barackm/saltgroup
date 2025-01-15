@@ -19,8 +19,6 @@ export async function sendRegistrationEmail(data: {
   time: string;
   location: string;
 }) {
-  console.log({ data });
-
   try {
     const emailHtml = await render(RegistrationEmail(data));
 
