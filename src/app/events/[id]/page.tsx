@@ -12,6 +12,7 @@ import {
   FiArrowLeft,
 } from "react-icons/fi";
 import { Button } from "@/components/ui/Button";
+import { RegistrationFormDialog } from "@/components/events/RegistrationFormDialog";
 
 // Temporary event data - would typically come from an API
 const eventData = {
@@ -200,9 +201,7 @@ export default function EventDetailsPage() {
                 </p>
               </div>
 
-              <Button variant="primary" fullWidth size="lg">
-                Réserver ma place
-              </Button>
+              <RegistrationFormDialog eventTitle={eventData.title} />
 
               <Button
                 variant="outline"
