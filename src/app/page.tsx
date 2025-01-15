@@ -1,4 +1,3 @@
-"use client";
 import Events from "@/components/events/events";
 import { Metadata } from "next";
 

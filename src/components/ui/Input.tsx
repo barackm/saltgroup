@@ -66,6 +66,9 @@ export const Input = ({
             )}
             buttonClass="!border-gray-300 !rounded-l-lg"
             dropdownClass="!fixed !w-[300px] !shadow-lg !bg-white !border-gray-200"
+            searchClass="!text-gray-900"
+            dropdownStyle={{ color: "#1a1a1a" }}
+            countryCodeEditable={false}
           />
         </div>
       ) : (

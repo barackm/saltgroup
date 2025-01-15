@@ -49,6 +49,7 @@ export function RegistrationFormDialog({
     try {
       const result = await sendRegistrationEmail({
         ...data,
+        country: countries[data.country as keyof typeof countries],
         eventTitle,
         date: eventDate,
         time: eventTime,
@@ -56,12 +57,7 @@ export function RegistrationFormDialog({
       });
 
       if (result.success) {
-        toast.success(
-          "Inscription réussie! Vérifiez votre email pour plus de détails.",
-          {
-            description: `Vous recevrez bientôt un email de confirmation pour ${eventTitle}.`,
-          }
-        );
+        toast.success("Inscription réussie!");
         reset();
         setIsOpen(false);
       } else {

@@ -142,10 +142,11 @@ const h2 = {
 };
 
 const eventSection = {
-  backgroundColor: "#f8fafc",
+  backgroundColor: "#f1f5f9",
   padding: "24px",
   borderRadius: "8px",
   marginBottom: "24px",
+  border: "1px solid #e2e8f0",
 };
 
 const eventTitleStyle = {
@@ -157,14 +158,18 @@ const eventTitleStyle = {
 
 const eventDetails = {
   display: "grid",
-  gap: "8px",
+  gap: "12px",
+  backgroundColor: "white",
+  padding: "16px",
+  borderRadius: "6px",
 };
 
 const detailText = {
-  fontSize: "14px",
-  color: "#4a5568",
+  fontSize: "15px",
+  color: "#334155",
   margin: "0",
-  lineHeight: "20px",
+  lineHeight: "24px",
+  fontWeight: "500",
 };
 
 const infoTable = {
