@@ -48,7 +48,7 @@ const Footer = () => {
               {[FiInstagram, FiTwitter, FiFacebook].map((Icon, i) => (
                 <motion.a
                   key={i}
-                  href="#"
+                  href="https://www.instagram.com/salt_evnt?igsh=MWg2MXdxZGU3dGtmOQ=="
                   whileHover={{ y: -2 }}
                   className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center
                            text-white/60 hover:text-[rgb(226,34,40)] hover:bg-white/10

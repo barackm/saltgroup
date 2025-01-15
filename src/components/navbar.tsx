@@ -42,9 +42,18 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-8">
             <div className="flex items-center gap-6">
               {[
-                { icon: FaInstagram, href: "https://instagram.com" },
-                { icon: FaFacebookF, href: "https://facebook.com" },
-                { icon: FaTwitter, href: "https://twitter.com" },
+                {
+                  icon: FaInstagram,
+                  href: "https://www.instagram.com/salt_evnt?igsh=MWg2MXdxZGU3dGtmOQ==",
+                },
+                {
+                  icon: FaFacebookF,
+                  href: "https://www.instagram.com/salt_evnt?igsh=MWg2MXdxZGU3dGtmOQ==",
+                },
+                {
+                  icon: FaTwitter,
+                  href: "https://www.instagram.com/salt_evnt?igsh=MWg2MXdxZGU3dGtmOQ==",
+                },
               ].map((social, index) => (
                 <motion.a
                   key={index}
@@ -110,9 +119,18 @@ const Navbar = () => {
           <div className="px-4 py-4 space-y-4">
             <div className="flex justify-center gap-6">
               {[
-                { icon: FaInstagram, href: "https://instagram.com" },
-                { icon: FaFacebookF, href: "https://facebook.com" },
-                { icon: FaTwitter, href: "https://twitter.com" },
+                {
+                  icon: FaInstagram,
+                  href: "https://www.instagram.com/salt_evnt?igsh=MWg2MXdxZGU3dGtmOQ==",
+                },
+                {
+                  icon: FaFacebookF,
+                  href: "https://www.instagram.com/salt_evnt?igsh=MWg2MXdxZGU3dGtmOQ==",
+                },
+                {
+                  icon: FaTwitter,
+                  href: "https://www.instagram.com/salt_evnt?igsh=MWg2MXdxZGU3dGtmOQ==",
+                },
               ].map((social, index) => (
                 <motion.a
                   key={index}
