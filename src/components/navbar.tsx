@@ -59,8 +59,7 @@ const Navbar = () => {
               ))}
             </div>
 
-            <motion.a
-              href="/contact"
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               initial={{ boxShadow: "0 0 0 rgba(226,34,40, 0)" }}
@@ -72,15 +71,19 @@ const Navbar = () => {
                 repeat: Infinity,
                 repeatType: "reverse",
               }}
-              className="group relative px-6 py-2 bg-[rgb(226,34,40)] text-white 
-                        rounded-full text-sm font-medium hover:bg-[rgb(206,31,36)] 
-                        transition-all duration-300 border border-transparent 
-                        hover:border-red-200 w-[130px] text-center whitespace-nowrap"
             >
-              <span className="inline-flex items-center justify-center">
-                Get in Touch
-              </span>
-            </motion.a>
+              <Link
+                href="/contact"
+                className="group relative inline-block px-6 py-2 bg-[rgb(226,34,40)] text-white 
+                          rounded-full text-sm font-medium hover:bg-[rgb(206,31,36)] 
+                          transition-all duration-300 border border-transparent 
+                          hover:border-red-200 w-[130px] text-center whitespace-nowrap"
+              >
+                <span className="inline-flex items-center justify-center">
+                  Get in Touch
+                </span>
+              </Link>
+            </motion.div>
           </div>
 
           <motion.button
@@ -124,20 +127,23 @@ const Navbar = () => {
               ))}
             </div>
             <div className="text-center">
-              <motion.a
-                href="/contact"
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative inline-block px-6 py-2 bg-[rgb(226,34,40)] 
-                          text-white rounded-full text-sm font-medium
-                          hover:bg-[rgb(206,31,36)] transition-all duration-300
-                          border border-transparent hover:border-red-200 
-                          w-[130px] text-center whitespace-nowrap"
               >
-                <span className="inline-flex items-center justify-center">
-                  Get in Touch
-                </span>
-              </motion.a>
+                <Link
+                  href="/contact"
+                  className="group relative inline-block px-6 py-2 bg-[rgb(226,34,40)] 
+                            text-white rounded-full text-sm font-medium
+                            hover:bg-[rgb(206,31,36)] transition-all duration-300
+                            border border-transparent hover:border-red-200 
+                            w-[130px] text-center whitespace-nowrap"
+                >
+                  <span className="inline-flex items-center justify-center">
+                    Get in Touch
+                  </span>
+                </Link>
+              </motion.div>
             </div>
           </div>
         )}
