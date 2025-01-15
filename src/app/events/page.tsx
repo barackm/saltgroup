@@ -10,7 +10,6 @@ import {
   FiChevronRight,
   FiSearch,
   FiFilter,
-  FiX,
 } from "react-icons/fi";
 
 const upcomingEvents = [
@@ -102,212 +101,189 @@ const EventsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
-      <section className="relative overflow-hidden pt-24 pb-32">
-        <div className="absolute inset-0 w-full h-full">
-          <div className="absolute w-full h-full bg-[rgb(226,34,40)]/5" />
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[rgb(226,34,40)]/5 rounded-full filter blur-[128px]" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Search and Filter Header */}
-          <div className="mb-12">
-            {/* Search and Filter Bar */}
-            <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center mb-6">
-              <div className="relative flex-1">
-                <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-black" />
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-200">
+      {/* Glassmorphic header */}
+      <div className="sticky top-16 z-40 bg-white/60 backdrop-blur-xl border-b border-white/20 shadow-sm">
+        <div className="max-w-7xl mx-auto">
+          {/* Enhanced Search Bar */}
+          <div className="p-4">
+            <div className="flex gap-3">
+              <div className="flex-1 relative">
+                <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-black/40 z-10" />
                 <input
                   type="text"
                   placeholder="Rechercher un événement..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 rounded-xl bg-white shadow-sm border border-gray-200 focus:ring-2 focus:ring-[rgb(226,34,40)] focus:outline-none"
+                  className="w-full pl-12 pr-4 h-12 rounded-2xl bg-white/50 backdrop-blur-md border border-white/20 shadow-sm focus:ring-2 focus:ring-[rgb(226,34,40)] focus:border-transparent text-base hover:bg-white/70 transition-colors"
                 />
               </div>
               <button
                 onClick={() => setIsFilterOpen(!isFilterOpen)}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white transition-colors"
+                className="h-12 px-6 bg-white/50 backdrop-blur-md rounded-2xl border border-white/20 shadow-sm hover:bg-white/70 transition-colors flex items-center gap-2"
               >
                 <FiFilter
-                  className={
-                    isFilterOpen ? "text-[rgb(226,34,40)]" : "text-black/60"
-                  }
+                  className={isFilterOpen ? "text-[rgb(226,34,40)]" : ""}
                 />
-                <span className="text-black/80">Filtres</span>
+                <span className="text-sm font-medium hidden sm:block">
+                  Filtres
+                </span>
               </button>
             </div>
 
-            {/* Filter Options */}
+            {/* Glassmorphic Filter Panel */}
             <motion.div
               initial={false}
               animate={{
                 height: isFilterOpen ? "auto" : 0,
                 opacity: isFilterOpen ? 1 : 0,
               }}
-              transition={{ duration: 0.3 }}
-              className="overflow-hidden"
+              transition={{ duration: 0.2 }}
+              className="overflow-hidden backdrop-blur-md"
             >
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 mb-6 space-y-6">
-                {/* Categories */}
-                <div>
-                  <h3 className="text-sm font-medium text-black/60 mb-3">
-                    Catégories
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {categories.map((category) => (
-                      <button
-                        key={category}
-                        onClick={() => setSelectedCategory(category)}
-                        className={`px-4 py-2 rounded-full text-sm transition-colors ${
-                          selectedCategory === category
-                            ? "bg-[rgb(226,34,40)] text-white"
-                            : "bg-black/5 text-black/60 hover:bg-black/10"
-                        }`}
-                      >
-                        {category}
-                      </button>
-                    ))}
-                  </div>
+              <div className="pt-4 space-y-4">
+                <div className="flex flex-nowrap gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                  {categories.map((category) => (
+                    <button
+                      key={category}
+                      onClick={() => setSelectedCategory(category)}
+                      className={`px-4 py-2 rounded-full text-sm whitespace-nowrap transition-all backdrop-blur-md ${
+                        selectedCategory === category
+                          ? "bg-[rgb(226,34,40)]/90 text-white shadow-sm"
+                          : "bg-white/40 text-black/60 hover:bg-white/60 border border-white/20"
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  ))}
                 </div>
-
-                {/* Locations */}
-                <div>
-                  <h3 className="text-sm font-medium text-black/60 mb-3">
-                    Lieux
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {locations.map((location) => (
-                      <button
-                        key={location}
-                        onClick={() => setSelectedLocation(location)}
-                        className={`px-4 py-2 rounded-full text-sm transition-colors ${
-                          selectedLocation === location
-                            ? "bg-[rgb(226,34,40)] text-white"
-                            : "bg-black/5 text-black/60 hover:bg-black/10"
-                        }`}
-                      >
-                        {location}
-                      </button>
-                    ))}
-                  </div>
+                <div className="flex flex-nowrap gap-2 overflow-x-auto scrollbar-hide">
+                  {locations.map((location) => (
+                    <button
+                      key={location}
+                      onClick={() => setSelectedLocation(location)}
+                      className={`px-4 py-2 rounded-full text-sm whitespace-nowrap transition-all backdrop-blur-md ${
+                        selectedLocation === location
+                          ? "bg-[rgb(226,34,40)]/90 text-white shadow-sm"
+                          : "bg-white/40 text-black/60 hover:bg-white/60 border border-white/20"
+                      }`}
+                    >
+                      {location}
+                    </button>
+                  ))}
                 </div>
               </div>
             </motion.div>
-
-            {/* Active Filters */}
-            {(selectedCategory !== "Tous" ||
-              selectedLocation !== "Tous" ||
-              searchQuery) && (
-              <div className="flex flex-wrap items-center gap-2 mb-6">
-                <span className="text-sm text-black/60">Filtres actifs:</span>
-                {selectedCategory !== "Tous" && (
-                  <button
-                    onClick={() => setSelectedCategory("Tous")}
-                    className="inline-flex items-center gap-1 px-3 py-1 bg-[rgb(226,34,40)]/10 text-[rgb(226,34,40)] rounded-full text-sm"
-                  >
-                    {selectedCategory}
-                    <FiX className="w-4 h-4" />
-                  </button>
-                )}
-                {selectedLocation !== "Tous" && (
-                  <button
-                    onClick={() => setSelectedLocation("Tous")}
-                    className="inline-flex items-center gap-1 px-3 py-1 bg-[rgb(226,34,40)]/10 text-[rgb(226,34,40)] rounded-full text-sm"
-                  >
-                    {selectedLocation}
-                    <FiX className="w-4 h-4" />
-                  </button>
-                )}
-                {searchQuery && (
-                  <button
-                    onClick={() => setSearchQuery("")}
-                    className="inline-flex items-center gap-1 px-3 py-1 bg-[rgb(226,34,40)]/10 text-[rgb(226,34,40)] rounded-full text-sm"
-                  >
-                    "{searchQuery}"
-                    <FiX className="w-4 h-4" />
-                  </button>
-                )}
-              </div>
-            )}
           </div>
 
-          {/* Remove the decorative header and go straight to Featured Section */}
-          <div className="grid lg:grid-cols-3 gap-8 mb-20">
-            {/* Featured Event Slider - Reduced height */}
+          {/* Tabs Navigation */}
+          <div className="px-4 flex gap-6 border-t border-gray-100">
+            {["upcoming", "past"].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`py-4 text-sm font-medium relative ${
+                  activeTab === tab
+                    ? "text-[rgb(226,34,40)]"
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                {tab === "upcoming" ? "À venir" : "Passés"}
+                {activeTab === tab && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-x-0 -bottom-[1px] h-0.5 bg-[rgb(226,34,40)]"
+                  />
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+      {/* Main Content - Removed extra padding and margins */}
+      <div className="max-w-7xl mx-auto px-4 py-6 space-y-8">
+        {/* Featured Events Carousel */}
+        <div className="space-y-4">
+          <h2 className="text-lg font-semibold text-gray-900">À la une</h2>
+          <div className="grid lg:grid-cols-3 gap-6">
+            {/* Enhanced featured event cards with more app-like styling */}
             <motion.div
-              className="lg:col-span-2 relative bg-white rounded-2xl overflow-hidden shadow-2xl group h-[400px]" // Changed from h-[600px]
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              className="lg:col-span-2 relative bg-white/40 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg border border-white/20 h-[450px] group hover:shadow-xl transition-all"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
             >
-              <div className="relative h-full">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
-                <motion.img
-                  key={currentSlide}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  src={upcomingEvents[currentSlide].image}
-                  alt={upcomingEvents[currentSlide].title}
-                  className="w-full h-full object-cover"
-                />
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6 }}
+              />
+              <motion.img
+                key={currentSlide}
+                src={upcomingEvents[currentSlide].image}
+                alt={upcomingEvents[currentSlide].title}
+                className="w-full h-full object-cover"
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6 }}
+              />
 
-                {/* Navigation Arrows */}
-                <div className="absolute inset-0 flex items-center justify-between p-4 z-20">
-                  <button
-                    onClick={prevSlide}
-                    className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-colors"
-                  >
-                    <FiChevronLeft className="w-6 h-6 text-white" />
-                  </button>
-                  <button
-                    onClick={nextSlide}
-                    className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-colors"
-                  >
-                    <FiChevronRight className="w-6 h-6 text-white" />
-                  </button>
-                </div>
+              {/* Refined Navigation */}
+              <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4 z-20">
+                <button
+                  onClick={prevSlide}
+                  className="p-2 rounded-full bg-black/20 backdrop-blur-md hover:bg-black/30 transition-colors"
+                >
+                  <FiChevronLeft className="w-6 h-6 text-white" />
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="p-2 rounded-full bg-black/20 backdrop-blur-md hover:bg-black/30 transition-colors"
+                >
+                  <FiChevronRight className="w-6 h-6 text-white" />
+                </button>
+              </div>
 
-                {/* Event Details */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <span className="px-3 py-1 bg-[rgb(226,34,40)] text-white text-sm rounded-full">
-                        En vedette
-                      </span>
-                      <span className="px-3 py-1 bg-white/90 text-[rgb(226,34,40)] text-sm rounded-full">
-                        {upcomingEvents[currentSlide].category}
-                      </span>
-                    </div>
-                    <h2 className="text-3xl font-bold text-white">
-                      {upcomingEvents[currentSlide].title}
-                    </h2>
-                    <p className="text-white/80 max-w-xl">
-                      {upcomingEvents[currentSlide].description}
-                    </p>
-                    <div className="flex items-center gap-6 text-white/90">
-                      <div className="flex items-center gap-2">
-                        <FiCalendar />
-                        <span>{upcomingEvents[currentSlide].date}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <FiClock />
-                        <span>{upcomingEvents[currentSlide].time}</span>
-                      </div>
-                    </div>
-                    <button className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full hover:bg-[rgb(226,34,40)] hover:text-white transition-colors">
-                      <span>Réserver maintenant</span>
-                      <FiArrowRight />
-                    </button>
+              {/* Elegant Event Details */}
+              <div className="absolute inset-x-0 bottom-0 p-8 z-20">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <span className="px-3 py-1 bg-[rgb(226,34,40)] text-white text-sm rounded-full font-medium">
+                      En vedette
+                    </span>
+                    <span className="px-3 py-1 bg-black/20 backdrop-blur text-white text-sm rounded-full">
+                      {upcomingEvents[currentSlide].category}
+                    </span>
                   </div>
+                  <h2 className="text-3xl font-bold text-white">
+                    {upcomingEvents[currentSlide].title}
+                  </h2>
+                  <p className="text-white/80 max-w-xl">
+                    {upcomingEvents[currentSlide].description}
+                  </p>
+                  <div className="flex items-center gap-6 text-white/90">
+                    <div className="flex items-center gap-2">
+                      <FiCalendar />
+                      <span>{upcomingEvents[currentSlide].date}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <FiClock />
+                      <span>{upcomingEvents[currentSlide].time}</span>
+                    </div>
+                  </div>
+                  <button className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full hover:bg-[rgb(226,34,40)] hover:text-white transition-colors">
+                    <span>Réserver maintenant</span>
+                    <FiArrowRight />
+                  </button>
                 </div>
               </div>
             </motion.div>
 
-            {/* Next Event Card - Matching height */}
+            {/* Next Event Preview - Simplified and Elegant */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg h-[400px] relative group" // Changed from h-[600px]
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="relative bg-white/40 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg border border-white/20 h-[450px] hover:shadow-xl transition-all"
             >
               <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/60" />
               <img
@@ -319,9 +295,9 @@ const EventsPage = () => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4">
+                <div className="bg-white/70 backdrop-blur-xl rounded-xl p-4 shadow-sm border border-white/20">
                   <h3 className="text-sm font-medium text-[rgb(226,34,40)] mb-1">
-                    PROCHAIN ÉVÉNEMENT
+                    PROCHAIN ÉVÉNÉNEMENT
                   </h3>
                   <h4 className="text-xl font-semibold text-black/80">
                     {
@@ -330,7 +306,7 @@ const EventsPage = () => {
                     }
                   </h4>
                 </div>
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 space-y-3">
+                <div className="bg-white/70 backdrop-blur-xl rounded-xl p-4 shadow-sm border border-white/20 space-y-3">
                   <div className="flex items-center gap-2 text-sm text-black/60">
                     <FiCalendar className="text-[rgb(226,34,40)]" />
                     <span>
@@ -359,27 +335,20 @@ const EventsPage = () => {
               </div>
             </motion.div>
           </div>
+        </div>
 
-          <div className="flex justify-center gap-4 mb-12">
-            {["upcoming", "past"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-6 py-3 rounded-full text-sm font-medium transition-all ${
-                  activeTab === tab
-                    ? "bg-[rgb(226,34,40)] text-white shadow-lg"
-                    : "bg-white/50 text-black/60 hover:bg-white/80"
-                }`}
-              >
-                {tab === "upcoming"
-                  ? "Événements à Venir"
-                  : "Événements Passés"}
-              </button>
-            ))}
-          </div>
+        {/* Events Grid - Fixed Layout */}
+        <div className="space-y-4">
+          <h2 className="text-lg font-semibold text-gray-900">
+            {activeTab === "upcoming"
+              ? "Prochains événements"
+              : "Événements passés"}
+          </h2>
 
           {activeTab === "upcoming" && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {" "}
+              {/* Remove nested grid */}
               {upcomingEvents.map((event, i) => (
                 <motion.div
                   key={event.id}
@@ -388,7 +357,7 @@ const EventsPage = () => {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="group cursor-pointer"
                 >
-                  <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg">
+                  <div className="relative bg-white/40 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg border border-white/20 hover:shadow-xl transition-all">
                     <div className="relative h-64">
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
                       <img
@@ -403,7 +372,7 @@ const EventsPage = () => {
                       </div>
                     </div>
 
-                    <div className="p-6">
+                    <div className="p-6 backdrop-blur-sm bg-white/50">
                       <h3 className="text-xl font-semibold text-black/90 mb-3">
                         {event.title}
                       </h3>
@@ -443,14 +412,16 @@ const EventsPage = () => {
           )}
 
           {activeTab === "past" && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {" "}
+              {/* Remove nested grid */}
               {pastEvents.map((event, i) => (
                 <motion.div
                   key={event.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="relative bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg group"
+                  className="relative bg-white/40 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg border border-white/20 hover:shadow-xl transition-all group" // Updated background class
                 >
                   <div className="relative h-64">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
@@ -466,7 +437,7 @@ const EventsPage = () => {
                     </div>
                   </div>
 
-                  <div className="p-6">
+                  <div className="p-6 backdrop-blur-sm bg-white/50">
                     <h3 className="text-xl font-semibold text-black/90 mb-2">
                       {event.title}
                     </h3>
@@ -492,7 +463,7 @@ const EventsPage = () => {
             </div>
           )}
         </div>
-      </section>
+      </div>
     </div>
   );
 };
