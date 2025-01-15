@@ -1,124 +1,101 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import {
-  FiInstagram,
-  FiTwitter,
-  FiLinkedin,
-  FiMail,
-  FiPhone,
-  FiMapPin,
-} from "react-icons/fi";
+import { FiInstagram, FiTwitter, FiFacebook, FiArrowUp } from "react-icons/fi";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
-    <footer className="bg-black/[0.96] text-white/80 py-20">
+    <footer className="bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
-          {/* Brand Section */}
-          <div className="col-span-2 md:col-span-1 space-y-6">
-            <Link href="/" className="inline-block">
-              <span className="text-2xl font-bold">
-                <span className="text-[rgb(226,34,40)]">SALT</span>
-                EVENTS
-              </span>
-            </Link>
-            <p className="text-sm text-white/60 max-w-xs">
-              Créant des moments inoubliables avec élégance et précision.
-            </p>
-            <div className="flex gap-4">
-              {[FiInstagram, FiTwitter, FiLinkedin].map((Icon, i) => (
+        <div className="py-8 flex flex-col gap-8">
+          {/* Main Footer Content */}
+          <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-6">
+            {/* Logo & Tagline */}
+            <div className="flex flex-col items-center sm:items-start gap-2">
+              <Link href="/" className="flex items-baseline gap-1">
+                <span className="text-lg font-semibold">
+                  <span className="text-[rgb(226,34,40)]">SALT</span>
+                  <span className="text-white">EVENTS</span>
+                </span>
+                <span className="text-[10px] font-medium text-white/40 uppercase tracking-widest">
+                  studio
+                </span>
+              </Link>
+              <p className="text-sm text-white/60 font-medium">
+                Créant des moments inoubliables
+              </p>
+            </div>
+
+            {/* Quick Links */}
+            <div className="flex gap-8 text-sm font-medium">
+              {["À Propos", "Événements", "Contact"].map((item) => (
+                <Link
+                  key={item}
+                  href="#"
+                  className="text-white/60 hover:text-[rgb(226,34,40)] transition-colors"
+                >
+                  {item}
+                </Link>
+              ))}
+            </div>
+
+            {/* Social Links */}
+            <div className="flex items-center gap-4">
+              {[FiInstagram, FiTwitter, FiFacebook].map((Icon, i) => (
                 <motion.a
                   key={i}
                   href="#"
-                  whileHover={{ y: -3 }}
-                  className="w-10 h-10 rounded-full bg-white/5 hover:bg-[rgb(226,34,40)] flex items-center justify-center transition-colors"
+                  whileHover={{ y: -2 }}
+                  className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center
+                           text-white/60 hover:text-[rgb(226,34,40)] hover:bg-white/10
+                           transition-all"
                 >
-                  <Icon size={18} />
+                  <Icon className="w-4 h-4" />
                 </motion.a>
               ))}
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
-              Services
-            </h3>
-            <ul className="space-y-3 text-sm">
-              {[
-                "Mariages",
-                "Événements Corporatifs",
-                "Soirées Privées",
-                "Conférences",
-              ].map((item, i) => (
-                <li key={i}>
-                  <Link
-                    href="#"
-                    className="text-white/60 hover:text-[rgb(226,34,40)] transition-colors"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Bottom Bar */}
+          <div className="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-white/10 gap-4">
+            <div className="flex items-center gap-6">
+              <span className="text-sm text-white/40">
+                © {new Date().getFullYear()} SALT Events
+              </span>
+              <Link
+                href="/privacy"
+                className="text-sm text-white/40 hover:text-white transition-colors"
+              >
+                Confidentialité
+              </Link>
+            </div>
 
-          {/* Company */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
-              Entreprise
-            </h3>
-            <ul className="space-y-3 text-sm">
-              {["À Propos", "Notre Équipe", "Carrières", "Contact"].map(
-                (item, i) => (
-                  <li key={i}>
-                    <Link
-                      href="#"
-                      className="text-white/60 hover:text-[rgb(226,34,40)] transition-colors"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-white/40">Powered by</span>
+              <a
+                href="https://imzibrand.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-[rgb(226,34,40)] font-medium transition-colors"
+              >
+                IMZIBRAND
+              </a>
+            </div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
-              Contact
-            </h3>
-            <ul className="space-y-3 text-sm">
-              {[
-                { icon: FiPhone, text: "+33 1 23 45 67 89" },
-                { icon: FiMail, text: "contact@saltevents.fr" },
-                { icon: FiMapPin, text: "Paris, France" },
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-2 text-white/60">
-                  <item.icon size={14} />
-                  <span>{item.text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-white/40">
-            © {currentYear} SALT Events. Tous droits réservés.
-          </p>
-          <div className="flex gap-6 text-sm text-white/40">
-            <Link href="#" className="hover:text-white transition-colors">
-              Mentions Légales
-            </Link>
-            <Link href="#" className="hover:text-white transition-colors">
-              Confidentialité
-            </Link>
+            <motion.button
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={scrollToTop}
+              className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center
+                       text-white/60 hover:text-[rgb(226,34,40)] hover:bg-white/10
+                       transition-all"
+            >
+              <FiArrowUp className="w-4 h-4" />
+            </motion.button>
           </div>
         </div>
       </div>

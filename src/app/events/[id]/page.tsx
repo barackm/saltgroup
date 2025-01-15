@@ -11,6 +11,7 @@ import {
   FiShare2,
   FiArrowLeft,
 } from "react-icons/fi";
+import { Button } from "@/components/ui/Button";
 
 // Temporary event data - would typically come from an API
 const eventData = {
@@ -18,31 +19,31 @@ const eventData = {
   title: "Sans Tabou Conference",
   category: "Conference",
   description:
-    "Une conférence unique sur les relations amoureuses et l'épanouissement personnel des jeunes.",
-  longDescription: `Les relations amoureuses occupent une place centrale dans la vie de nombreux jeunes, mais elles sont souvent entourées de malentendus et façonnées par des attentes irréalistes ou des pressions sociales. Ces influences peuvent entrainer des choix précipités ou des compromise nuisibles.`,
+    "Une conférence unique sur les relations amoureuses et l&apos;épanouissement personnel des jeunes.",
+  longDescription: `Les relations amoureuses occupent une place centrale dans la vie de nombreux jeunes, mais elles sont souvent entourées de malentendus et façonnées par des attentes irréalistes ou des pressions sociales. Ces influences peuvent entrainer des choix précipités ou des compromis nuisibles.`,
   date: "16 Fevrier 2025",
   time: "14h00 - 18h00",
   location: "Goma Serena Hotel",
   capacity: "200 Participants",
   price: "25",
   image: "/images/pattern_1.png", // Add your event image
-  context: `Les relations amoureuses occupent une place centrale dans la vie de nombreux jeunes, mais elles sont souvent entourées de malentendus et façonnées par des attentes irréalistes ou des pressions sociales. Ces influences peuvent entrainer des choix précipités ou des compromise nuisibles, comme le renoncement à des ambitions personnelles ou des relations fondées sur des obligations extérieures.
+  context: `Les relations amoureuses occupent une place centrale dans la vie de nombreux jeunes, mais elles sont souvent entourées de malentendus et façonnées par des attentes irréalistes ou des pressions sociales. Ces influences peuvent entrainer des choix précipités ou des compromis nuisibles, comme le renoncement à des ambitions personnelles ou des relations fondées sur des obligations extérieures.
 
-  La Sans Tabou Conférence se donne pour mission de déconstruire ces idées reçues et d'offrir un espace de réflexions pour aider les jeunes à construire des relations sincères, équilibrées et épanouissantes.`,
-  mainObjective: `Accompagner les jeunes dans une meilleure compréhension des relations amoureuses en les aidant à réaliser qu'elles sont un aspect précieux de la vie, nécessitant une préparation consciente, une réflexion approfondie et un équilibre entre aspirations personnelles et engagements mutuels.`,
+  La Sans Tabou Conférence se donne pour mission de déconstruire ces idées reçues et d&apos;offrir un espace de réflexions pour aider les jeunes à construire des relations sincères, équilibrées et épanouissantes.`,
+  mainObjective: `Accompagner les jeunes dans une meilleure compréhension des relations amoureuses en les aidant à réaliser qu&apos;elles sont un aspect précieux de la vie, nécessitant une préparation consciente, une réflexion approfondie et un équilibre entre aspirations personnelles et engagements mutuels.`,
   specificObjectives: [
     "Créer un cadre de dialogue ouvert pour explorer les enjeux et défis des relations modernes.",
     "Aider les jeunes à prendre conscience de leur rôle actif dans la construction de leur épanouissement personnel et de relations harmonieuses.",
     "Inspirer une planification de la vie alignée sur leurs aspirations et leurs valeurs fondamentales.",
   ],
-  target: `Les bénéficiaires de cette conférence seront tous les jeunes de la ville de Goma et d'ailleurs. Ainsi, une moyenne de 200 jeunes est l'effectif attendu pour cette activité.`,
+  target: `Les bénéficiaires de cette conférence seront tous les jeunes de la ville de Goma et d&apos;ailleurs. Ainsi, une moyenne de 200 jeunes est l&apos;effectif attendu pour cette activité.`,
 };
 
 export default function EventDetailsPage() {
   return (
     <div className="min-h-screen pt-16 bg-white">
       {/* Hero Section */}
-      <div className="relative h-[60vh] overflow-hidden bg-gradient-to-br from-gray-900 to-black">
+      <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden bg-gradient-to-br from-gray-900 to-black">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80 z-10" />
         <div className="absolute inset-0">
@@ -59,35 +60,31 @@ export default function EventDetailsPage() {
 
         {/* Back Button */}
         <div className="absolute top-4 left-4 z-30">
-          <Link
-            href="/"
-            className="flex items-center gap-2 px-4 py-2 bg-white rounded-full 
-                      text-gray-900 hover:bg-gray-100 transition-all border border-gray-200
-                      shadow-lg"
-          >
-            <FiArrowLeft className="w-4 h-4" />
-            <span>Retour</span>
+          <Link href="/">
+            <Button
+              variant="outline"
+              size="sm"
+              icon={<FiArrowLeft className="w-3.5 h-3.5" />}
+              className="bg-white hover:bg-gray-50 shadow-lg"
+            >
+              Retour
+            </Button>
           </Link>
         </div>
 
         {/* Hero Content */}
         <div className="absolute inset-0 z-20">
           <div className="h-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="space-y-6"
-            >
-              <span className="inline-block px-4 py-2 bg-[rgb(226,34,40)] text-white text-sm font-medium rounded-full shadow-lg">
+            <motion.div className="space-y-4 sm:space-y-6">
+              <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-[rgb(226,34,40)] text-white text-xs sm:text-sm font-medium rounded-full shadow-lg">
                 {eventData.category}
               </span>
-              <h1 className="font-display text-4xl md:text-6xl font-bold text-white max-w-3xl shadow-sm">
+              <h1 className="font-display text-2xl sm:text-4xl md:text-6xl font-bold text-white max-w-3xl leading-tight">
                 {eventData.title}
               </h1>
 
               {/* Compact Event Details */}
-              <div className="flex items-center gap-6 text-white/80">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-white/80">
                 <div className="flex items-center gap-2">
                   <FiCalendar className="w-4 h-4 text-[rgb(226,34,40)]" />
                   <span className="text-sm">{eventData.date}</span>
@@ -102,7 +99,7 @@ export default function EventDetailsPage() {
                 </div>
               </div>
 
-              <p className="text-lg text-white max-w-2xl leading-relaxed">
+              <p className="text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed line-clamp-3 sm:line-clamp-none">
                 {eventData.description}
               </p>
             </motion.div>
@@ -111,16 +108,16 @@ export default function EventDetailsPage() {
       </div>
 
       {/* Content Section */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-12">
+          <div className="lg:col-span-2 space-y-8 sm:space-y-12">
             {/* Context Section */}
             <div className="space-y-4">
-              <h2 className="font-display text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
+              <h2 className="font-display text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
                 Contexte
               </h2>
-              <div className="prose prose-lg max-w-none">
+              <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
                 {eventData.context.split("\n\n").map((paragraph, i) => (
                   <p key={i} className="text-gray-700 leading-relaxed">
                     {paragraph}
@@ -130,15 +127,15 @@ export default function EventDetailsPage() {
             </div>
 
             {/* Objectives Section */}
-            <div className="space-y-6">
-              <h2 className="font-display text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
-                Objectifs de l'événement
+            <div className="space-y-4 sm:space-y-6">
+              <h2 className="font-display text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
+                Objectifs de l&apos;événement
               </h2>
-              <div className="pl-4 border-l-4 border-[rgb(226,34,40)] py-4 bg-gray-50/50 rounded-r-lg">
-                <h3 className="font-display text-xl font-semibold mb-3 text-gray-900">
+              <div className="pl-3 sm:pl-4 border-l-4 border-[rgb(226,34,40)] py-3 sm:py-4 bg-gray-50/50 rounded-r-lg">
+                <h3 className="font-display text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-gray-900">
                   Objectif principal
                 </h3>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                   {eventData.mainObjective}
                 </p>
               </div>
@@ -162,16 +159,16 @@ export default function EventDetailsPage() {
 
             {/* Target Audience Section */}
             <div className="space-y-4">
-              <h2 className="font-display text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
+              <h2 className="font-display text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
                 Public Cible
               </h2>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                 {eventData.target}
               </p>
             </div>
 
             {/* Quick Info Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 my-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 my-6 sm:my-8">
               {[
                 { icon: FiCalendar, label: "Date", value: eventData.date },
                 { icon: FiClock, label: "Heure", value: eventData.time },
@@ -195,7 +192,7 @@ export default function EventDetailsPage() {
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <div className="sticky top-24 bg-white rounded-2xl border border-gray-200 p-6 space-y-6 shadow-lg">
+            <div className="sticky top-20 sm:top-24 bg-white rounded-xl sm:rounded-2xl border border-gray-200 p-4 sm:p-6 space-y-4 sm:space-y-6 shadow-lg">
               <div className="space-y-2">
                 <p className="text-sm text-gray-500">Prix du ticket</p>
                 <p className="font-display text-3xl font-bold text-[rgb(226,34,40)]">
@@ -203,22 +200,19 @@ export default function EventDetailsPage() {
                 </p>
               </div>
 
-              <button
-                className="w-full px-6 py-3 bg-[rgb(226,34,40)] text-white font-medium rounded-full 
-                               hover:bg-[rgb(200,30,35)] transition-all transform hover:scale-[1.02] 
-                               shadow-lg hover:shadow-xl hover:shadow-[rgb(226,34,40)]/20"
-              >
+              <Button variant="primary" fullWidth size="lg">
                 Réserver ma place
-              </button>
+              </Button>
 
-              <button
-                className="w-full px-6 py-3 bg-gray-50 text-gray-700 font-medium rounded-full 
-                               hover:bg-gray-100 transition-all flex items-center justify-center gap-2 
-                               border border-gray-100"
+              <Button
+                variant="outline"
+                fullWidth
+                size="lg"
+                icon={<FiShare2 className="w-4 h-4" />}
+                className="bg-gray-50 hover:bg-gray-100"
               >
-                <FiShare2 className="w-4 h-4" />
                 Partager
-              </button>
+              </Button>
             </div>
           </div>
         </div>

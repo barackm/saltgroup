@@ -9,12 +9,14 @@ interface BadgeProps {
 }
 
 const badgeStyles = {
-  base: "inline-block px-4 py-2 rounded-full text-sm font-medium",
+  base: "inline-block rounded-full text-xs sm:text-sm font-medium transition-all duration-300",
   variant: {
-    primary: "bg-[rgb(226,34,40)] text-white shadow-lg",
-    secondary: "bg-black/80 backdrop-blur-md text-white shadow-lg",
+    primary:
+      "px-2.5 py-1 sm:px-4 sm:py-2 bg-[rgb(226,34,40)] text-white shadow-lg",
+    secondary:
+      "px-2.5 py-1 sm:px-4 sm:py-2 bg-black/80 backdrop-blur-md text-white shadow-lg",
     outline:
-      "bg-white/10 backdrop-blur-sm text-white/90 border border-white/10",
+      "px-2.5 py-1 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-sm text-white/90 border border-white/10",
   },
 };
 
