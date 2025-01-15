@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { FiCalendar, FiMapPin } from "react-icons/fi";
 import Image from "next/image";
+import { Button } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
 
 const sansTabouEvent = {
   category: "Conference",
@@ -39,9 +41,7 @@ export const FeaturedEvents = () => {
             className="space-y-6"
           >
             <div className="flex flex-col items-center gap-3 sm:gap-4">
-              <span className="px-4 py-2 bg-[rgb(226,34,40)] text-white text-sm font-medium rounded-full shadow-lg">
-                {sansTabouEvent.category}
-              </span>
+              <Badge variant="primary">{sansTabouEvent.category}</Badge>
               <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white text-center px-4 shadow-sm">
                 {sansTabouEvent.title}
               </h1>
@@ -63,24 +63,9 @@ export const FeaturedEvents = () => {
             </div>
 
             <div className="flex items-center justify-center gap-3">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-[rgb(226,34,40)] text-white text-sm font-medium rounded-full 
-                          hover:bg-[rgb(200,30,35)] transition-all shadow-lg hover:shadow-xl 
-                          hover:shadow-[rgb(226,34,40)]/20"
-              >
-                Get Tickets
-              </motion.button>
+              <Button variant="primary">Get Tickets</Button>
               <Link href="/events/sans-tabou-conference">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 bg-white/10 text-white text-sm font-medium rounded-full 
-                            hover:bg-white/20 backdrop-blur-sm transition-all border border-white/10"
-                >
-                  Learn More
-                </motion.button>
+                <Button variant="secondary">Learn More</Button>
               </Link>
             </div>
           </motion.div>

@@ -85,6 +85,23 @@ export default function EventDetailsPage() {
               <h1 className="font-display text-4xl md:text-6xl font-bold text-white max-w-3xl shadow-sm">
                 {eventData.title}
               </h1>
+
+              {/* Compact Event Details */}
+              <div className="flex items-center gap-6 text-white/80">
+                <div className="flex items-center gap-2">
+                  <FiCalendar className="w-4 h-4 text-[rgb(226,34,40)]" />
+                  <span className="text-sm">{eventData.date}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FiClock className="w-4 h-4 text-[rgb(226,34,40)]" />
+                  <span className="text-sm">{eventData.time}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FiMapPin className="w-4 h-4 text-[rgb(226,34,40)]" />
+                  <span className="text-sm">{eventData.location}</span>
+                </div>
+              </div>
+
               <p className="text-lg text-white max-w-2xl leading-relaxed">
                 {eventData.description}
               </p>
