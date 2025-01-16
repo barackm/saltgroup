@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: "/grp.jpg",
+    icon: "/logo.png",
   },
 };
 
