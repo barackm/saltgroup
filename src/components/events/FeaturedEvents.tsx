@@ -8,12 +8,12 @@ import Link from "next/link";
 import { RegistrationFormDialog } from "./RegistrationFormDialog";
 
 const sansTabouEvent = {
-  category: "Conference",
-  title: "Sans Tabou Conference",
+  category: "Conférence",
+  title: "Sans Tabou Conférence",
   description:
-    "Une conférence unique sur les relations amoureuses et l&apos;épanouissement personnel des jeunes.",
-  date: "16 Fevrier 2025",
-  location: "Linda Hotel Goma",
+    "Une conférence unique sur les relations amoureuses et l'épanouissement personnel des jeunes.",
+  date: "16 Février 2025",
+  location: "Hôtel Linda Goma",
   time: "14h00 - 18h00",
 };
 
@@ -24,16 +24,13 @@ export const FeaturedEvents = () => {
     AOS.init({
       duration: 800,
       once: true,
-      disable: "mobile", // Disable animations on mobile for better performance
     });
   }, []);
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-gray-900 to-black">
-      {/* Simplified overlay with reduced blur */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/80 z-10" />
 
-      {/* Optimized glow effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[rgb(226,34,40)]/10 rounded-full blur-[60px] sm:blur-[120px]" />
         <div className="absolute bottom-0 right-1/4 w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] bg-purple-500/10 rounded-full blur-[60px] sm:blur-[120px]" />
@@ -46,10 +43,11 @@ export const FeaturedEvents = () => {
             alt="Background Pattern"
             fill
             className="object-cover opacity-20"
-            loading="lazy"
-            sizes="100vw"
-            quality={50}
+            loading="eager"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            quality={30}
             onError={() => setImageError(true)}
+            priority
           />
         </div>
       )}
