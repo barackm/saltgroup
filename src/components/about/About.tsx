@@ -38,7 +38,7 @@ export default function About() {
               data-aos-delay="400"
               className="text-xl sm:text-2xl text-white/90"
             >
-              ✨ On transforme vos idées en expérience uniques
+              ✨ On transforme vos idées en expériences uniques
             </p>
             <div
               data-aos="fade-up"
