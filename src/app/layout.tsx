@@ -48,10 +48,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        <main className="">{children}</main>
-        <Footer />
-        <ToastProvider />
+        <div className="min-h-screen overflow-x-hidden">
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <ToastProvider />
+        </div>
       </body>
     </html>
   );
