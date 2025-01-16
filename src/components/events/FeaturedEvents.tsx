@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import { FiCalendar, FiMapPin } from "react-icons/fi";
 import Image from "next/image";
@@ -18,31 +18,42 @@ const sansTabouEvent = {
 };
 
 export const FeaturedEvents = () => {
+  const [imageError, setImageError] = useState(false);
+
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 800,
       once: true,
+      disable: "mobile", // Disable animations on mobile for better performance
     });
   }, []);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-900 to-black">
-      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-black/90 z-10" />
+    <div className="relative min-h-screen bg-gradient-to-br from-gray-900 to-black">
+      {/* Simplified overlay with reduced blur */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/80 z-10" />
 
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[rgb(226,34,40)]/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[120px]" />
+      {/* Optimized glow effects */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[rgb(226,34,40)]/10 rounded-full blur-[60px] sm:blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] bg-purple-500/10 rounded-full blur-[60px] sm:blur-[120px]" />
       </div>
 
-      <div className="absolute inset-0">
-        <Image
-          src="/images/pattern_1.png"
-          alt="Background Pattern"
-          fill
-          className="object-cover opacity-30 scale-110"
-          priority
-        />
-      </div>
+      {/* Background image with error handling */}
+      {!imageError && (
+        <div className="absolute inset-0">
+          <Image
+            src="/images/pattern_1.png"
+            alt="Background Pattern"
+            fill
+            className="object-cover opacity-20"
+            loading="lazy"
+            sizes="100vw"
+            quality={50}
+            onError={() => setImageError(true)}
+          />
+        </div>
+      )}
 
       <div className="absolute inset-0 flex items-center justify-center z-30">
         <div className="w-full max-w-3xl px-4 sm:px-6">
