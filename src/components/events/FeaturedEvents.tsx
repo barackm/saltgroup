@@ -1,3 +1,6 @@
+"use client";
+import { useEffect } from "react";
+import AOS from "aos";
 import { FiCalendar, FiMapPin } from "react-icons/fi";
 import Image from "next/image";
 import { Badge } from "@/components/ui/Badge";
@@ -15,6 +18,13 @@ const sansTabouEvent = {
 };
 
 export const FeaturedEvents = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-900 to-black">
       <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-black/90 z-10" />
@@ -38,7 +48,7 @@ export const FeaturedEvents = () => {
         <div className="w-full max-w-3xl px-4 sm:px-6">
           <div className="space-y-6 sm:space-y-8">
             <div className="flex flex-col items-center gap-3 sm:gap-5">
-              <div>
+              <div data-aos="fade-down">
                 <Badge
                   variant="primary"
                   className="text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-2.5 backdrop-blur-sm"
@@ -49,6 +59,8 @@ export const FeaturedEvents = () => {
               <Link
                 href="/events/sans-tabou-conference"
                 className="group transition-all duration-300"
+                data-aos="fade-up"
+                data-aos-delay="200"
               >
                 <h1 className="font-display text-3xl sm:text-6xl md:text-7xl font-bold text-white text-center max-w-2xl [text-shadow:_0_4px_24px_rgba(0,0,0,0.2)] group-hover:text-white/90 transition-colors duration-300">
                   {sansTabouEvent.title}
@@ -56,11 +68,19 @@ export const FeaturedEvents = () => {
               </Link>
             </div>
 
-            <p className="text-base sm:text-xl text-white/90 max-w-xl mx-auto leading-relaxed text-center px-2 [text-shadow:_0_2px_12px_rgba(0,0,0,0.2)]">
+            <p
+              data-aos="fade-up"
+              data-aos-delay="400"
+              className="text-base sm:text-xl text-white/90 max-w-xl mx-auto leading-relaxed text-center px-2 [text-shadow:_0_2px_12px_rgba(0,0,0,0.2)]"
+            >
               {sansTabouEvent.description}
             </p>
 
-            <div className="flex items-center justify-center flex-wrap gap-4 sm:gap-6">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="600"
+              className="flex items-center justify-center flex-wrap gap-4 sm:gap-6"
+            >
               <div className="flex items-center gap-2 bg-white/10 px-4 py-2.5 rounded-full backdrop-blur-md text-sm sm:text-base border border-white/20 hover:border-white/30 transition-colors hover:scale-105">
                 <FiCalendar className="w-4 h-4 sm:w-5 sm:h-5 text-[rgb(226,34,40)]" />
                 <span className="text-white">{sansTabouEvent.date}</span>
@@ -71,7 +91,11 @@ export const FeaturedEvents = () => {
               </div>
             </div>
 
-            <div className="flex items-center justify-center gap-3 sm:gap-4 pt-4">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="800"
+              className="flex items-center justify-center gap-3 sm:gap-4 pt-4"
+            >
               <RegistrationFormDialog
                 eventDate={sansTabouEvent.date}
                 eventLocation={sansTabouEvent.location}

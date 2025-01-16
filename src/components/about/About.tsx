@@ -1,6 +1,15 @@
 "use client";
+import { useEffect } from "react";
+import AOS from "aos";
 
 export default function About() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   return (
     <div className="min-h-screen relative overflow-hidden">
       <div className="min-h-[70vh] relative overflow-hidden bg-gradient-to-br from-gray-900 to-black flex items-center">
@@ -11,16 +20,31 @@ export default function About() {
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <div className="space-y-6">
-            <h1 className="text-2xl sm:text-3xl font-bold text-white">
+            <h1
+              data-aos="fade-down"
+              className="text-2xl sm:text-3xl font-bold text-white"
+            >
               @Salt_evnt
             </h1>
-            <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">
+            <p
+              data-aos="fade-up"
+              data-aos-delay="200"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold text-white"
+            >
               Event
             </p>
-            <p className="text-xl sm:text-2xl text-white/90">
+            <p
+              data-aos="fade-up"
+              data-aos-delay="400"
+              className="text-xl sm:text-2xl text-white/90"
+            >
               ✨ On transforme vos idées en expérience uniques
             </p>
-            <div className="flex flex-wrap justify-center gap-6 text-lg text-white/80">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="600"
+              className="flex flex-wrap justify-center gap-6 text-lg text-white/80"
+            >
               <span>🎤 Événements</span>
               <span>💡 Stratégie</span>
               <span>🗣️ Communication</span>
@@ -37,17 +61,25 @@ export default function About() {
 
         <div className="relative z-10 h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-8">
-            <div className="inline-block">
+            <div data-aos="fade-up" className="inline-block">
               <span className="px-4 py-1.5 bg-[rgb(226,34,40)]/10 rounded-full text-sm font-mono text-[rgb(226,34,40)] tracking-wider border border-[rgb(226,34,40)]/20">
                 VISION
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-gray-900">
+            <h1
+              data-aos="fade-up"
+              data-aos-delay="200"
+              className="text-4xl sm:text-6xl md:text-7xl font-bold text-gray-900"
+            >
               Rendre le monde meilleur
             </h1>
 
-            <div className="w-20 h-0.5 bg-gradient-to-r from-transparent via-[rgb(226,34,40)] to-transparent mx-auto" />
+            <div
+              data-aos="fade-up"
+              data-aos-delay="400"
+              className="w-20 h-0.5 bg-gradient-to-r from-transparent via-[rgb(226,34,40)] to-transparent mx-auto"
+            />
           </div>
         </div>
       </div>

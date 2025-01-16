@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -57,6 +58,13 @@ export interface Event {
 }
 
 export default function EventDetails() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden bg-gradient-to-br from-gray-900 to-black">
@@ -122,7 +130,7 @@ export default function EventDetails() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
           <div className="lg:col-span-2 space-y-8 sm:space-y-12">
-            <div className="space-y-4">
+            <div data-aos="fade-up" className="space-y-4">
               <h2 className="font-display text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
                 Contexte
               </h2>
@@ -135,7 +143,7 @@ export default function EventDetails() {
               </div>
             </div>
 
-            <div className="space-y-4 sm:space-y-6">
+            <div data-aos="fade-up" className="space-y-4 sm:space-y-6">
               <h2 className="font-display text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
                 Objectifs de l&apos;événement
               </h2>
@@ -165,7 +173,7 @@ export default function EventDetails() {
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div data-aos="fade-up" className="space-y-4">
               <h2 className="font-display text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
                 Public Cible
               </h2>
@@ -174,7 +182,10 @@ export default function EventDetails() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 my-6 sm:my-8">
+            <div
+              data-aos="fade-up"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 my-6 sm:my-8"
+            >
               {[
                 { icon: FiCalendar, label: "Date", value: eventData.date },
                 { icon: FiClock, label: "Heure", value: eventData.time },
@@ -196,7 +207,7 @@ export default function EventDetails() {
             </div>
           </div>
 
-          <div className="lg:col-span-1">
+          <div data-aos="fade-left" className="lg:col-span-1">
             <div className="sticky top-20 sm:top-24 bg-white rounded-xl sm:rounded-2xl border border-gray-200 p-4 sm:p-6 space-y-4 sm:space-y-6 shadow-lg">
               <div className="space-y-2">
                 <p className="text-sm text-gray-500">Prix du ticket</p>
