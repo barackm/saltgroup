@@ -20,7 +20,7 @@ const Footer = () => {
                   alt="SALT Events Logo"
                   width={40}
                   height={40}
-                  className="object-cover rounded-lg"
+                  className="object-cover"
                 />
                 <span className="text-[10px] font-medium text-white/40 uppercase tracking-widest">
                   studio

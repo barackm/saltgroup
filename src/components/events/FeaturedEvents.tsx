@@ -39,7 +39,6 @@ export const FeaturedEvents = () => {
         <div className="absolute bottom-0 right-1/4 w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] bg-purple-500/10 rounded-full blur-[60px] sm:blur-[120px]" />
       </div>
 
-      {/* Background image with error handling */}
       {!imageError && (
         <div className="absolute inset-0">
           <Image
