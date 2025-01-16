@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { FiInstagram, FiTwitter, FiFacebook, FiArrowUp } from "react-icons/fi";
+import Image from "next/image";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -13,11 +14,14 @@ const Footer = () => {
         <div className="py-8 flex flex-col gap-8">
           <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-6">
             <div className="flex flex-col items-center sm:items-start gap-2">
-              <Link href="/" className="flex items-baseline gap-1">
-                <span className="text-lg font-semibold">
-                  <span className="text-[rgb(226,34,40)]">SALT</span>
-                  <span className="text-white">EVENTS</span>
-                </span>
+              <Link href="/" className="flex items-center gap-1">
+                <Image
+                  src="/images/grp.jpg"
+                  alt="SALT Events Logo"
+                  width={40}
+                  height={40}
+                  className="object-cover rounded-lg"
+                />
                 <span className="text-[10px] font-medium text-white/40 uppercase tracking-widest">
                   studio
                 </span>
