@@ -11,9 +11,7 @@ const Footer = () => {
     <footer className="bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-8 flex flex-col gap-8">
-          {/* Main Footer Content */}
           <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-6">
-            {/* Logo & Tagline */}
             <div className="flex flex-col items-center sm:items-start gap-2">
               <Link href="/" className="flex items-baseline gap-1">
                 <span className="text-lg font-semibold">
@@ -29,20 +27,22 @@ const Footer = () => {
               </p>
             </div>
 
-            {/* Quick Links */}
             <div className="flex gap-8 text-sm font-medium">
-              {["À Propos", "Événements", "Contact"].map((item) => (
+              {[
+                { label: "À Propos", href: "/about" },
+                { label: "Événements", href: "/" },
+                { label: "Contact", href: "/contact" },
+              ].map((item) => (
                 <Link
-                  key={item}
-                  href="#"
+                  key={item.label}
+                  href={item.href}
                   className="text-white/60 hover:text-[rgb(226,34,40)] transition-colors"
                 >
-                  {item}
+                  {item.label}
                 </Link>
               ))}
             </div>
 
-            {/* Social Links */}
             <div className="flex items-center gap-4">
               {[FiInstagram, FiTwitter, FiFacebook].map((Icon, i) => (
                 <a
@@ -58,7 +58,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Bottom Bar */}
           <div className="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-white/10 gap-4">
             <div className="flex items-center gap-6">
               <span className="text-sm text-white/40">

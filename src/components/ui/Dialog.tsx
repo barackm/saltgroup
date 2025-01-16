@@ -105,7 +105,6 @@ export const Dialog = ({
   );
 };
 
-// Optional: Export a DialogContent component for consistent padding
 export const DialogContent = ({
   children,
   className,
@@ -114,7 +113,6 @@ export const DialogContent = ({
   className?: string;
 }) => <div className={twMerge("space-y-4", className)}>{children}</div>;
 
-// Optional: Export a DialogFooter component for action buttons
 export const DialogFooter = ({
   children,
   className,

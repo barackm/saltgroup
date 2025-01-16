@@ -35,7 +35,6 @@ const Contact = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
-          {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-sm font-mono text-[rgb(226,34,40)] tracking-wider mb-4">
               CONTACTEZ-NOUS
@@ -53,7 +52,6 @@ const Contact = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 pb-20">
-            {/* Contact Info */}
             <div className="space-y-12">
               <div className="grid sm:grid-cols-2 gap-8">
                 {contactInfo.map((item, i) => (
@@ -93,7 +91,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Contact Form */}
             <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-sm border border-white/20">
               <form className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">

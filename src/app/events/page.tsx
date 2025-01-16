@@ -68,7 +68,6 @@ const pastEvents = [
       "Menu étoilé",
     ],
   },
-  // ...more past events
 ];
 
 const categories = [
@@ -128,7 +127,6 @@ const EventsPage = () => {
               </button>
             </div>
 
-            {/* Filter Panel */}
             <div
               className={`overflow-hidden backdrop-blur-md ${
                 isFilterOpen ? "h-auto opacity-100" : "h-0 opacity-0"
@@ -169,7 +167,6 @@ const EventsPage = () => {
             </div>
           </div>
 
-          {/* Tabs Navigation */}
           <div className="px-4 flex gap-6 border-t border-gray-100">
             {["upcoming", "past"].map((tab) => (
               <button
@@ -305,7 +302,6 @@ const EventsPage = () => {
           </div>
         </div>
 
-        {/* Events Grid - Fixed Layout */}
         <div className="space-y-4">
           <h2 className="text-lg font-semibold text-gray-900">
             {activeTab === "upcoming"
@@ -315,8 +311,6 @@ const EventsPage = () => {
 
           {activeTab === "upcoming" && (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {" "}
-              {/* Remove nested grid */}
               {upcomingEvents.map((event) => (
                 <div key={event.id} className="group cursor-pointer">
                   <div className="relative bg-white/40 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg border border-white/20 hover:shadow-xl transition-all">
@@ -375,8 +369,6 @@ const EventsPage = () => {
 
           {activeTab === "past" && (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {" "}
-              {/* Remove nested grid */}
               {pastEvents.map((event) => (
                 <div
                   key={event.id}

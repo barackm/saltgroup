@@ -22,7 +22,7 @@ const eventData = {
   longDescription: `Les relations amoureuses occupent une place centrale dans la vie de nombreux jeunes, mais elles sont souvent entourées de malentendus et façonnées par des attentes irréalistes ou des pressions sociales. Ces influences peuvent entrainer des choix précipités ou des compromis nuisibles.`,
   date: "16 Fevrier 2025",
   time: "14h00 - 18h00",
-  location: "Goma Serena Hotel",
+  location: "Linda Hotel Goma",
   capacity: "200 Participants",
   price: "0",
   image: "/images/pattern_1.png",
@@ -58,7 +58,7 @@ export interface Event {
 
 export default function EventDetails() {
   return (
-    <div className="min-h-screen pt-16 bg-white">
+    <div className="min-h-screen bg-white">
       <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden bg-gradient-to-br from-gray-900 to-black">
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80 z-10" />
         <div className="absolute inset-0">
@@ -73,7 +73,7 @@ export default function EventDetails() {
           priority
         />
 
-        <div className="absolute top-4 left-4 z-30">
+        <div className="absolute top-20 left-4 z-30">
           <Link href="/">
             <Button
               variant="outline"
@@ -86,7 +86,7 @@ export default function EventDetails() {
           </Link>
         </div>
 
-        <div className="absolute inset-0 z-20">
+        <div className="absolute inset-0 z-20 pt-16">
           <div className="h-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
             <div className="space-y-4 sm:space-y-6">
               <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-[rgb(226,34,40)] text-white text-xs sm:text-sm font-medium rounded-full shadow-lg">

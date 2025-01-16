@@ -27,7 +27,9 @@ const Navbar = () => {
         className={`absolute inset-0 transition-all duration-300 ${
           hasScrolled
             ? "backdrop-blur-md bg-white/90 border-b border-gray-200/80"
-            : "bg-transparent"
+            : isMenuOpen
+              ? "md:bg-transparent md:backdrop-blur-0 backdrop-blur-md bg-white/90"
+              : "bg-transparent"
         }`}
       />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,25 +43,18 @@ const Navbar = () => {
                 height={36}
                 className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110 rounded-lg"
               />
-              <div className="flex items-baseline gap-1">
-                <span className="text-base font-semibold tracking-wide">
-                  <span className="text-[rgb(226,34,40)]">SALT</span>
-                  <span
-                    className={`transition-colors duration-300 ${hasScrolled ? "text-black/80" : "text-white"}`}
-                  >
-                    EVENTS
-                  </span>
-                </span>
-                <span
-                  className={`text-[10px] font-medium uppercase tracking-widest transition-colors duration-300 ${hasScrolled ? "text-black/40" : "text-white/60"}`}
-                >
-                  studio
-                </span>
-              </div>
             </div>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
+            <nav className="flex items-center gap-6">
+              <Link
+                href="/about"
+                className="text-sm font-medium transition-colors duration-300 hover:text-[rgb(226,34,40)] text-black/60"
+              >
+                About
+              </Link>
+            </nav>
             <div className="flex items-center gap-6">
               {[
                 {
@@ -80,9 +75,7 @@ const Navbar = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`transition-colors duration-300 hover:text-[rgb(226,34,40)] hover:scale-110 hover:-translate-y-1 ${
-                    hasScrolled ? "text-black/60" : "text-white/80"
-                  }`}
+                  className="transition-colors duration-300 hover:text-[rgb(226,34,40)] hover:scale-110 hover:-translate-y-1 text-black/60"
                 >
                   <social.icon className="w-5 h-5" />
                 </a>
@@ -107,7 +100,7 @@ const Navbar = () => {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={`md:hidden p-2 rounded-lg active:scale-95 transition-all duration-300 ${
-              hasScrolled
+              hasScrolled || isMenuOpen
                 ? "hover:bg-black/5 text-black/80"
                 : "hover:bg-white/10 text-white"
             }`}
@@ -117,14 +110,24 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu with adjusted background */}
       <div
         className={`md:hidden relative transition-all duration-300 ${
           isMenuOpen ? "opacity-100 h-auto" : "opacity-0 h-0 overflow-hidden"
-        } ${hasScrolled ? "bg-white/90" : "bg-black/50"} backdrop-blur-md`}
+        }`}
       >
+        <div className="absolute inset-0 transition-all duration-300 bg-white/90 backdrop-blur-md" />
+
         {isMenuOpen && (
-          <div className="px-4 py-4 space-y-4">
+          <div className="relative z-10 px-4 py-4 space-y-4">
+            <nav className="flex flex-col items-center gap-4">
+              <Link
+                href="/about"
+                className="text-sm font-medium transition-colors duration-300 text-black/60 hover:text-[rgb(226,34,40)]"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About
+              </Link>
+            </nav>
             <div className="flex justify-center gap-6">
               {[
                 {
@@ -145,7 +148,7 @@ const Navbar = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black/60 hover:text-[rgb(226,34,40)] transition-all hover:scale-110 hover:-translate-y-1"
+                  className="transition-colors duration-300 hover:text-[rgb(226,34,40)] hover:scale-110 hover:-translate-y-1 text-black/60"
                 >
                   <social.icon className="w-5 h-5" />
                 </a>

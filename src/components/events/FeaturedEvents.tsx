@@ -11,7 +11,7 @@ const sansTabouEvent = {
   description:
     "Une conférence unique sur les relations amoureuses et l&apos;épanouissement personnel des jeunes.",
   date: "16 Fevrier 2025",
-  location: "Goma Serena Hotel",
+  location: "Linda Hotel Goma",
   time: "14h00 - 18h00",
 };
 
@@ -35,7 +35,6 @@ export const FeaturedEvents = () => {
         />
       </div>
 
-      {/* Parallax background */}
       <motion.div
         initial={{ y: 0 }}
         animate={{ y: [0, -15, 0] }}
@@ -51,7 +50,6 @@ export const FeaturedEvents = () => {
         />
       </motion.div>
 
-      {/* Content */}
       <div className="absolute inset-0 flex items-center justify-center z-30">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -92,7 +90,6 @@ export const FeaturedEvents = () => {
             </p>
 
             <div className="flex items-center justify-center flex-wrap gap-4 sm:gap-6">
-              {/* Event details with enhanced styling */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center gap-2 bg-white/10 px-4 py-2.5 rounded-full backdrop-blur-md text-sm sm:text-base border border-white/20 hover:border-white/30 transition-colors"
