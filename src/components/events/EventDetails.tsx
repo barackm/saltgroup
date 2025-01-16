@@ -16,27 +16,27 @@ import ShareButton from "@/components/events/ShareButton";
 
 const eventData = {
   id: "sans-tabou-conference",
-  title: "Sans Tabou Conference",
-  category: "Conference",
+  title: "Sans Tabou Conférence",
+  category: "Conférence",
   description:
     "Une conférence unique sur les relations amoureuses et l'épanouissement personnel des jeunes.",
   longDescription: `Les relations amoureuses occupent une place centrale dans la vie de nombreux jeunes, mais elles sont souvent entourées de malentendus et façonnées par des attentes irréalistes ou des pressions sociales. Ces influences peuvent entraîner des choix précipités ou des compromis nuisibles.`,
-  date: "16 Fevrier 2025",
+  date: "16 Février 2025",
   time: "14h00 - 18h00",
-  location: "Linda Hotel Goma",
-  capacity: "200 Participants",
+  location: "Hôtel Linda Goma",
+  capacity: "200 participants",
   price: "0",
   image: "/images/pattern_1.png",
   context: `Les relations amoureuses occupent une place centrale dans la vie de nombreux jeunes, mais elles sont souvent entourées de malentendus et façonnées par des attentes irréalistes ou des pressions sociales. Ces influences peuvent entraîner des choix précipités ou des compromis nuisibles, comme le renoncement à des ambitions personnelles ou des relations fondées sur des obligations extérieures.
 
   La Sans Tabou Conférence se donne pour mission de déconstruire ces idées reçues et d'offrir un espace de réflexion pour aider les jeunes à construire des relations sincères, équilibrées et épanouissantes.`,
-  mainObjective: `Accompagner les jeunes dans une meilleure compréhension des relations amoureuses en les aidant à réaliser qu&apos;elles sont un aspect précieux de la vie, nécessitant une préparation consciente, une réflexion approfondie et un équilibre entre aspirations personnelles et engagements mutuels.`,
+  mainObjective: `Accompagner les jeunes dans une meilleure compréhension des relations amoureuses en les aidant à réaliser qu'elles sont un aspect précieux de la vie, nécessitant une préparation consciente, une réflexion approfondie et un équilibre entre aspirations personnelles et engagements mutuels.`,
   specificObjectives: [
-    "Créer un cadre de dialogue ouvert pour explorer les enjeux et défis des relations modernes.",
-    "Aider les jeunes à prendre conscience de leur rôle actif dans la construction de leur épanouissement personnel et de relations harmonieuses.",
-    "Inspirer une planification de la vie alignée sur leurs aspirations et leurs valeurs fondamentales.",
+    "Créer un cadre de dialogue ouvert pour explorer les enjeux et défis des relations modernes",
+    "Aider les jeunes à prendre conscience de leur rôle actif dans la construction de leur épanouissement personnel et de relations harmonieuses",
+    "Inspirer une planification de vie alignée sur leurs aspirations et leurs valeurs fondamentales",
   ],
-  target: `Les bénéficiaires de cette conférence seront tous les jeunes de la ville de Goma et d&apos;ailleurs. Ainsi, une moyenne de 200 jeunes est l&apos;effectif attendu pour cette activité.`,
+  target: `Les bénéficiaires de cette conférence seront tous les jeunes de la ville de Goma et d'ailleurs. Ainsi, une moyenne de 200 jeunes est l'effectif attendu pour cette activité.`,
 };
 
 export interface Event {
@@ -79,6 +79,8 @@ export default function EventDetails() {
           fill
           className="object-cover opacity-40"
           priority
+          loading="eager"
+          quality={30}
         />
 
         <div className="absolute top-20 left-4 z-30">
