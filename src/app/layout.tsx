@@ -18,6 +18,20 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "SALT Events | Premium Event Planning",
   description: "Transform your events into unforgettable experiences",
+  openGraph: {
+    images: [
+      {
+        url: "/salt.png",
+        width: 1200,
+        height: 630,
+        alt: "SALT Events Banner",
+      },
+    ],
+  },
+  icons: {
+    icon: "/grp.jpg",
+  },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
