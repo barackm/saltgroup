@@ -22,9 +22,6 @@ const Footer = () => {
                   height={40}
                   className="object-cover"
                 />
-                <span className="text-[10px] font-medium text-white/40 uppercase tracking-widest">
-                  studio
-                </span>
               </Link>
               <p className="text-sm text-white/60 font-medium">
                 Créant des moments inoubliables
