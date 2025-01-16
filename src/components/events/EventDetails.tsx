@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -89,7 +88,7 @@ export default function EventDetails() {
 
         <div className="absolute inset-0 z-20">
           <div className="h-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
-            <motion.div className="space-y-4 sm:space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-[rgb(226,34,40)] text-white text-xs sm:text-sm font-medium rounded-full shadow-lg">
                 {eventData.category}
               </span>
@@ -115,7 +114,7 @@ export default function EventDetails() {
               <p className="text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed line-clamp-3 sm:line-clamp-none">
                 {eventData.description}
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
