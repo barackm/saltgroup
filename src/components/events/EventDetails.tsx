@@ -78,8 +78,8 @@ export default function EventDetails() {
           alt={eventData.title}
           fill
           className="object-cover opacity-40"
-          priority
-          loading="eager"
+          priority={false}
+          loading="lazy"
           quality={30}
         />
 

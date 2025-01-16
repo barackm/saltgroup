@@ -12,10 +12,13 @@ export default function About() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
+      {/* Hero Section */}
       <div className="min-h-[70vh] relative overflow-hidden bg-gradient-to-br from-gray-900 to-black flex items-center">
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/80" />
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[rgb(226,34,40)]/20 rounded-full blur-[120px]" />
+
+        {/* Simplified glow effect */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[rgb(226,34,40)]/10 rounded-full blur-[60px] sm:blur-[120px]" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
@@ -53,10 +56,12 @@ export default function About() {
         </div>
       </div>
 
-      <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100">
-        <div className="absolute inset-0">
-          <div className="absolute -top-40 -right-40 w-[800px] h-[800px] bg-[rgb(226,34,40)]/10 rounded-full blur-[120px]" />
-          <div className="absolute -bottom-40 -left-40 w-[800px] h-[800px] bg-rose-500/10 rounded-full blur-[120px]" />
+      {/* Vision Section */}
+      <div className="min-h-screen relative overflow-hidden bg-white">
+        {/* Simplified mobile-friendly gradients */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-20 sm:-top-40 right-0 sm:-right-40 w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] bg-[rgb(226,34,40)]/5 rounded-full blur-[60px] sm:blur-[120px]" />
+          <div className="absolute -bottom-20 sm:-bottom-40 left-0 sm:-left-40 w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] bg-rose-500/5 rounded-full blur-[60px] sm:blur-[120px]" />
         </div>
 
         <div className="relative z-10 h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -84,10 +89,12 @@ export default function About() {
         </div>
       </div>
 
-      <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50">
-        <div className="absolute inset-0">
-          <div className="absolute -top-40 -left-40 w-[800px] h-[800px] bg-[rgb(226,34,40)]/10 rounded-full blur-[120px]" />
-          <div className="absolute -bottom-40 -right-40 w-[800px] h-[800px] bg-rose-500/10 rounded-full blur-[120px]" />
+      {/* Mission Section */}
+      <div className="min-h-screen relative overflow-hidden bg-gray-50">
+        {/* Simplified mobile-friendly gradients */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-20 sm:-top-40 left-0 sm:-left-40 w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] bg-[rgb(226,34,40)]/5 rounded-full blur-[60px] sm:blur-[120px]" />
+          <div className="absolute -bottom-20 sm:-bottom-40 right-0 sm:-right-40 w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] bg-rose-500/5 rounded-full blur-[60px] sm:blur-[120px]" />
         </div>
 
         <div className="relative z-10 h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">

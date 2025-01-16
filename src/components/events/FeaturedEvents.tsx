@@ -19,6 +19,7 @@ const sansTabouEvent = {
 
 export const FeaturedEvents = () => {
   const [imageError, setImageError] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   useEffect(() => {
     AOS.init({
@@ -42,12 +43,15 @@ export const FeaturedEvents = () => {
             src="/images/pattern_1.png"
             alt="Background Pattern"
             fill
-            className="object-cover opacity-20"
-            loading="eager"
-            sizes="(max-width: 768px) 100vw, 50vw"
+            className={`object-cover transition-opacity duration-300 ${
+              isImageLoaded ? "opacity-20" : "opacity-0"
+            }`}
+            sizes="100vw"
             quality={30}
+            priority={false}
+            loading="lazy"
             onError={() => setImageError(true)}
-            priority
+            onLoad={() => setIsImageLoaded(true)}
           />
         </div>
       )}
