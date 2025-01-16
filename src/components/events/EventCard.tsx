@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { motion } from "framer-motion";
 import { FiCalendar, FiMapPin, FiClock, FiHeart } from "react-icons/fi";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -11,14 +9,9 @@ interface EventCardProps {
   isPast?: boolean;
 }
 
-export const EventCard = ({ event, index }: EventCardProps) => {
+export const EventCard = ({ event }: EventCardProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="h-full"
-    >
+    <div className="h-full">
       <div
         className="bg-white rounded-2xl overflow-hidden h-full flex flex-col shadow-sm 
           transition-all duration-300 ease-out hover:shadow-xl hover:translate-y-[-4px]"
@@ -83,6 +76,6 @@ export const EventCard = ({ event, index }: EventCardProps) => {
           </div>{" "}
         </div>{" "}
       </div>{" "}
-    </motion.div>
+    </div>
   );
 };

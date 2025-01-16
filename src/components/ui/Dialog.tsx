@@ -5,7 +5,6 @@ import {
   Transition,
   TransitionChild,
 } from "@headlessui/react";
-import { motion, AnimatePresence } from "framer-motion";
 import { FiX } from "react-icons/fi";
 import { twMerge } from "tailwind-merge";
 
@@ -70,36 +69,31 @@ export const Dialog = ({
                 className
               )}
             >
-              <AnimatePresence>
-                {showCloseButton && (
-                  <motion.button
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.5 }}
-                    onClick={onClose}
-                    className="absolute top-4 right-4 p-2 rounded-full hover:bg-black/5 text-gray-500 hover:text-gray-700 transition-colors"
-                  >
-                    <FiX className="w-5 h-5" />
-                  </motion.button>
-                )}
+              {showCloseButton && (
+                <button
+                  onClick={onClose}
+                  className="absolute top-4 right-4 p-2 rounded-full hover:bg-black/5 text-gray-500 hover:text-gray-700 transition-colors"
+                >
+                  <FiX className="w-5 h-5" />
+                </button>
+              )}
 
-                {(title || description) && (
-                  <div className="p-6 border-b border-gray-100">
-                    {title && (
-                      <HeadlessDialog.Title className="text-lg font-semibold text-gray-900">
-                        {title}
-                      </HeadlessDialog.Title>
-                    )}
-                    {description && (
-                      <HeadlessDialog.Description className="mt-2 text-sm text-gray-500">
-                        {description}
-                      </HeadlessDialog.Description>
-                    )}
-                  </div>
-                )}
+              {(title || description) && (
+                <div className="p-6 border-b border-gray-100">
+                  {title && (
+                    <HeadlessDialog.Title className="text-lg font-semibold text-gray-900">
+                      {title}
+                    </HeadlessDialog.Title>
+                  )}
+                  {description && (
+                    <HeadlessDialog.Description className="mt-2 text-sm text-gray-500">
+                      {description}
+                    </HeadlessDialog.Description>
+                  )}
+                </div>
+              )}
 
-                <div className="p-6">{children}</div>
-              </AnimatePresence>
+              <div className="p-6">{children}</div>
             </HeadlessDialog.Panel>
           </TransitionChild>
         </div>

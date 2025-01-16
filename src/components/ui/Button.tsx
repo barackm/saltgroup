@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -49,9 +48,7 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   return (
-    <motion.button
-      whileHover={{ scale: disabled ? 1 : 1.02 }}
-      whileTap={{ scale: disabled ? 1 : 0.98 }}
+    <button
       type={type}
       className={twMerge(
         buttonStyles.base,
@@ -67,6 +64,6 @@ export const Button = ({
     >
       {icon && <span className="w-3.5 h-3.5 sm:w-4 sm:h-4">{icon}</span>}
       {isLoading ? "Loading..." : children}
-    </motion.button>
+    </button>
   );
 };

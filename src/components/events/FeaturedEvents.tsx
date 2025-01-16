@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { FiCalendar, FiMapPin } from "react-icons/fi";
 import Image from "next/image";
@@ -33,12 +32,7 @@ export const FeaturedEvents = () => {
 
       <div className="absolute inset-0 flex items-center justify-center z-30">
         <div className="w-full max-w-2xl px-4 sm:px-6">
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="space-y-4 sm:space-y-6"
-          >
+          <div className="space-y-4 sm:space-y-6">
             <div className="flex flex-col items-center gap-2 sm:gap-4">
               <Badge
                 variant="primary"
@@ -76,7 +70,7 @@ export const FeaturedEvents = () => {
                 </Button>
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>

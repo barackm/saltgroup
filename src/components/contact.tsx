@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
 import { FiMapPin, FiPhone, FiMail, FiClock } from "react-icons/fi";
 
 const contactInfo = [
@@ -37,12 +36,7 @@ const Contact = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
           {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl mx-auto mb-16"
-          >
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-sm font-mono text-[rgb(226,34,40)] tracking-wider mb-4">
               CONTACTEZ-NOUS
             </h2>
@@ -56,18 +50,15 @@ const Contact = () => {
               Prenez contact avec nous pour donner vie à votre prochain
               événement exceptionnel.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid lg:grid-cols-2 gap-16 pb-20">
             {/* Contact Info */}
             <div className="space-y-12">
               <div className="grid sm:grid-cols-2 gap-8">
                 {contactInfo.map((item, i) => (
-                  <motion.div
+                  <div
                     key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
                     className="relative bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-white/20"
                   >
                     <div className="text-[rgb(226,34,40)] text-xl mb-3">
@@ -77,7 +68,7 @@ const Contact = () => {
                       {item.title}
                     </h3>
                     <p className="text-sm text-black/60">{item.details}</p>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
 
@@ -103,12 +94,7 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-sm border border-white/20"
-            >
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-sm border border-white/20">
               <form className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
@@ -160,7 +146,7 @@ const Contact = () => {
                   Envoyer le Message
                 </button>
               </form>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

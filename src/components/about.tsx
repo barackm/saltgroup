@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
 import { FiUsers, FiAward, FiHeart, FiTrendingUp } from "react-icons/fi";
 
 const stats = [
@@ -20,12 +19,7 @@ const About = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl mx-auto space-y-8"
-          >
+          <div className="text-center max-w-3xl mx-auto space-y-8">
             <h2 className="text-sm font-mono text-[rgb(226,34,40)] tracking-wider">
               NOTRE HISTOIRE
             </h2>
@@ -42,14 +36,13 @@ const About = () => {
               notre attention aux détails rendent chaque événement
               extraordinaire.
             </p>
-          </motion.div>
+          </div>
 
           <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, i) => (
-              <motion.div
+              <div
                 key={i}
-                whileHover={{ y: -5 }}
-                className="relative p-6 rounded-2xl bg-white/40 backdrop-blur-sm border border-white/20 shadow-lg"
+                className="relative p-6 rounded-2xl bg-white/40 backdrop-blur-sm border border-white/20 shadow-lg hover:-translate-y-1 transition-transform"
               >
                 <div className="absolute -top-4 left-6 w-8 h-8 bg-[rgb(226,34,40)] rounded-lg flex items-center justify-center text-white">
                   {stat.icon}
@@ -58,7 +51,7 @@ const About = () => {
                   {stat.value}
                 </p>
                 <p className="mt-1 text-sm text-black/60">{stat.label}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -95,13 +88,7 @@ const About = () => {
                   { title: "Professionnel", desc: "Équipe d'experts" },
                   { title: "Minutieux", desc: "Exécution précise" },
                 ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="group"
-                  >
+                  <div key={i} className="group">
                     <div className="h-12 w-12 rounded-xl bg-[rgb(226,34,40)]/10 flex items-center justify-center mb-4 group-hover:bg-[rgb(226,34,40)] transition-colors duration-300">
                       <span className="text-[rgb(226,34,40)] group-hover:text-white transition-colors duration-300 text-xl">
                         ★
@@ -111,17 +98,12 @@ const About = () => {
                       {item.title}
                     </h4>
                     <p className="text-sm text-black/60">{item.desc}</p>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
+            <div className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                 <div className="absolute inset-0 bg-gradient-to-br from-black/30 to-transparent z-10" />
                 <img
@@ -131,12 +113,7 @@ const About = () => {
                 />
               </div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 }}
-                className="absolute -right-8 bottom-8 bg-white/95 backdrop-blur-md p-6 rounded-xl shadow-xl max-w-xs"
-              >
+              <div className="absolute -right-8 bottom-8 bg-white/95 backdrop-blur-md p-6 rounded-xl shadow-xl max-w-xs">
                 <div className="relative">
                   <span className="absolute -top-4 -left-2 text-4xl text-[rgb(226,34,40)]/20">
                     &quot;
@@ -153,8 +130,8 @@ const About = () => {
                     — Notre Mission
                   </p>
                 </div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

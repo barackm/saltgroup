@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import {
   FiCalendar,
   FiMapPin,
@@ -102,10 +101,8 @@ const EventsPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-200">
-      {/* Glassmorphic header */}
       <div className="sticky top-16 z-40 bg-white/60 backdrop-blur-xl border-b border-white/20 shadow-sm">
         <div className="max-w-7xl mx-auto">
-          {/* Enhanced Search Bar */}
           <div className="p-4">
             <div className="flex gap-3">
               <div className="flex-1 relative">
@@ -131,15 +128,11 @@ const EventsPage = () => {
               </button>
             </div>
 
-            {/* Glassmorphic Filter Panel */}
-            <motion.div
-              initial={false}
-              animate={{
-                height: isFilterOpen ? "auto" : 0,
-                opacity: isFilterOpen ? 1 : 0,
-              }}
-              transition={{ duration: 0.2 }}
-              className="overflow-hidden backdrop-blur-md"
+            {/* Filter Panel */}
+            <div
+              className={`overflow-hidden backdrop-blur-md ${
+                isFilterOpen ? "h-auto opacity-100" : "h-0 opacity-0"
+              } transition-all duration-200`}
             >
               <div className="pt-4 space-y-4">
                 <div className="flex flex-nowrap gap-2 overflow-x-auto pb-2 scrollbar-hide">
@@ -173,7 +166,7 @@ const EventsPage = () => {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Tabs Navigation */}
@@ -190,45 +183,26 @@ const EventsPage = () => {
               >
                 {tab === "upcoming" ? "À venir" : "Passés"}
                 {activeTab === tab && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute inset-x-0 -bottom-[1px] h-0.5 bg-[rgb(226,34,40)]"
-                  />
+                  <div className="absolute inset-x-0 -bottom-[1px] h-0.5 bg-[rgb(226,34,40)]" />
                 )}
               </button>
             ))}
           </div>
         </div>
       </div>
-      {/* Main Content - Removed extra padding and margins */}
       <div className="max-w-7xl mx-auto px-4 py-6 space-y-8">
-        {/* Featured Events Carousel */}
         <div className="space-y-4">
           <h2 className="text-lg font-semibold text-gray-900">À la une</h2>
           <div className="grid lg:grid-cols-3 gap-6">
-            {/* Enhanced featured event cards with more app-like styling */}
-            <motion.div
-              className="lg:col-span-2 relative bg-white/40 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg border border-white/20 h-[450px] group hover:shadow-xl transition-all"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6 }}
-              />
-              <motion.img
+            <div className="lg:col-span-2 relative bg-white/40 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg border border-white/20 h-[450px] group hover:shadow-xl transition-all">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
+              <img
                 key={currentSlide}
                 src={upcomingEvents[currentSlide].image}
                 alt={upcomingEvents[currentSlide].title}
                 className="w-full h-full object-cover"
-                initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6 }}
               />
 
-              {/* Refined Navigation */}
               <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4 z-20">
                 <button
                   onClick={prevSlide}
@@ -244,7 +218,6 @@ const EventsPage = () => {
                 </button>
               </div>
 
-              {/* Elegant Event Details */}
               <div className="absolute inset-x-0 bottom-0 p-8 z-20">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
@@ -277,14 +250,9 @@ const EventsPage = () => {
                   </button>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Next Event Preview - Simplified and Elegant */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="relative bg-white/40 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg border border-white/20 h-[450px] hover:shadow-xl transition-all"
-            >
+            <div className="relative bg-white/40 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg border border-white/20 h-[450px] hover:shadow-xl transition-all">
               <div className="absolute inset-0 bg-gradient-to-b from-black/5 to-black/60" />
               <img
                 src={
@@ -333,7 +301,7 @@ const EventsPage = () => {
                   </button>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
@@ -349,14 +317,8 @@ const EventsPage = () => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {" "}
               {/* Remove nested grid */}
-              {upcomingEvents.map((event, i) => (
-                <motion.div
-                  key={event.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group cursor-pointer"
-                >
+              {upcomingEvents.map((event) => (
+                <div key={event.id} className="group cursor-pointer">
                   <div className="relative bg-white/40 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg border border-white/20 hover:shadow-xl transition-all">
                     <div className="relative h-64">
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
@@ -406,7 +368,7 @@ const EventsPage = () => {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           )}
@@ -415,12 +377,9 @@ const EventsPage = () => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {" "}
               {/* Remove nested grid */}
-              {pastEvents.map((event, i) => (
-                <motion.div
+              {pastEvents.map((event) => (
+                <div
                   key={event.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="relative bg-white/40 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg border border-white/20 hover:shadow-xl transition-all group" // Updated background class
                 >
                   <div className="relative h-64">
@@ -458,7 +417,7 @@ const EventsPage = () => {
                       ))}
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           )}

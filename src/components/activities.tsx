@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 
@@ -54,12 +53,7 @@ const Activities = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl mx-auto mb-20"
-          >
+          <div className="text-center max-w-3xl mx-auto mb-20">
             <h2 className="text-sm font-mono text-[rgb(226,34,40)] tracking-wider mb-4">
               NOS ACTIVITÉS
             </h2>
@@ -73,17 +67,11 @@ const Activities = () => {
               Découvrez notre gamme de services événementiels haut de gamme,
               conçue pour répondre à vos besoins les plus exigeants.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 pb-20">
             {services.map((service, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group"
-              >
+              <div key={i} className="group">
                 <div className="relative h-[28rem] bg-white rounded-xl overflow-hidden">
                   <div className="absolute inset-0 z-0">
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-black/50 z-10" />
@@ -131,7 +119,7 @@ const Activities = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

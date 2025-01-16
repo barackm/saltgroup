@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 
 interface BadgeProps {
@@ -23,27 +22,17 @@ const badgeStyles = {
 export const Badge = ({
   children,
   variant = "primary",
-  withAnimation,
   className,
 }: BadgeProps) => {
-  const Component = withAnimation ? motion.span : "span";
-  const animationProps = withAnimation
-    ? {
-        initial: { opacity: 0, x: -20 },
-        animate: { opacity: 1, x: 0 },
-      }
-    : {};
-
   return (
-    <Component
+    <span
       className={twMerge(
         badgeStyles.base,
         badgeStyles.variant[variant],
         className
       )}
-      {...animationProps}
     >
       {children}
-    </Component>
+    </span>
   );
 };

@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { FiInstagram, FiTwitter, FiFacebook, FiArrowUp } from "react-icons/fi";
 
@@ -46,16 +45,15 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex items-center gap-4">
               {[FiInstagram, FiTwitter, FiFacebook].map((Icon, i) => (
-                <motion.a
+                <a
                   key={i}
                   href="https://www.instagram.com/salt_evnt?igsh=MWg2MXdxZGU3dGtmOQ=="
-                  whileHover={{ y: -2 }}
                   className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center
                            text-white/60 hover:text-[rgb(226,34,40)] hover:bg-white/10
-                           transition-all"
+                           transition-all hover:-translate-y-1"
                 >
                   <Icon className="w-4 h-4" />
-                </motion.a>
+                </a>
               ))}
             </div>
           </div>
@@ -86,16 +84,14 @@ const Footer = () => {
               </a>
             </div>
 
-            <motion.button
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               onClick={scrollToTop}
               className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center
                        text-white/60 hover:text-[rgb(226,34,40)] hover:bg-white/10
-                       transition-all"
+                       transition-all hover:-translate-y-1"
             >
               <FiArrowUp className="w-4 h-4" />
-            </motion.button>
+            </button>
           </div>
         </div>
       </div>
