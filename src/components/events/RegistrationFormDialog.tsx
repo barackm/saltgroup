@@ -16,6 +16,7 @@ interface Props {
   eventDate: string;
   eventTime: string;
   eventLocation: string;
+  className?: string;
 }
 
 const schema = z.object({
@@ -33,6 +34,7 @@ export function RegistrationFormDialog({
   eventDate,
   eventTime,
   eventLocation,
+  className,
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const {
@@ -90,8 +92,9 @@ export function RegistrationFormDialog({
         fullWidth
         size="lg"
         onClick={() => setIsOpen(true)}
+        className={className}
       >
-        S&apos;inscrire
+        Enregistrez- vous
       </Button>
 
       <Dialog
