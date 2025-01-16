@@ -102,7 +102,7 @@ export default function EventDetails() {
               <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-[rgb(226,34,40)] text-white text-xs sm:text-sm font-medium rounded-full shadow-lg">
                 {eventData.category}
               </span>
-              <h1 className="font-display text-2xl sm:text-4xl md:text-6xl font-bold text-white max-w-3xl leading-tight">
+              <h1 className="font-gramatica text-2xl sm:text-4xl md:text-6xl font-bold text-white max-w-3xl leading-tight">
                 {eventData.title}
               </h1>
 
@@ -133,7 +133,7 @@ export default function EventDetails() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
           <div className="lg:col-span-2 space-y-8 sm:space-y-12">
             <div data-aos="fade-up" className="space-y-4">
-              <h2 className="font-display text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
+              <h2 className="font-gramatica text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
                 Contexte
               </h2>
               <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
@@ -146,7 +146,7 @@ export default function EventDetails() {
             </div>
 
             <div data-aos="fade-up" className="space-y-4 sm:space-y-6">
-              <h2 className="font-display text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
+              <h2 className="font-gramatica text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
                 Objectifs de l&apos;événement
               </h2>
               <div className="pl-3 sm:pl-4 border-l-4 border-[rgb(226,34,40)] py-3 sm:py-4 bg-gray-50/50 rounded-r-lg">
@@ -176,7 +176,7 @@ export default function EventDetails() {
             </div>
 
             <div data-aos="fade-up" className="space-y-4">
-              <h2 className="font-display text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
+              <h2 className="font-gramatica text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
                 Public Cible
               </h2>
               <p className="text-sm sm:text-base text-gray-700 leading-relaxed">

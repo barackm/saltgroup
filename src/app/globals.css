@@ -85,7 +85,7 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-neue-haas);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -142,7 +142,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(226, 34, 40);
+  background: rgb(226 34 40);
 }
 
 .glass {

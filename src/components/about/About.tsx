@@ -75,7 +75,7 @@ export default function About() {
             <h1
               data-aos="fade-up"
               data-aos-delay="200"
-              className="text-4xl sm:text-6xl md:text-7xl font-bold text-gray-900"
+              className="font-gramatica text-4xl sm:text-6xl md:text-7xl font-bold text-gray-900"
             >
               Rendre le monde meilleur
             </h1>
@@ -105,7 +105,7 @@ export default function About() {
               </span>
             </div>
 
-            <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold text-gray-900">
+            <h2 className="font-gramatica text-4xl sm:text-6xl md:text-7xl font-bold text-gray-900">
               Inspirer et équiper
             </h2>
 

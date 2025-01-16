@@ -74,7 +74,7 @@ export const FeaturedEvents = () => {
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
-                <h1 className="font-display text-3xl sm:text-6xl md:text-7xl font-bold text-white text-center max-w-2xl [text-shadow:_0_4px_24px_rgba(0,0,0,0.2)] group-hover:text-white/90 transition-colors duration-300">
+                <h1 className="font-gramatica text-3xl sm:text-6xl md:text-7xl font-bold text-white text-center max-w-2xl [text-shadow:_0_4px_24px_rgba(0,0,0,0.2)] group-hover:text-white/90 transition-colors duration-300">
                   {sansTabouEvent.title}
                 </h1>
               </Link>

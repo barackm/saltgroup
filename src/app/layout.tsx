@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import "aos/dist/aos.css";
 import Navbar from "@/components/navbar";
@@ -14,6 +15,16 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const gramatica = localFont({
+  src: "../fonts/gramatika/GramatikaTrial-Regular-BF65dea4c5a77e9.otf",
+  variable: "--font-gramatica",
+});
+
+const neueHaas = localFont({
+  src: "../fonts/neue-haas/NeueHaasDisplayMediu.ttf",
+  variable: "--font-neue-haas",
 });
 
 export const metadata: Metadata = {
@@ -46,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${gramatica.variable} ${neueHaas.variable} antialiased`}
       >
         <div className="min-h-screen overflow-x-hidden">
           <Navbar />
