@@ -50,7 +50,9 @@ const Navbar = () => {
             <nav className="flex items-center gap-6">
               <Link
                 href="/about"
-                className="text-sm font-medium transition-colors duration-300 hover:text-[rgb(226,34,40)] text-black/60"
+                className={`text-sm font-medium transition-colors duration-300 hover:text-[rgb(226,34,40)] ${
+                  hasScrolled ? "text-black/60" : "text-white/90"
+                }`}
               >
                 About
               </Link>
@@ -75,7 +77,9 @@ const Navbar = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors duration-300 hover:text-[rgb(226,34,40)] hover:scale-110 hover:-translate-y-1 text-black/60"
+                  className={`transition-colors duration-300 hover:text-[rgb(226,34,40)] hover:scale-110 hover:-translate-y-1 ${
+                    hasScrolled ? "text-black/60" : "text-white/90"
+                  }`}
                 >
                   <social.icon className="w-5 h-5" />
                 </a>
@@ -85,10 +89,12 @@ const Navbar = () => {
             <div>
               <Link
                 href="/contact"
-                className="group relative inline-block px-6 py-2 bg-[rgb(226,34,40)] text-white 
+                className={`group relative inline-block px-6 py-2 bg-[rgb(226,34,40)] text-white 
                           rounded-full text-sm font-medium hover:bg-[rgb(206,31,36)] 
                           transition-all duration-300 border border-transparent 
-                          hover:border-red-200 w-[130px] text-center whitespace-nowrap hover:scale-105"
+                          hover:border-red-200 w-[130px] text-center whitespace-nowrap hover:scale-105 ${
+                            !hasScrolled && "border-white/20"
+                          }`}
               >
                 <span className="inline-flex items-center justify-center">
                   Get in Touch
