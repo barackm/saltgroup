@@ -16,9 +16,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://saltgroup.vercel.app"),
   title: "SALT Events | Premium Event Planning",
   description: "Transform your events into unforgettable experiences",
   openGraph: {
+    title: "SALT Events | Premium Event Planning",
+    description: "Transform your events into unforgettable experiences",
+    type: "website",
     images: [
       {
         url: "/salt.png",
@@ -31,7 +35,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo.png",
   },
-  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
