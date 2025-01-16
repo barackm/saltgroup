@@ -4,6 +4,42 @@ import { motion } from "framer-motion";
 export default function About() {
   return (
     <div className="min-h-screen relative overflow-hidden">
+      <div className="min-h-[70vh] relative overflow-hidden bg-gradient-to-br from-gray-900 to-black flex items-center">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/80" />
+        <div className="absolute inset-0">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5 }}
+            className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[rgb(226,34,40)]/20 rounded-full blur-[120px]"
+          />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-6"
+          >
+            <h1 className="text-2xl sm:text-3xl font-bold text-white">
+              @Salt_evnt
+            </h1>
+            <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-white">
+              Event
+            </p>
+            <p className="text-xl sm:text-2xl text-white/90">
+              ✨ On transforme vos idées en expérience uniques
+            </p>
+            <div className="flex flex-wrap justify-center gap-6 text-lg text-white/80">
+              <span>🎤 Événements</span>
+              <span>💡 Stratégie</span>
+              <span>🗣️ Communication</span>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
       <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100">
         <div className="absolute inset-0">
           <div className="absolute -top-40 -right-40 w-[800px] h-[800px] bg-[rgb(226,34,40)]/10 rounded-full blur-[120px]" />
