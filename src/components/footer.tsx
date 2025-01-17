@@ -56,17 +56,14 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-white/10 gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between pt-6 gap-4">
             <div className="flex items-center gap-6">
               <span className="text-sm text-white/40">
                 © {new Date().getFullYear()} SALT Events
               </span>
-              <Link
-                href="/privacy"
-                className="text-sm text-white/40 hover:text-white transition-colors"
-              >
-                Confidentialité
-              </Link>
+              <span className="text-sm text-white/40 hover:text-white transition-colors">
+                Group
+              </span>
             </div>
 
             <div className="flex items-center gap-2 text-sm">

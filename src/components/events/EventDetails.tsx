@@ -78,8 +78,8 @@ export default function EventDetails() {
         />
 
         <div className="absolute inset-0 z-20 pt-16">
-          <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
-            <div className="space-y-4 sm:space-y-6">
+          <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div className="space-y-4 sm:space-y-6 flex-1">
               <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-[rgb(226,34,40)] text-white text-xs sm:text-sm font-medium rounded-full shadow-lg">
                 {eventData.category}
               </span>
@@ -87,7 +87,7 @@ export default function EventDetails() {
                 {eventData.title}
               </h1>
 
-              <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-white/80">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-white/80 mb-12 sm:mb-0">
                 <div className="w-full flex items-center gap-2 mb-2">
                   <CiMicrophoneOn className="w-8 h-8 text-[rgb(226,34,40)]" />
                   <span className="text-md">Speaker: </span>
@@ -111,16 +111,72 @@ export default function EventDetails() {
                   <FiMapPin className="w-4 h-4 text-[rgb(226,34,40)]" />
                   <span className="text-sm">{eventData.location}</span>
                 </div>
-                <div className="w-6 h-6 rounded-full bg-[rgb(226,34,40)]/90 flex items-center justify-center">
-                  <span className="text-xs text-white font-medium">+18</span>
-                </div>
               </div>
+            </div>
 
-              {/* <p className="text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed line-clamp-3 sm:line-clamp-none">
-                {eventData.description}
-              </p> */}
+            {/* Desktop ticket section */}
+            <div data-aos="fade-left" className="hidden lg:block w-96">
+              <div className="bg-white rounded-xl sm:rounded-2xl border border-gray-200 p-4 sm:p-6 space-y-4 sm:space-y-6 shadow-lg">
+                <div className="relative">
+                  <div className="inline-flex items-center bg-[rgb(226,34,40)] text-white px-6 py-3 rounded-lg">
+                    <div className="absolute -left-[1px] top-1/2 -translate-y-1/2 w-3 h-6 bg-white rounded-r-full" />
+                    <div className="absolute -right-[1px] top-1/2 -translate-y-1/2 w-3 h-6 bg-white rounded-l-full" />
+                    <FiTag className="w-5 h-5 mr-3 rotate-90" />
+                    <div>
+                      <span className="text-xs text-white/80">
+                        Prix du ticket
+                      </span>
+                      <div className="text-4xl font-bold">
+                        ${eventData.price}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <RegistrationFormDialog
+                  eventDate={eventData.date}
+                  eventLocation={eventData.location}
+                  eventTime={eventData.time}
+                  eventTitle={eventData.title}
+                  textClassName="text-sm"
+                  title="Book Now"
+                />
+
+                <ShareButton eventData={eventData} />
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile ticket section */}
+      <div className="lg:hidden -mt-12 sm:-mt-16 px-4 sm:px-6 relative z-30">
+        <div
+          data-aos="fade-up"
+          className="bg-white rounded-xl sm:rounded-2xl border border-gray-200 p-6 sm:p-8 space-y-4 sm:space-y-6 shadow-lg"
+        >
+          <div className="relative">
+            <div className="inline-flex items-center bg-[rgb(226,34,40)] text-white px-6 py-3 rounded-lg">
+              <div className="absolute -left-[1px] top-1/2 -translate-y-1/2 w-3 h-6 bg-white rounded-r-full" />
+              <div className="absolute -right-[1px] top-1/2 -translate-y-1/2 w-3 h-6 bg-white rounded-l-full" />
+              <FiTag className="w-5 h-5 mr-3 rotate-90" />
+              <div>
+                <span className="text-xs text-white/80">Prix du ticket</span>
+                <div className="text-4xl font-bold">${eventData.price}</div>
+              </div>
+            </div>
+          </div>
+
+          <RegistrationFormDialog
+            eventDate={eventData.date}
+            eventLocation={eventData.location}
+            eventTime={eventData.time}
+            eventTitle={eventData.title}
+            textClassName="text-sm"
+            title="Book Now"
+          />
+
+          <ShareButton eventData={eventData} />
         </div>
       </div>
 
@@ -170,15 +226,6 @@ export default function EventDetails() {
               </div>
             </div>
 
-            <div data-aos="fade-up" className="space-y-4">
-              <h2 className="font-gramatica text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
-                Public Cible
-              </h2>
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                {eventData.target}
-              </p>
-            </div>
-
             <div
               data-aos="fade-up"
               className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 my-6 sm:my-8"
@@ -201,34 +248,6 @@ export default function EventDetails() {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          <div data-aos="fade-left" className="space-y-6">
-            <div className="sticky top-20 sm:top-24 bg-white rounded-xl sm:rounded-2xl border border-gray-200 p-4 sm:p-6 space-y-4 sm:space-y-6 shadow-lg">
-              <div className="relative">
-                <div className="inline-flex items-center bg-[rgb(226,34,40)] text-white px-6 py-3 rounded-lg">
-                  <div className="absolute -left-[1px] top-1/2 -translate-y-1/2 w-3 h-6 bg-white rounded-r-full" />
-                  <div className="absolute -right-[1px] top-1/2 -translate-y-1/2 w-3 h-6 bg-white rounded-l-full" />
-                  <FiTag className="w-5 h-5 mr-3 rotate-90" />
-                  <div>
-                    <span className="text-xs text-white/80">
-                      Prix du ticket
-                    </span>
-                    <div className="text-4xl font-bold">${eventData.price}</div>
-                  </div>
-                </div>
-              </div>
-
-              <RegistrationFormDialog
-                eventDate={eventData.date}
-                eventLocation={eventData.location}
-                eventTime={eventData.time}
-                eventTitle={eventData.title}
-                textClassName="text-sm"
-              />
-
-              <ShareButton eventData={eventData} />
             </div>
           </div>
         </div>

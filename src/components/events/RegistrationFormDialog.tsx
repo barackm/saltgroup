@@ -19,6 +19,7 @@ interface Props {
   eventLocation: string;
   className?: string;
   textClassName?: string;
+  title?: string;
 }
 
 const schema = z.object({
@@ -38,6 +39,7 @@ export function RegistrationFormDialog({
   eventLocation,
   className,
   textClassName,
+  title = "Enregistrez-vous",
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const {
@@ -97,7 +99,7 @@ export function RegistrationFormDialog({
         className={className}
         textClassName={textClassName}
       >
-        Enregistrez- vous
+        {title}
       </FancyButton>
 
       <Dialog

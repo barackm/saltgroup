@@ -18,95 +18,46 @@ export const SponsorsSection = () => {
   }, []);
 
   return (
-    <section className="min-h-screen relative overflow-hidden bg-gray-50">
-      {/* Background gradients */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-20 sm:-top-40 left-0 sm:-left-40 w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] bg-[rgb(226,34,40)]/5 rounded-full blur-[60px] sm:blur-[120px]" />
-        <div className="absolute -bottom-20 sm:-bottom-40 right-0 sm:-right-40 w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] bg-rose-500/5 rounded-full blur-[60px] sm:blur-[120px]" />
-      </div>
-
+    <section className="min-h-screen relative bg-[rgb(226,34,40)] flex items-center justify-center">
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-12 sm:py-20">
+      <div className="relative z-10 container mx-auto px-4 py-20 flex flex-col items-center justify-center">
         <div className="max-w-3xl mx-auto text-center space-y-8 mb-16">
-          <div data-aos="fade-up" className="inline-block">
-            <span className="px-4 py-1.5 bg-[rgb(226,34,40)]/10 rounded-full text-sm font-mono text-[rgb(226,34,40)] tracking-wider border border-[rgb(226,34,40)]/20">
-              PARTENAIRES
-            </span>
-          </div>
-
           <h2
             data-aos="fade-up"
-            data-aos-delay="200"
-            className="font-gramatica text-4xl sm:text-5xl font-bold text-gray-900"
+            className="font-gramatica text-6xl sm:text-7xl font-bold text-white mb-4"
           >
-            Nos Partenaires
+            Our Partners
           </h2>
-
-          <div
-            data-aos="fade-up"
-            data-aos-delay="400"
-            className="w-20 h-0.5 bg-gradient-to-r from-transparent via-[rgb(226,34,40)] to-transparent mx-auto"
-          />
         </div>
 
-        <div className="relative max-w-6xl mx-auto overflow-hidden">
-          <div className="grid grid-cols-2 gap-12 px-4 sm:hidden">
+        <div
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="bg-white rounded-3xl shadow-2xl p-16 max-w-5xl mx-auto w-full"
+        >
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-16 place-items-center">
             {sampleLogos.map((logo, index) => (
-              <div key={index} className="flex items-center justify-center">
+              <div
+                key={index}
+                className="flex items-center justify-center hover:scale-110 transition-transform duration-300"
+              >
                 <Image
                   src={logo}
                   alt={`Partner logo ${index + 1}`}
-                  width={200}
-                  height={100}
-                  className="object-contain w-full h-24"
+                  width={350}
+                  height={210}
+                  className="object-contain w-full h-28"
                   loading="lazy"
-                  quality={75}
                 />
               </div>
             ))}
           </div>
-
-          <div className="hidden sm:block">
-            <div className="flex space-x-20 animate-[marquee_45s_linear_infinite] mb-16">
-              {[...sampleLogos, ...sampleLogos].map((logo, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center w-[200px] flex-shrink-0"
-                >
-                  <Image
-                    src={logo}
-                    alt={`Partner logo ${index + 1}`}
-                    width={200}
-                    height={100}
-                    className="object-contain w-full h-24"
-                    loading="lazy"
-                    quality={60}
-                  />
-                </div>
-              ))}
-            </div>
-
-            <div className="flex space-x-20 animate-[marquee_50s_linear_infinite_reverse]">
-              {[...sampleLogos.reverse(), ...sampleLogos].map((logo, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center w-[200px] flex-shrink-0"
-                >
-                  <Image
-                    src={logo}
-                    alt={`Partner logo ${index + 1}`}
-                    width={200}
-                    height={100}
-                    className="object-contain w-full h-24"
-                    loading="lazy"
-                    quality={60}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
+
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/10 to-transparent" />
     </section>
   );
 };

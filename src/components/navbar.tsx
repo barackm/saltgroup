@@ -4,6 +4,7 @@ import { FiMenu } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { FancyButton } from "./ui/FancyButton";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -62,45 +63,11 @@ const Navbar = () => {
                   hasScrolled ? "text-black/60" : "text-white/90"
                 }`}
               >
-                Events
+                <FancyButton className="p-0 h-10" textClassName="text-sm">
+                  Events
+                </FancyButton>
               </Link>
             </nav>
-            <div className="flex items-center gap-6">
-              {[
-                {
-                  icon: FaInstagram,
-                  href: "https://www.instagram.com/salt_evnt?igsh=MWg2MXdxZGU3dGtmOQ==",
-                },
-              ].map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`transition-colors duration-300 hover:text-[rgb(226,34,40)] hover:scale-110 hover:-translate-y-1 ${
-                    hasScrolled ? "text-black/60" : "text-white/90"
-                  }`}
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
-
-            <div>
-              <Link
-                href="/contact"
-                className={`group relative inline-block px-6 py-2 bg-[rgb(226,34,40)] text-white 
-                          rounded-full text-sm font-medium hover:bg-[rgb(206,31,36)] 
-                          transition-all duration-300 border border-transparent 
-                          hover:border-red-200 w-[130px] text-center whitespace-nowrap hover:scale-105 ${
-                            !hasScrolled && "border-white/20"
-                          }`}
-              >
-                <span className="inline-flex items-center justify-center">
-                  Get in Touch
-                </span>
-              </Link>
-            </div>
           </div>
 
           <button
@@ -138,7 +105,9 @@ const Navbar = () => {
                 className="text-sm font-medium transition-colors duration-300 text-black/60 hover:text-[rgb(226,34,40)]"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Events
+                <FancyButton className="" textClassName="text-sm">
+                  Events
+                </FancyButton>
               </Link>
             </nav>
             <div className="flex justify-center gap-6">
