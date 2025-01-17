@@ -3,15 +3,7 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  FiCalendar,
-  FiMapPin,
-  FiClock,
-  FiUsers,
-  FiArrowLeft,
-  FiTag,
-} from "react-icons/fi";
-import { Button } from "@/components/ui/Button";
+import { FiCalendar, FiMapPin, FiClock, FiUsers, FiTag } from "react-icons/fi";
 import { RegistrationFormDialog } from "@/components/events/RegistrationFormDialog";
 import ShareButton from "@/components/events/ShareButton";
 import { CiMicrophoneOn } from "react-icons/ci";
@@ -88,15 +80,6 @@ export default function EventDetails() {
         <div className="absolute inset-0 z-20 pt-16">
           <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
             <div className="space-y-4 sm:space-y-6">
-              <Link href="/">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="bg-white hover:bg-gray-50 shadow-lg w-12 h-12 p-0 flex justify-center items-center"
-                >
-                  <FiArrowLeft className="w-6 h-6" />
-                </Button>
-              </Link>
               <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-[rgb(226,34,40)] text-white text-xs sm:text-sm font-medium rounded-full shadow-lg">
                 {eventData.category}
               </span>
