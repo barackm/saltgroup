@@ -59,11 +59,9 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between pt-6 gap-4">
             <div className="flex items-center gap-6">
               <span className="text-sm text-white/40">
-                © {new Date().getFullYear()} SALT Events
+                © {new Date().getFullYear()} SALT Events GROUP
               </span>
-              <span className="text-sm text-white/40 hover:text-white transition-colors">
-                Group
-              </span>
+              <span className="text-sm text-white/40 hover:text-white transition-colors"></span>
             </div>
 
             <div className="flex items-center gap-2 text-sm">
