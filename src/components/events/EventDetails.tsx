@@ -20,7 +20,7 @@ const eventData = {
   location: "Hôtel Linda Goma",
   capacity: "200 participants",
   price: "20",
-  image: "/images/pattern_1.png",
+  image: "/images/pattern_1-min.png",
   context: `Les relations amoureuses occupent une place centrale dans la vie de nombreux jeunes, mais elles sont souvent entourées de malentendus et façonnées par des attentes irréalistes ou des pressions sociales. Ces influences peuvent entraîner des choix précipités ou des compromis nuisibles, comme le renoncement à des ambitions personnelles ou des relations fondées sur des obligations extérieures.
 
   La Sans Tabou Conférence se donne pour mission de déconstruire ces idées reçues et d'offrir un espace de réflexion pour aider les jeunes à construire des relations sincères, équilibrées et épanouissantes.`,

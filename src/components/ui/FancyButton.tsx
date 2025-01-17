@@ -67,7 +67,7 @@ export const FancyButton = ({
     >
       {variant === "primary" && (
         <Image
-          src="/images/pattern_1.png"
+          src="/images/pattern_1-min.png"
           alt=""
           width={500}
           height={500}
