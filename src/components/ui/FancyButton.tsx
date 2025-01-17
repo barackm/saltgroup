@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
+import Image from "next/image";
 
 interface ButtonProps {
   children: ReactNode;
@@ -19,7 +20,7 @@ const buttonStyles = {
   base: "rounded-full font-bold flex items-center justify-center gap-1.5 sm:gap-2 text-xl sm:text-2xl relative overflow-hidden isolate",
   variant: {
     primary:
-      "bg-[rgb(120,10,15)] shadow-md hover:shadow-lg border border-[rgb(226,34,40)]/20 backdrop-blur-sm [&>span]:text-white [&>span]:relative [&>span]:z-[60] before:absolute before:inset-0 before:-z-20 before:bg-[url('/images/pattern_1.png')] before:bg-cover before:opacity-50 before:mix-blend-luminosity before:scale-[6] before:bg-center after:absolute after:inset-0 after:-z-10 after:bg-[rgb(120,10,15)]/30",
+      "bg-[rgb(120,10,15)] shadow-md hover:shadow-lg border border-[rgb(226,34,40)]/20 backdrop-blur-sm [&>span]:text-white [&>span]:relative [&>span]:z-[60] after:absolute after:inset-0 after:-z-10 after:bg-[rgb(120,10,15)]/30",
     secondary:
       "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm border border-white/10",
     outline:
@@ -64,6 +65,16 @@ export const FancyButton = ({
       disabled={disabled || isLoading}
       {...props}
     >
+      {variant === "primary" && (
+        <Image
+          src="/images/pattern_1.png"
+          alt=""
+          fill
+          className="object-cover opacity-50 mix-blend-luminosity scale-[6] z-20"
+          priority={false}
+          loading="lazy"
+        />
+      )}
       {icon && <span className="w-3.5 h-3.5 sm:w-4 sm:h-4">{icon}</span>}
       <span
         className={twMerge(
