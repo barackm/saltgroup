@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { FiMenu } from "react-icons/fi";
-import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
@@ -56,19 +56,19 @@ const Navbar = () => {
               >
                 About
               </Link>
+              <Link
+                href="/events/sans-tabou-conference"
+                className={`text-sm font-medium transition-colors duration-300 hover:text-[rgb(226,34,40)] ${
+                  hasScrolled ? "text-black/60" : "text-white/90"
+                }`}
+              >
+                Events
+              </Link>
             </nav>
             <div className="flex items-center gap-6">
               {[
                 {
                   icon: FaInstagram,
-                  href: "https://www.instagram.com/salt_evnt?igsh=MWg2MXdxZGU3dGtmOQ==",
-                },
-                {
-                  icon: FaFacebookF,
-                  href: "https://www.instagram.com/salt_evnt?igsh=MWg2MXdxZGU3dGtmOQ==",
-                },
-                {
-                  icon: FaTwitter,
                   href: "https://www.instagram.com/salt_evnt?igsh=MWg2MXdxZGU3dGtmOQ==",
                 },
               ].map((social, index) => (
@@ -133,19 +133,18 @@ const Navbar = () => {
               >
                 About
               </Link>
+              <Link
+                href="/about"
+                className="text-sm font-medium transition-colors duration-300 text-black/60 hover:text-[rgb(226,34,40)]"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Events
+              </Link>
             </nav>
             <div className="flex justify-center gap-6">
               {[
                 {
                   icon: FaInstagram,
-                  href: "https://www.instagram.com/salt_evnt?igsh=MWg2MXdxZGU3dGtmOQ==",
-                },
-                {
-                  icon: FaFacebookF,
-                  href: "https://www.instagram.com/salt_evnt?igsh=MWg2MXdxZGU3dGtmOQ==",
-                },
-                {
-                  icon: FaTwitter,
                   href: "https://www.instagram.com/salt_evnt?igsh=MWg2MXdxZGU3dGtmOQ==",
                 },
               ].map((social, index) => (

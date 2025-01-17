@@ -27,7 +27,7 @@ export default function About() {
               data-aos="fade-down"
               className="text-2xl sm:text-3xl font-bold text-white"
             >
-              @Salt_evnt
+              @Salt_group
             </h1>
             <p
               data-aos="fade-up"

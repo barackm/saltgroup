@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { FiInstagram, FiTwitter, FiFacebook, FiArrowUp } from "react-icons/fi";
+import { FiInstagram, FiArrowUp } from "react-icons/fi";
 import Image from "next/image";
 
 const Footer = () => {
@@ -31,7 +31,7 @@ const Footer = () => {
             <div className="flex gap-8 text-sm font-medium">
               {[
                 { label: "À Propos", href: "/about" },
-                { label: "Événements", href: "/" },
+                { label: "Events", href: "/events/sans-tabou-conference" },
                 { label: "Contact", href: "/contact" },
               ].map((item) => (
                 <Link
@@ -45,7 +45,7 @@ const Footer = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              {[FiInstagram, FiTwitter, FiFacebook].map((Icon, i) => (
+              {[FiInstagram].map((Icon, i) => (
                 <a
                   key={i}
                   href="https://www.instagram.com/salt_evnt?igsh=MWg2MXdxZGU3dGtmOQ=="

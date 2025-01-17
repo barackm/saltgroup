@@ -9,10 +9,12 @@ import {
   FiClock,
   FiUsers,
   FiArrowLeft,
+  FiTag,
 } from "react-icons/fi";
 import { Button } from "@/components/ui/Button";
 import { RegistrationFormDialog } from "@/components/events/RegistrationFormDialog";
 import ShareButton from "@/components/events/ShareButton";
+import { BsFillTicketFill } from "react-icons/bs";
 
 const eventData = {
   id: "sans-tabou-conference",
@@ -25,7 +27,7 @@ const eventData = {
   time: "14h00 - 18h00",
   location: "Hôtel Linda Goma",
   capacity: "200 participants",
-  price: "0",
+  price: "20",
   image: "/images/pattern_1.png",
   context: `Les relations amoureuses occupent une place centrale dans la vie de nombreux jeunes, mais elles sont souvent entourées de malentendus et façonnées par des attentes irréalistes ou des pressions sociales. Ces influences peuvent entraîner des choix précipités ou des compromis nuisibles, comme le renoncement à des ambitions personnelles ou des relations fondées sur des obligations extérieures.
 
@@ -66,7 +68,7 @@ export default function EventDetails() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
       <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden bg-gradient-to-br from-gray-900 to-black">
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80 z-10" />
         <div className="absolute inset-0">
@@ -119,6 +121,9 @@ export default function EventDetails() {
                   <FiMapPin className="w-4 h-4 text-[rgb(226,34,40)]" />
                   <span className="text-sm">{eventData.location}</span>
                 </div>
+                <div className="w-6 h-6 rounded-full bg-[rgb(226,34,40)]/90 flex items-center justify-center">
+                  <span className="text-xs text-white font-medium">+18</span>
+                </div>
               </div>
 
               <p className="text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed line-clamp-3 sm:line-clamp-none">
@@ -129,8 +134,8 @@ export default function EventDetails() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
           <div className="lg:col-span-2 space-y-8 sm:space-y-12">
             <div data-aos="fade-up" className="space-y-4">
               <h2 className="font-gramatica text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
@@ -209,13 +214,20 @@ export default function EventDetails() {
             </div>
           </div>
 
-          <div data-aos="fade-left" className="lg:col-span-1">
+          <div data-aos="fade-left" className="space-y-6">
             <div className="sticky top-20 sm:top-24 bg-white rounded-xl sm:rounded-2xl border border-gray-200 p-4 sm:p-6 space-y-4 sm:space-y-6 shadow-lg">
-              <div className="space-y-2">
-                <p className="text-sm text-gray-500">Prix du ticket</p>
-                <p className="font-display text-3xl font-bold text-[rgb(226,34,40)]">
-                  ${eventData.price}
-                </p>
+              <div className="relative">
+                <div className="inline-flex items-center bg-[rgb(226,34,40)] text-white px-6 py-3 rounded-lg">
+                  <div className="absolute -left-[1px] top-1/2 -translate-y-1/2 w-3 h-6 bg-white rounded-r-full" />
+                  <div className="absolute -right-[1px] top-1/2 -translate-y-1/2 w-3 h-6 bg-white rounded-l-full" />
+                  <FiTag className="w-5 h-5 mr-3 rotate-90" />
+                  <div>
+                    <span className="text-xs text-white/80">
+                      Prix du ticket
+                    </span>
+                    <div className="text-4xl font-bold">${eventData.price}</div>
+                  </div>
+                </div>
               </div>
 
               <RegistrationFormDialog
@@ -223,6 +235,7 @@ export default function EventDetails() {
                 eventLocation={eventData.location}
                 eventTime={eventData.time}
                 eventTitle={eventData.title}
+                textClassName="text-sm"
               />
 
               <ShareButton eventData={eventData} />

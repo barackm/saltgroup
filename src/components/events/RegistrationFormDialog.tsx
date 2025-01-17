@@ -10,6 +10,7 @@ import "react-phone-input-2/lib/style.css";
 import { countries } from "@/utils/countries";
 import { sendRegistrationEmail } from "@/actions/sendEmail";
 import { toast } from "sonner";
+import { FancyButton } from "../ui/FancyButton";
 
 interface Props {
   eventTitle: string;
@@ -17,6 +18,7 @@ interface Props {
   eventTime: string;
   eventLocation: string;
   className?: string;
+  textClassName?: string;
 }
 
 const schema = z.object({
@@ -35,6 +37,7 @@ export function RegistrationFormDialog({
   eventTime,
   eventLocation,
   className,
+  textClassName,
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const {
@@ -77,25 +80,25 @@ export function RegistrationFormDialog({
     }
   };
 
-  // Convert countries object to array of options
   const countryOptions = Object.entries(countries)
     .map(([code, name]) => ({
       value: code,
       label: name,
     }))
-    .sort((a, b) => a.label.localeCompare(b.label)); // Sort alphabetically
+    .sort((a, b) => a.label.localeCompare(b.label));
 
   return (
     <>
-      <Button
+      <FancyButton
         variant="primary"
         fullWidth
         size="lg"
         onClick={() => setIsOpen(true)}
         className={className}
+        textClassName={textClassName}
       >
         Enregistrez- vous
-      </Button>
+      </FancyButton>
 
       <Dialog
         isOpen={isOpen}

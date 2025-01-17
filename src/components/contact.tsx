@@ -1,22 +1,29 @@
 "use client";
 import React from "react";
 import { FiMapPin, FiPhone, FiMail, FiClock } from "react-icons/fi";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { toast } from "sonner";
+import { sendContactFormEmail } from "@/actions/sendEmail";
+import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/Button";
 
 const contactInfo = [
   {
     icon: <FiMapPin />,
     title: "Notre Adresse",
-    details: "123 Avenue des Champs-Élysées, 75008 Paris, France",
+    details: "Goma, RDC",
   },
   {
     icon: <FiPhone />,
     title: "Téléphone",
-    details: "+33 1 23 45 67 89",
+    details: "+243 977 317 281",
   },
   {
     icon: <FiMail />,
     title: "Email",
-    details: "contact@saltevents.fr",
+    details: "masgift2017@gmail.com",
   },
   {
     icon: <FiClock />,
@@ -25,7 +32,47 @@ const contactInfo = [
   },
 ];
 
+const schema = z.object({
+  name: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
+  email: z.string().email("Adresse email invalide"),
+  message: z
+    .string()
+    .min(10, "Le message doit contenir au moins 10 caractères"),
+});
+
+type FormData = z.infer<typeof schema>;
+
 const Contact = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<FormData>({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = async (data: FormData) => {
+    try {
+      const result = await sendContactFormEmail(data);
+
+      if (result.success) {
+        toast.success("Message envoyé avec succès!");
+        reset();
+      } else {
+        toast.error("Échec de l'envoi", {
+          description: "Une erreur est survenue. Veuillez réessayer.",
+        });
+      }
+    } catch (error) {
+      toast.error("Erreur", {
+        description:
+          "Une erreur inattendue est survenue. Veuillez réessayer plus tard.",
+      });
+      console.error("Error submitting form:", error);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
       <section className="relative overflow-hidden">
@@ -92,38 +139,23 @@ const Contact = () => {
             </div>
 
             <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-sm border border-white/20">
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm text-black/60 mb-2">
-                      Nom
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 rounded-lg bg-black/5 border-0 focus:ring-2 focus:ring-[rgb(226,34,40)]"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm text-black/60 mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      className="w-full px-4 py-3 rounded-lg bg-black/5 border-0 focus:ring-2 focus:ring-[rgb(226,34,40)]"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm text-black/60 mb-2">
-                    Type d&apos;Événement
-                  </label>
-                  <select className="w-full px-4 py-3 rounded-lg bg-black/5 border-0 focus:ring-2 focus:ring-[rgb(226,34,40)]">
-                    <option>Mariage</option>
-                    <option>Événement Corporatif</option>
-                    <option>Soirée Privée</option>
-                    <option>Autre</option>
-                  </select>
+                  <Input
+                    label="Nom"
+                    placeholder="Votre nom"
+                    error={errors.name?.message}
+                    {...register("name")}
+                    fullWidth
+                  />
+                  <Input
+                    type="email"
+                    label="Email"
+                    placeholder="votre@email.com"
+                    error={errors.email?.message}
+                    {...register("email")}
+                    fullWidth
+                  />
                 </div>
 
                 <div>
@@ -132,16 +164,27 @@ const Contact = () => {
                   </label>
                   <textarea
                     rows={4}
-                    className="w-full px-4 py-3 rounded-lg bg-black/5 border-0 focus:ring-2 focus:ring-[rgb(226,34,40)]"
+                    className={`w-full px-4 py-3 rounded-lg bg-black/5 border-0 focus:ring-2 focus:ring-[rgb(226,34,40)] ${
+                      errors.message ? "ring-2 ring-red-500" : ""
+                    }`}
+                    placeholder="Votre message"
+                    {...register("message")}
                   />
+                  {errors.message && (
+                    <p className="text-sm text-red-500 mt-1">
+                      {errors.message.message}
+                    </p>
+                  )}
                 </div>
-
-                <button
+                <Button
                   type="submit"
-                  className="w-full py-4 bg-[rgb(226,34,40)] text-white rounded-lg hover:bg-black transition-colors duration-300"
+                  variant="primary"
+                  fullWidth
+                  size="lg"
+                  isLoading={isSubmitting}
                 >
                   Envoyer le Message
-                </button>
+                </Button>
               </form>
             </div>
           </div>
