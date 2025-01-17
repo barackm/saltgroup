@@ -1,6 +1,4 @@
 "use client";
-import { useEffect } from "react";
-import AOS from "aos";
 import Image from "next/image";
 
 const sampleLogos = [
@@ -13,10 +11,6 @@ const sampleLogos = [
 ];
 
 export const SponsorsSection = () => {
-  useEffect(() => {
-    AOS.init({ duration: 800, once: true });
-  }, []);
-
   return (
     <section className="min-h-screen relative bg-[rgb(226,34,40)] flex items-center justify-center">
       {/* Content */}

@@ -1,6 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
-import AOS from "aos";
+import { useState } from "react";
 import { FiCalendar, FiMapPin } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,13 +18,6 @@ const sansTabouEvent = {
 export const FeaturedEvents = () => {
   const [imageError, setImageError] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
-
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      once: true,
-    });
-  }, []);
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-[rgb(226,34,40)] to-[rgb(200,30,35)]">

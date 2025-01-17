@@ -1,6 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
-import AOS from "aos";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FiCalendar, FiMapPin, FiClock, FiUsers, FiTag } from "react-icons/fi";
@@ -52,13 +51,6 @@ export interface Event {
 }
 
 export default function EventDetails() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
       <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden bg-gradient-to-br from-gray-900 to-black">

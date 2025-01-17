@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { ToastProvider } from "@/providers/ToastProvider";
+import AosWrapper from "@/components/aos-wrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,12 +60,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${gramatica.variable} ${neueHaas.variable} antialiased`}
       >
-        <div className="min-h-screen overflow-x-hidden">
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <ToastProvider />
-        </div>
+        <AosWrapper>
+          <div className="min-h-screen overflow-x-hidden">
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+            <ToastProvider />
+          </div>
+        </AosWrapper>
       </body>
     </html>
   );

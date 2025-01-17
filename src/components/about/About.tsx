@@ -1,15 +1,6 @@
 "use client";
-import { useEffect } from "react";
-import AOS from "aos";
 
 export default function About() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
-
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Hero Section */}
