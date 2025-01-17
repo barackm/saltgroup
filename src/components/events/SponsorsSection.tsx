@@ -50,7 +50,6 @@ export const SponsorsSection = () => {
         </div>
 
         <div className="relative max-w-6xl mx-auto overflow-hidden">
-          {/* Mobile view: Simple grid */}
           <div className="grid grid-cols-2 gap-12 px-4 sm:hidden">
             {sampleLogos.map((logo, index) => (
               <div key={index} className="flex items-center justify-center">
@@ -67,7 +66,6 @@ export const SponsorsSection = () => {
             ))}
           </div>
 
-          {/* Desktop view: Animated rows */}
           <div className="hidden sm:block">
             <div className="flex space-x-20 animate-[marquee_45s_linear_infinite] mb-16">
               {[...sampleLogos, ...sampleLogos].map((logo, index) => (
