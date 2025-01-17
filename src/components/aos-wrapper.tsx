@@ -6,6 +6,8 @@ const AosWrapper = (props: PropsWithChildren) => {
   useEffect(() => {
     Aos.init({
       duration: 1000,
+      once: true,
+      disable: true,
     });
   }, []);
 
