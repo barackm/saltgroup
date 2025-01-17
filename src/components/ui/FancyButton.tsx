@@ -17,7 +17,7 @@ interface ButtonProps {
 }
 
 const buttonStyles = {
-  base: "rounded-full font-bold flex items-center justify-center gap-1.5 sm:gap-2 text-xl sm:text-2xl relative overflow-hidden isolate",
+  base: "rounded-full font-bold flex items-center justify-center gap-1.5 sm:gap-2 text-xl sm:text-2xl relative overflow-hidden isolate focus:outline-none",
   variant: {
     primary:
       "bg-[rgb(120,10,15)] shadow-md hover:shadow-lg border border-[rgb(226,34,40)]/20 backdrop-blur-sm [&>span]:text-white [&>span]:relative [&>span]:z-[60] after:absolute after:inset-0 after:-z-10 after:bg-[rgb(120,10,15)]/30",
