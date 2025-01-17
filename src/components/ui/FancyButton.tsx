@@ -74,6 +74,7 @@ export const FancyButton = ({
           className="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-luminosity scale-[6] z-20"
           priority={false}
           loading="lazy"
+          quality={30}
         />
       )}
       {icon && <span className="w-3.5 h-3.5 sm:w-4 sm:h-4">{icon}</span>}
