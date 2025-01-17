@@ -116,9 +116,9 @@ export default function EventDetails() {
                 </div>
               </div>
 
-              <p className="text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed line-clamp-3 sm:line-clamp-none">
+              {/* <p className="text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed line-clamp-3 sm:line-clamp-none">
                 {eventData.description}
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
