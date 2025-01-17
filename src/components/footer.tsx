@@ -23,9 +23,6 @@ const Footer = () => {
                   className="object-cover"
                 />
               </Link>
-              <p className="text-sm text-white/60 font-medium">
-                Créant des moments inoubliables
-              </p>
             </div>
 
             <div className="flex gap-8 text-sm font-medium">
