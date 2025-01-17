@@ -69,8 +69,9 @@ export const FancyButton = ({
         <Image
           src="/images/pattern_1.png"
           alt=""
-          fill
-          className="object-cover opacity-50 mix-blend-luminosity scale-[6] z-20"
+          width={500}
+          height={500}
+          className="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-luminosity scale-[6] z-20"
           priority={false}
           loading="lazy"
         />
