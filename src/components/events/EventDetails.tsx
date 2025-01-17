@@ -14,7 +14,7 @@ import {
 import { Button } from "@/components/ui/Button";
 import { RegistrationFormDialog } from "@/components/events/RegistrationFormDialog";
 import ShareButton from "@/components/events/ShareButton";
-import { BsFillTicketFill } from "react-icons/bs";
+import { CiMicrophoneOn } from "react-icons/ci";
 
 const eventData = {
   id: "sans-tabou-conference",
@@ -85,22 +85,18 @@ export default function EventDetails() {
           quality={30}
         />
 
-        <div className="absolute top-20 left-4 z-30">
-          <Link href="/">
-            <Button
-              variant="outline"
-              size="sm"
-              icon={<FiArrowLeft className="w-3.5 h-3.5" />}
-              className="bg-white hover:bg-gray-50 shadow-lg"
-            >
-              Retour
-            </Button>
-          </Link>
-        </div>
-
         <div className="absolute inset-0 z-20 pt-16">
-          <div className="h-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
+          <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
             <div className="space-y-4 sm:space-y-6">
+              <Link href="/">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="bg-white hover:bg-gray-50 shadow-lg w-12 h-12 p-0 flex justify-center items-center"
+                >
+                  <FiArrowLeft className="w-6 h-6" />
+                </Button>
+              </Link>
               <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-[rgb(226,34,40)] text-white text-xs sm:text-sm font-medium rounded-full shadow-lg">
                 {eventData.category}
               </span>
@@ -109,6 +105,17 @@ export default function EventDetails() {
               </h1>
 
               <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-white/80">
+                <div className="w-full flex items-center gap-2 mb-2">
+                  <CiMicrophoneOn className="w-8 h-8 text-[rgb(226,34,40)]" />
+                  <span className="text-md">Speaker: </span>
+                  <Link
+                    href="https://www.instagram.com/donjuan_masudi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    target="_blank"
+                    className="text-[rgb(226,34,40)] hover:text-[rgb(200,30,35)] transition-colors duration-300"
+                  >
+                    Don Juan
+                  </Link>
+                </div>
                 <div className="flex items-center gap-2">
                   <FiCalendar className="w-4 h-4 text-[rgb(226,34,40)]" />
                   <span className="text-sm">{eventData.date}</span>
