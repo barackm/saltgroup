@@ -14,7 +14,7 @@ interface InputProps
 }
 
 const inputStyles = {
-  base: "px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[rgb(226,34,40)] focus:border-transparent transition-all duration-300 text-gray-900 placeholder:text-gray-400 text-sm font-normal",
+  base: "px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[rgb(226,34,40)] focus:border-transparent transition-all duration-300 text-gray-900 placeholder:text-gray-400 text-sm font-normal h-[42px]",
   fullWidth: "w-full",
   error: "ring-2 ring-red-500",
   label: "block text-sm font-medium text-gray-700 mb-1",
@@ -42,6 +42,7 @@ export const Input = ({
             inputStyles.base,
             fullWidth && inputStyles.fullWidth,
             error && inputStyles.error,
+            "appearance-none bg-white",
             className
           )}
           {...props}
