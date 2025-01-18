@@ -7,7 +7,6 @@ import { Dialog, DialogContent, DialogFooter } from "@/components/ui/Dialog";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import "react-phone-input-2/lib/style.css";
-import { countries } from "@/utils/countries";
 import { sendRegistrationEmail } from "@/actions/sendEmail";
 import { toast } from "sonner";
 import { FancyButton } from "../ui/FancyButton";
@@ -26,7 +25,9 @@ const schema = z.object({
   firstName: z.string().min(2, "Le prénom doit contenir au moins 2 caractères"),
   lastName: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
   email: z.string().email("Adresse email invalide"),
-  country: z.string().min(2, "Veuillez sélectionner un pays"),
+  eventType: z
+    .string()
+    .min(2, "Veuillez sélectionner le type de participation"),
   phone: z.string().min(10, "Numéro de téléphone invalide"),
 });
 
@@ -56,7 +57,7 @@ export function RegistrationFormDialog({
     try {
       const result = await sendRegistrationEmail({
         ...data,
-        country: countries[data.country as keyof typeof countries],
+        eventType: data.eventType,
         eventTitle,
         date: eventDate,
         time: eventTime,
@@ -81,13 +82,6 @@ export function RegistrationFormDialog({
       console.error("Error submitting form:", error);
     }
   };
-
-  const countryOptions = Object.entries(countries)
-    .map(([code, name]) => ({
-      value: code,
-      label: name,
-    }))
-    .sort((a, b) => a.label.localeCompare(b.label));
 
   return (
     <>
@@ -139,13 +133,14 @@ export function RegistrationFormDialog({
 
             <Input
               type="select"
-              label="Pays"
-              error={errors.country?.message}
-              {...register("country")}
+              label="Type de participation"
+              error={errors.eventType?.message}
+              {...register("eventType")}
               fullWidth
               options={[
-                { value: "", label: "Sélectionnez un pays" },
-                ...countryOptions,
+                { value: "", label: "Sélectionnez le type de participation" },
+                { value: "online", label: "En ligne" },
+                { value: "presentielle", label: "Présentielle" },
               ]}
             />
 

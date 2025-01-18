@@ -14,7 +14,7 @@ interface InputProps
 }
 
 const inputStyles = {
-  base: "px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[rgb(226,34,40)] focus:border-transparent transition-all duration-300 text-gray-900 placeholder:text-gray-400",
+  base: "px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[rgb(226,34,40)] focus:border-transparent transition-all duration-300 text-gray-900 placeholder:text-gray-400 text-sm font-normal",
   fullWidth: "w-full",
   error: "ring-2 ring-red-500",
   label: "block text-sm font-medium text-gray-700 mb-1",
@@ -60,7 +60,7 @@ export const Input = ({
             containerClass="!w-full"
             inputClass={twMerge(
               inputStyles.base,
-              "!w-full !h-10 !text-gray-900",
+              "!w-full !h-[42px] !text-sm !font-normal",
               error && inputStyles.error,
               className
             )}

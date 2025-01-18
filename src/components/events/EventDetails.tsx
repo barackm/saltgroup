@@ -9,7 +9,7 @@ import { CiMicrophoneOn } from "react-icons/ci";
 
 const eventData = {
   id: "sans-tabou-conference",
-  title: "Sans Tabou Conférence",
+  title: "La Sans Tabou Conférence",
   category: "Conférence",
   description:
     "Une conférence unique sur les relations amoureuses et l'épanouissement personnel des jeunes.",
@@ -53,7 +53,7 @@ export interface Event {
 export default function EventDetails() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
-      <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden bg-gradient-to-br from-gray-900 to-black">
+      <div className="relative h-[55vh] sm:h-[60vh] overflow-hidden bg-gradient-to-br from-gray-900 to-black">
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80 z-10" />
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[rgb(226,34,40)]/30 rounded-full blur-[100px]" />
@@ -75,18 +75,18 @@ export default function EventDetails() {
               <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-[rgb(226,34,40)] text-white text-xs sm:text-sm font-medium rounded-full shadow-lg">
                 {eventData.category}
               </span>
-              <h1 className="font-gramatica text-2xl sm:text-4xl md:text-6xl font-bold text-white max-w-3xl leading-tight">
+              <h1 className="font-gramatica text-4xl sm:text-4xl md:text-8xl font-bold text-white max-w-3xl leading-tight">
                 {eventData.title}
               </h1>
 
-              <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-white/80 mb-12 sm:mb-0">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-white/80 mb-16 sm:mb-0">
                 <div className="w-full flex items-center gap-2 mb-2">
                   <CiMicrophoneOn className="w-8 h-8 text-[rgb(226,34,40)]" />
                   <span className="text-md">Speaker: </span>
                   <Link
                     href="https://www.instagram.com/donjuan_masudi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                     target="_blank"
-                    className="text-[rgb(226,34,40)] hover:text-[rgb(200,30,35)] transition-colors duration-300"
+                    className="text-[rgb(226,34,40)] font-bold hover:text-[rgb(200,30,35)] transition-colors duration-300"
                   >
                     Don Juan
                   </Link>
@@ -106,8 +106,7 @@ export default function EventDetails() {
               </div>
             </div>
 
-            {/* Desktop ticket section */}
-            <div data-aos="fade-left" className="hidden lg:block w-96">
+            <div className="hidden lg:block w-96">
               <div className="bg-white rounded-xl sm:rounded-2xl border border-gray-200 p-4 sm:p-6 space-y-4 sm:space-y-6 shadow-lg">
                 <div className="relative">
                   <div className="inline-flex items-center bg-[rgb(226,34,40)] text-white px-6 py-3 rounded-lg">
@@ -141,12 +140,8 @@ export default function EventDetails() {
         </div>
       </div>
 
-      {/* Mobile ticket section */}
       <div className="lg:hidden -mt-12 sm:-mt-16 px-4 sm:px-6 relative z-30">
-        <div
-          data-aos="fade-up"
-          className="bg-white rounded-xl sm:rounded-2xl border border-gray-200 p-6 sm:p-8 space-y-4 sm:space-y-6 shadow-lg"
-        >
+        <div className="bg-white rounded-xl sm:rounded-2xl border border-gray-200 p-6 sm:p-8 space-y-4 sm:space-y-6 shadow-lg">
           <div className="relative">
             <div className="inline-flex items-center bg-[rgb(226,34,40)] text-white px-6 py-3 rounded-lg">
               <div className="absolute -left-[1px] top-1/2 -translate-y-1/2 w-3 h-6 bg-white rounded-r-full" />
@@ -175,7 +170,7 @@ export default function EventDetails() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
           <div className="lg:col-span-2 space-y-8 sm:space-y-12">
-            <div data-aos="fade-up" className="space-y-4">
+            <div className="space-y-4">
               <h2 className="font-gramatica text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
                 Contexte
               </h2>
@@ -188,7 +183,7 @@ export default function EventDetails() {
               </div>
             </div>
 
-            <div data-aos="fade-up" className="space-y-4 sm:space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <h2 className="font-gramatica text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
                 Objectifs de l&apos;événement
               </h2>
@@ -218,10 +213,7 @@ export default function EventDetails() {
               </div>
             </div>
 
-            <div
-              data-aos="fade-up"
-              className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 my-6 sm:my-8"
-            >
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 my-6 sm:my-8">
               {[
                 { icon: FiCalendar, label: "Date", value: eventData.date },
                 { icon: FiClock, label: "Heure", value: eventData.time },

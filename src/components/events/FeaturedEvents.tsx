@@ -7,7 +7,7 @@ import { RegistrationFormDialog } from "./RegistrationFormDialog";
 
 const sansTabouEvent = {
   category: "Conférence",
-  title: "Sans Tabou Conférence",
+  title: "La Sans Tabou Conférence",
   description:
     "Une conférence unique sur les relations amoureuses et l'épanouissement personnel des jeunes.",
   date: "16 Février 2025",
@@ -48,34 +48,24 @@ export const FeaturedEvents = () => {
       )}
 
       <div className="absolute inset-0 flex items-center justify-center z-30">
-        <div className="w-full max-w-3xl px-4 sm:px-6">
+        <div className="w-full max-w-4xl px-4 sm:px-6">
           <div className="space-y-8 sm:space-y-8">
             <div className="flex flex-col items-center gap-3 sm:gap-5">
               <Link
                 href="/events/sans-tabou-conference"
                 className="group transition-all duration-300"
-                data-aos="fade-up"
-                data-aos-delay="200"
               >
-                <h1 className="font-gramatica text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-white text-center max-w-3xl [text-shadow:_0_4px_24px_rgba(0,0,0,0.2)] group-hover:text-white/90 transition-colors duration-300">
+                <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-white text-center max-w-4xl [text-shadow:_0_4px_24px_rgba(0,0,0,0.2)] group-hover:text-white/90 transition-colors duration-300 font-gramatica">
                   {sansTabouEvent.title}
                 </h1>
               </Link>
             </div>
 
-            <p
-              data-aos="fade-up"
-              data-aos-delay="400"
-              className="text-lg sm:text-xl text-white/90 max-w-xl mx-auto leading-relaxed text-center px-2 [text-shadow:_0_2px_12px_rgba(0,0,0,0.2)]"
-            >
+            <p className="text-lg sm:text-xl text-white/90 max-w-xl mx-auto leading-relaxed text-center px-2 [text-shadow:_0_2px_12px_rgba(0,0,0,0.2)]">
               {sansTabouEvent.description}
             </p>
 
-            <div
-              data-aos="fade-up"
-              data-aos-delay="600"
-              className="flex items-center justify-center flex-wrap gap-6 sm:gap-8"
-            >
+            <div className="flex items-center justify-center flex-wrap gap-6 sm:gap-8">
               <div className="flex items-center gap-2">
                 <FiCalendar className="w-5 h-5 sm:w-5 sm:h-5 text-white/60" />
                 <span className="text-base sm:text-base text-white">
@@ -89,12 +79,7 @@ export const FeaturedEvents = () => {
                 </span>
               </div>
             </div>
-
-            <div
-              data-aos="fade-up"
-              data-aos-delay="800"
-              className="flex items-center justify-center gap-3 sm:gap-4 pt-4"
-            >
+            <div className="flex items-center justify-center gap-3 sm:gap-4 pt-4">
               <RegistrationFormDialog
                 eventDate={sansTabouEvent.date}
                 eventLocation={sansTabouEvent.location}

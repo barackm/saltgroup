@@ -16,7 +16,7 @@ export interface RegistrationEmailProps {
   lastName: string;
   email: string;
   phone: string;
-  country: string;
+  eventType: string;
   eventTitle: string;
   date: string;
   time: string;
@@ -28,7 +28,7 @@ export const RegistrationEmail = ({
   lastName,
   email,
   phone,
-  country,
+  eventType,
   eventTitle,
   date,
   time,
@@ -84,8 +84,10 @@ export const RegistrationEmail = ({
                 </td>
               </tr>
               <tr>
-                <td style={labelCell}>Pays:</td>
-                <td style={valueCell}>{country}</td>
+                <td style={labelCell}>Type de participation:</td>
+                <td style={valueCell}>
+                  {eventType === "online" ? "En ligne" : "Présentielle"}
+                </td>
               </tr>
             </tbody>
           </table>

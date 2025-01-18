@@ -108,6 +108,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.font-gramatica {
+  font-family: var(--font-gramatica);
+}
+
 .hover-underline {
   position: relative;
 }

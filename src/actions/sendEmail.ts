@@ -14,7 +14,7 @@ export async function sendRegistrationEmail(data: {
   lastName: string;
   email: string;
   phone: string;
-  country: string;
+  eventType: string;
   eventTitle: string;
   date: string;
   time: string;

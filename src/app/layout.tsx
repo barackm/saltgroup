@@ -19,12 +19,12 @@ const geistMono = Geist_Mono({
 });
 
 const gramatica = localFont({
-  src: "../fonts/gramatika/GramatikaTrial-Regular-BF65dea4c5a77e9.otf",
+  src: "../fonts/gramatika/GramatikaTrial-Bold-BF65dea4c5530e5.ttf",
   variable: "--font-gramatica",
 });
 
 const neueHaas = localFont({
-  src: "../fonts/neue-haas/NeueHaasDisplayMediu.ttf",
+  src: "../fonts/neue-haas/NeueHaasDisplayLight.ttf",
   variable: "--font-neue-haas",
 });
 
@@ -58,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${gramatica.variable} ${neueHaas.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable}  ${neueHaas.variable} ${gramatica.variable}  antialiased`}
       >
         <AosWrapper>
           <div className="min-h-screen overflow-x-hidden">
