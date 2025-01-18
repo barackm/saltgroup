@@ -164,7 +164,7 @@ const Contact = () => {
                   </label>
                   <textarea
                     rows={4}
-                    className={`w-full px-4 py-3 rounded-lg bg-black/5 border-0 focus:ring-2 focus:ring-[rgb(226,34,40)] ${
+                    className={`w-full px-4 py-3 rounded-lg bg-black/5 backdrop-blur-sm border-0 focus:ring-2 focus:ring-[rgb(226,34,40)] ${
                       errors.message ? "ring-2 ring-red-500" : ""
                     }`}
                     placeholder="Votre message"
