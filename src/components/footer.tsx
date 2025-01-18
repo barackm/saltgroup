@@ -61,7 +61,6 @@ const Footer = () => {
               <span className="text-sm text-white/40">
                 © {new Date().getFullYear()} SALT Events GROUP
               </span>
-              <span className="text-sm text-white/40 hover:text-white transition-colors"></span>
             </div>
 
             <div className="flex items-center gap-2 text-sm">
@@ -75,7 +74,6 @@ const Footer = () => {
                 IMZIBRAND
               </a>
             </div>
-
             <button
               onClick={scrollToTop}
               className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center

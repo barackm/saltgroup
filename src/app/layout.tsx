@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/salt.png",
+        url: "/hero-image.png",
         width: 1200,
         height: 630,
         alt: "SALT Events Banner",
@@ -46,7 +46,18 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: "/logo.png",
+    icon: [
+      {
+        url: "/favicon.ico",
+        type: "image/png",
+      },
+      {
+        url: "/favicon.ico",
+        type: "image/x-icon",
+      },
+    ],
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 };
 
