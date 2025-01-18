@@ -29,35 +29,68 @@ const neueHaas = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://saltgroup.vercel.app"),
+  metadataBase: new URL("https://saltgrp.org"),
   title: "SALT Events | Premium Event Planning",
-  description: "Transform your events into unforgettable experiences",
+  description:
+    "Transform your events into unforgettable experiences with SALT Events. Professional event planning and management services for corporate events, weddings, and special occasions.",
+  keywords: [
+    "event planning",
+    "corporate events",
+    "wedding planning",
+    "special occasions",
+    "premium events",
+    "event management",
+  ],
+  authors: [{ name: "SALT Events" }],
+  creator: "SALT Events",
+  publisher: "SALT Events",
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://www.saltgrp.org",
+  },
   openGraph: {
     title: "SALT Events | Premium Event Planning",
-    description: "Transform your events into unforgettable experiences",
+    description:
+      "Transform your events into unforgettable experiences with SALT Events",
+    url: "https://www.saltgrp.org",
+    siteName: "SALT Events",
+    locale: "en_US",
     type: "website",
     images: [
       {
-        url: "/hero-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "SALT Events Banner",
+        alt: "SALT Events - Premium Event Planning Services",
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "SALT Events | Premium Event Planning",
+    description: "Transform your events into unforgettable experiences",
+    images: ["/og-image.jpg"],
+    creator: "@saltevents",
+  },
   icons: {
     icon: [
-      {
-        url: "/favicon.ico",
-        type: "image/png",
-      },
-      {
-        url: "/favicon.ico",
-        type: "image/x-icon",
-      },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", type: "image/x-icon" },
     ],
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [{ rel: "mask-icon", url: "/logo.svg", color: "#5bbad5" }],
+  },
+  manifest: "/site.webmanifest",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  verification: {
+    google: "your-google-site-verification-code",
   },
 };
 
