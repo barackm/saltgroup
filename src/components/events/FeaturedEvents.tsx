@@ -31,7 +31,7 @@ export const FeaturedEvents = () => {
       {!imageError && (
         <div className="absolute inset-0">
           <Image
-            src="/images/pattern_1-min.png"
+            src="/images/pattern1.png"
             alt="Background Pattern"
             fill
             className={`object-cover transition-opacity duration-300 ${

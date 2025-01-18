@@ -15,7 +15,7 @@ export const sansTabouEvent = {
   },
   capacity: 200,
   price: 25,
-  image: "/images/pattern_1-min.png",
+  image: "/images/pattern1.png",
   sections: {
     context: `Les relations amoureuses occupent une place centrale dans la vie de nombreux jeunes... [your existing context text]`,
     mainObjective: `Accompagner les jeunes dans une meilleure compréhension... [your existing objective text]`,

@@ -79,6 +79,7 @@ export const FancyButton = ({
           }}
         />
       )}
+
       {icon && <span className="w-3.5 h-3.5 sm:w-4 sm:h-4">{icon}</span>}
       <span
         className={twMerge(
