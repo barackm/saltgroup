@@ -35,10 +35,9 @@ export const FeaturedEvents = () => {
             alt="Background Pattern"
             fill
             className={`object-cover transition-opacity duration-300 ${
-              isImageLoaded ? "opacity-20" : "opacity-0"
+              isImageLoaded ? "opacity-30" : "opacity-0"
             }`}
             sizes="(max-width: 768px) 100vw, 100vw"
-            quality={10}
             priority={false}
             loading="lazy"
             onError={() => setImageError(true)}
