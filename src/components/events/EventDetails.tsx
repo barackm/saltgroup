@@ -66,7 +66,12 @@ export default function EventDetails() {
           className="object-cover opacity-40"
           priority={false}
           loading="lazy"
-          quality={30}
+          quality={10} // Reduced from 30
+          sizes="100vw"
+          onError={(e) => {
+            // Fallback to solid background on error
+            e.currentTarget.style.display = "none";
+          }}
         />
 
         <div className="absolute inset-0 z-20 pt-16">

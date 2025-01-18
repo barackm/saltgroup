@@ -37,8 +37,8 @@ export const FeaturedEvents = () => {
             className={`object-cover transition-opacity duration-300 ${
               isImageLoaded ? "opacity-20" : "opacity-0"
             }`}
-            sizes="100vw"
-            quality={30}
+            sizes="(max-width: 768px) 100vw, 100vw"
+            quality={10} // Reduced from 30
             priority={false}
             loading="lazy"
             onError={() => setImageError(true)}
