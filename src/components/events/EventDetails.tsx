@@ -66,10 +66,9 @@ export default function EventDetails() {
           className="object-cover opacity-40"
           priority={false}
           loading="lazy"
-          quality={10} // Reduced from 30
+          quality={10}
           sizes="100vw"
           onError={(e) => {
-            // Fallback to solid background on error
             e.currentTarget.style.display = "none";
           }}
         />

@@ -38,7 +38,7 @@ export const FeaturedEvents = () => {
               isImageLoaded ? "opacity-20" : "opacity-0"
             }`}
             sizes="(max-width: 768px) 100vw, 100vw"
-            quality={10} // Reduced from 30
+            quality={10}
             priority={false}
             loading="lazy"
             onError={() => setImageError(true)}

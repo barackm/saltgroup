@@ -69,14 +69,13 @@ export const FancyButton = ({
         <Image
           src="/images/pattern_1-min.png"
           alt=""
-          width={200} // Reduced from 500
-          height={200} // Reduced from 500
+          width={200}
+          height={200}
           className="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-luminosity scale-[3] sm:scale-[6] z-20"
           priority={false}
           loading="lazy"
-          quality={10} // Reduced from 30
+          quality={10}
           onError={(e) => {
-            // Fallback to solid background on error
             e.currentTarget.style.display = "none";
           }}
         />
