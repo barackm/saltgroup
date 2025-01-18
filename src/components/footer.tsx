@@ -59,7 +59,7 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between pt-6 gap-4">
             <div className="flex items-center gap-6">
               <span className="text-sm text-white/40">
-                © {new Date().getFullYear()} SALT Events GROUP
+                © {new Date().getFullYear()} SALT GRP
               </span>
             </div>
 

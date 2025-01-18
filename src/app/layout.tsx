@@ -30,7 +30,7 @@ const neueHaas = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://saltgrp.org"),
-  title: "SALT Events | Premium Event Planning",
+  title: "SALT GRP",
   description:
     "Transform your events into unforgettable experiences with SALT Events. Professional event planning and management services for corporate events, weddings, and special occasions.",
   keywords: [
@@ -74,14 +74,19 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.ico" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    shortcut: ["/favicon.ico"],
+    apple: [{ url: "/apple-touch-icon.png" }],
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/safari-pinned-tab.svg",
+        color: "#5bbad5",
+      },
     ],
-    other: [{ rel: "mask-icon", url: "/logo.svg", color: "#5bbad5" }],
   },
   manifest: "/site.webmanifest",
   viewport: {
