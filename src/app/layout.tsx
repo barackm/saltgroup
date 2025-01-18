@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     other: [
       {
         rel: "mask-icon",
-        url: "/safari-pinned-tab.svg",
+        url: "/logo.svg",
         color: "#5bbad5",
       },
     ],
