@@ -7,11 +7,26 @@ const partners = [
     logo: "/images/partners/LindaH.png",
     url: "https://www.instagram.com/hotellindagoma?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
   },
-  { logo: "/images/partners/Event.png", url: "https://event-horizon.co.zm" },
-  { logo: "/images/partners/QC.png", url: "https://qualitycontrol.co.zm" },
-  { logo: "/images/partners/CC.png", url: "https://coppercrescent.com" },
-  { logo: "/images/partners/KY.png", url: "https://kayoyo.co.zm" },
-  { logo: "/images/partners/IMZ.png", url: "https://imz.co.zm" },
+  {
+    logo: "/images/partners/Event.png",
+    url: "https://www.instagram.com/event_studios243?igsh=MW53ZGZuMGZkdWtvZg==",
+  },
+  {
+    logo: "/images/partners/QC.png",
+    url: "https://www.instagram.com/quickcolor_solutions_?igsh=ZHI4a3Z2cHlubWoy",
+  },
+  {
+    logo: "/images/partners/CC.png",
+    url: "https://www.instagram.com/champions__choice?igsh=MXV5Ymh3eG02bnFpcA==",
+  },
+  {
+    logo: "/images/partners/KY.png",
+    url: "https://www.instagram.com/keydrcongo?igsh=MTkxazN5ZG1tY3MxZw==",
+  },
+  {
+    logo: "/images/partners/IMZ.png",
+    url: "https://www.instagram.com/imzibrand?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+  },
 ];
 
 export const SponsorsSection = () => {
