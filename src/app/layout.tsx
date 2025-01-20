@@ -76,13 +76,13 @@ export const metadata: Metadata = {
     creator: "@saltevents",
   },
   icons: {
-    icon: "/logo.png",
+    icon: "https://saltgrp.org/logo.png",
     shortcut: ["/logo.png"],
     apple: [{ url: "/apple-touch-icon.png" }],
     other: [
       {
         rel: "mask-icon",
-        url: "/logo.png",
+        url: "https://saltgrp.org/logo.png",
         color: "#5bbad5",
       },
     ],
