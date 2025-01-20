@@ -63,6 +63,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "SALT GROUP - Transform your events into unforgettable experiences with SALT EVENTS",
+        type: "image/png",
       },
     ],
   },
@@ -75,11 +76,7 @@ export const metadata: Metadata = {
     creator: "@saltevents",
   },
   icons: {
-    icon: [
-      { url: "/logo.png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-    ],
+    icon: "logo.png",
     shortcut: ["/logo.png"],
     apple: [{ url: "/apple-touch-icon.png" }],
     other: [
@@ -97,6 +94,12 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "your-google-site-verification-code",
+  },
+  other: {
+    "theme-color": "#ffffff",
+    "x-ua-compatible": "IE=edge",
+    "format-detection": "telephone=no",
+    "apple-mobile-web-app-capable": "yes",
   },
 };
 
