@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://saltgrp.org"),
   title: "SALT GRP",
   description:
-    "Transform your events into unforgettable experiences with SALT GROUP. Professional event planning and management services for corporate events, weddings, and special occasions.",
+    "Transform your events into unforgettable experiences with SALT EVENTS",
   keywords: [
     "event planning",
     "corporate events",
@@ -49,7 +49,8 @@ export const metadata: Metadata = {
     canonical: "https://www.saltgrp.org",
   },
   openGraph: {
-    title: "SALT GROUP | Premium Event Planning",
+    title:
+      "SALT GROUP | Transform your events into unforgettable experiences with SALT EVENTS",
     description:
       "Transform your events into unforgettable experiences with SALT GROUP",
     url: "https://www.saltgrp.org",
@@ -61,13 +62,14 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "SALT GROUP - Premium Event Planning Services",
+        alt: "SALT GROUP - Transform your events into unforgettable experiences with SALT EVENTS",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SALT GROUP | Premium Event Planning",
+    title:
+      "SALT GROUP | Transform your events into unforgettable experiences with SALT EVENTS",
     description: "Transform your events into unforgettable experiences",
     images: ["/og-image.jpg"],
     creator: "@saltevents",
