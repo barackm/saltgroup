@@ -54,8 +54,9 @@ export const FeaturedEvents = () => {
                 href="/events/sans-tabou-conference"
                 className="group transition-all duration-300"
               >
-                <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-white text-center max-w-4xl [text-shadow:_0_4px_24px_rgba(0,0,0,0.2)] group-hover:text-white/90 transition-colors duration-300 font-gramatica">
-                  {sansTabouEvent.title}
+                <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-white text-center max-w-4xl [text-shadow:_0_4px_24px_rgba(0,0,0,0.2)] group-hover:text-white/90 transition-colors duration-300 font-gramatica">
+                  LA Sans Tabou <br />
+                  Conférence
                 </h1>
               </Link>
             </div>

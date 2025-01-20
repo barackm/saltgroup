@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://saltgrp.org"),
   title: "SALT GRP",
   description:
-    "Transform your events into unforgettable experiences with SALT Events. Professional event planning and management services for corporate events, weddings, and special occasions.",
+    "Transform your events into unforgettable experiences with SALT GROUP. Professional event planning and management services for corporate events, weddings, and special occasions.",
   keywords: [
     "event planning",
     "corporate events",
@@ -41,19 +41,19 @@ export const metadata: Metadata = {
     "premium events",
     "event management",
   ],
-  authors: [{ name: "SALT Events" }],
-  creator: "SALT Events",
-  publisher: "SALT Events",
+  authors: [{ name: "SALT GROUP" }],
+  creator: "SALT GROUP",
+  publisher: "SALT GROUP",
   robots: "index, follow",
   alternates: {
     canonical: "https://www.saltgrp.org",
   },
   openGraph: {
-    title: "SALT Events | Premium Event Planning",
+    title: "SALT GROUP | Premium Event Planning",
     description:
-      "Transform your events into unforgettable experiences with SALT Events",
+      "Transform your events into unforgettable experiences with SALT GROUP",
     url: "https://www.saltgrp.org",
-    siteName: "SALT Events",
+    siteName: "SALT GROUP",
     locale: "en_US",
     type: "website",
     images: [
@@ -61,34 +61,33 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "SALT Events - Premium Event Planning Services",
+        alt: "SALT GROUP - Premium Event Planning Services",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SALT Events | Premium Event Planning",
+    title: "SALT GROUP | Premium Event Planning",
     description: "Transform your events into unforgettable experiences",
     images: ["/og-image.jpg"],
     creator: "@saltevents",
   },
   icons: {
     icon: [
-      { url: "/favicon.ico" },
+      { url: "/logo.png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
-    shortcut: ["/favicon.ico"],
+    shortcut: ["/logo.png"],
     apple: [{ url: "/apple-touch-icon.png" }],
     other: [
       {
         rel: "mask-icon",
-        url: "/logo.svg",
+        url: "/logo.png",
         color: "#5bbad5",
       },
     ],
   },
-  manifest: "/site.webmanifest",
   viewport: {
     width: "device-width",
     initialScale: 1,
