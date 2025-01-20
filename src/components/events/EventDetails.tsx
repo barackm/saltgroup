@@ -1,8 +1,8 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FiCalendar, FiMapPin, FiClock, FiUsers, FiTag } from "react-icons/fi";
+import { FiCalendar, FiMapPin, FiClock, FiTag } from "react-icons/fi";
 import { RegistrationFormDialog } from "@/components/events/RegistrationFormDialog";
 import ShareButton from "@/components/events/ShareButton";
 import { CiMicrophoneOn } from "react-icons/ci";
@@ -20,14 +20,17 @@ const eventData = {
   capacity: "400 participants",
   price: "20",
   image: "/images/pattern1.png",
-  context: `Les relations amoureuses occupent une place centrale dans la vie de nombreux jeunes, mais elles sont souvent entourées de malentendus et façonnées par des attentes irréalistes ou des pressions sociales. Ces influences peuvent entraîner des choix précipités ou des compromis nuisibles, comme le renoncement à des ambitions personnelles ou des relations fondées sur des obligations extérieures.
+  context: `Les relations amoureuses occupent une place centrale dans la vie de nombreux jeunes. Cependant, elles sont souvent façonnées par des attentes irréalistes, des pressions sociales et des malentendus qui peuvent entraîner des choix précipités ou des compromis nuisibles. Ces influences se manifestent parfois par le renoncement à des ambitions personnelles ou l'établissement de relations dictées par des normes extérieures plutôt que par des valeurs authentiques.
 
-  La Sans Tabou Conférence se donne pour mission de déconstruire ces idées reçues et d'offrir un espace de réflexion pour aider les jeunes à construire des relations sincères, équilibrées et épanouissantes.`,
-  mainObjective: `Accompagner les jeunes dans une meilleure compréhension des relations amoureuses en les aidant à réaliser qu'elles sont un aspect précieux de la vie, nécessitant une préparation consciente, une réflexion approfondie et un équilibre entre aspirations personnelles et engagements mutuels.`,
+  Depuis près de quatre ans, Sans Tabou s'est imposé comme un espace digital unique, offrant une plateforme hebdomadaire de discussions enrichissantes sur Instagram. Cet espace rassemble une communauté de jeunes engagés et dynamiques, désireux d'aborder sans détour les défis et réalités des relations amoureuses de notre génération.
+  
+  Ces échanges hebdomadaires ont permis à une audience fidèle de déconstruire les idées reçues, d'explorer des perspectives nouvelles et de réfléchir ensemble à la construction de relations plus équilibrées et épanouissantes.`,
+  mainObjective: `Créer un espace de rencontre et de réflexion unique pour permettre aux jeunes de déconstruire les idées reçues, d'explorer des solutions concrètes et de s'outiller pour construire des relations harmonieuses et épanouissantes dans un cadre interactif et inclusif.`,
   specificObjectives: [
-    "Créer un cadre de dialogue ouvert pour explorer les enjeux et défis des relations modernes",
-    "Aider les jeunes à prendre conscience de leur rôle actif dans la construction de leur épanouissement personnel et de relations harmonieuses",
-    "Inspirer une planification de vie alignée sur leurs aspirations et leurs valeurs fondamentales",
+    "Fournir un cadre interactif et inclusif : Offrir un espace bienveillant et participatif, propice à l'exploration des défis et des opportunités liés aux relations amoureuses de notre génération.",
+    "Sensibiliser aux influences culturelles et sociales : Mettre en lumière les pressions extérieures et les attentes irréalistes qui façonnent les comportements amoureux des jeunes.",
+    "Promouvoir l'épanouissement personnel et relationnel : Proposer des outils pratiques et des réflexions profondes pour favoriser des relations équilibrées, basées sur l'authenticité et le respect mutuel.",
+    "Encourager l'échange d'expériences et de perspectives : Faciliter des discussions ouvertes et constructives pour renforcer la compréhension mutuelle et inspirer des approches innovantes.",
   ],
   target: `Les bénéficiaires de cette conférence seront tous les jeunes de la ville de Goma et d'ailleurs. Ainsi, une moyenne de 200 jeunes est l'effectif attendu pour cette activité.`,
 };
@@ -51,6 +54,9 @@ export interface Event {
 }
 
 export default function EventDetails() {
+  const [imageError, setImageError] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-gray-100">
       <div className="relative h-[55vh] sm:h-[60vh] overflow-hidden bg-gradient-to-br from-gray-900 to-black">
@@ -143,7 +149,6 @@ export default function EventDetails() {
           </div>
         </div>
       </div>
-
       <div className="lg:hidden -mt-12 sm:-mt-16 px-4 sm:px-6 relative z-30">
         <div className="bg-white rounded-xl sm:rounded-2xl border border-gray-200 p-6 sm:p-8 space-y-4 sm:space-y-6 shadow-lg">
           <div className="relative">
@@ -170,73 +175,185 @@ export default function EventDetails() {
           <ShareButton eventData={eventData} />
         </div>
       </div>
+      <div className="relative bg-white py-16">
+        <div className="absolute inset-0 opacity-5">
+          <Image
+            src="/images/pattern1.png"
+            alt="Background pattern"
+            fill
+            className="object-cover"
+          />
+        </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
-          <div className="lg:col-span-2 space-y-8 sm:space-y-12">
-            <div className="space-y-4">
-              <h2 className="font-gramatica text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
-                Contexte
-              </h2>
-              <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
-                {eventData.context.split("\n\n").map((paragraph, i) => (
-                  <p key={i} className="text-gray-700 leading-relaxed">
-                    {paragraph}
-                  </p>
-                ))}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Context Column */}
+            <div className="space-y-6">
+              <div className="bg-[rgb(226,34,40)] p-8 rounded-2xl text-white">
+                <h2 className="font-gramatica text-2xl font-bold mb-4">
+                  Contexte
+                </h2>
+                <div className="prose prose-invert">
+                  {eventData.context.split("\n\n").map((paragraph, i) => (
+                    <p key={i} className="mb-4">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="space-y-4 sm:space-y-6">
-              <h2 className="font-gramatica text-xl sm:text-3xl font-bold text-gray-900 border-b border-gray-200 pb-2">
-                Objectifs de l&apos;événement
-              </h2>
-              <div className="pl-3 sm:pl-4 border-l-4 border-[rgb(226,34,40)] py-3 sm:py-4 bg-gray-50/50 rounded-r-lg">
-                <h3 className="font-display text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-gray-900">
-                  Objectif principal
-                </h3>
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                  {eventData.mainObjective}
-                </p>
+            <div className="space-y-6">
+              <div className="p-8 rounded-2xl bg-gray-50">
+                <h2 className="font-gramatica text-2xl font-bold mb-4 text-gray-900">
+                  Objectif Global
+                </h2>
+                <p className="text-gray-700">{eventData.mainObjective}</p>
               </div>
 
-              <div className="space-y-4">
-                <h3 className="font-display text-xl font-semibold text-gray-900">
-                  Objectifs spécifiques
-                </h3>
-                <ul className="space-y-3">
+              <div className="bg-[rgb(226,34,40)] p-8 rounded-2xl text-white">
+                <h2 className="font-gramatica text-2xl font-bold mb-4">
+                  Objectifs Spécifiques
+                </h2>
+                <ul className="space-y-4">
                   {eventData.specificObjectives.map((objective, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <span className="text-[rgb(226,34,40)] mt-1.5 text-lg">
-                        •
-                      </span>
-                      <span className="text-gray-700">{objective}</span>
+                      <span className="text-white mt-1.5">•</span>
+                      <span>{objective}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="relative min-h-screen bg-gradient-to-br from-[rgb(226,34,40)] to-[rgb(200,30,35)]">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40 z-10" />
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 my-6 sm:my-8">
-              {[
-                { icon: FiCalendar, label: "Date", value: eventData.date },
-                { icon: FiClock, label: "Heure", value: eventData.time },
-                { icon: FiMapPin, label: "Lieu", value: eventData.location },
-                { icon: FiUsers, label: "Capacité", value: eventData.capacity },
-              ].map((item, i) => (
-                <div key={i} className="flex flex-col gap-2">
-                  <div className="p-3 rounded-full bg-[rgb(226,34,40)]/10 w-fit">
-                    <item.icon className="w-5 h-5 text-[rgb(226,34,40)]" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600 font-medium">
-                      {item.label}
-                    </p>
-                    <p className="font-medium text-gray-900">{item.value}</p>
-                  </div>
-                </div>
-              ))}
+        {/* Pattern background */}
+        {!imageError && (
+          <div className="absolute inset-0">
+            <Image
+              src="/images/pattern1.png"
+              alt="Background Pattern"
+              fill
+              className={`object-cover transition-opacity duration-300 ${
+                isImageLoaded ? "opacity-30" : "opacity-0"
+              }`}
+              sizes="100vw"
+              priority={false}
+              loading="lazy"
+              onError={() => setImageError(true)}
+              onLoad={() => setIsImageLoaded(true)}
+            />
+          </div>
+        )}
+
+        <div className="relative z-20 py-16">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6">
+            {/* Reduced margin-bottom from mb-20 to mb-12 */}
+            <div className="text-white space-y-6 text-center mb-12">
+              <h2 className="font-gramatica text-7xl sm:text-8xl lg:text-9xl font-bold">
+                Débat
+              </h2>
+              <p className="text-2xl sm:text-3xl font-light leading-relaxed">
+                Moment d&apos;échange sur les défis liés aux relations de notre
+                générations.
+              </p>
             </div>
+
+            {/* Reduced margin-bottom from mb-32 to mb-16 */}
+            <figure className="space-y-4 mb-16">
+              <div className="relative h-[400px] sm:h-[500px]">
+                <Image
+                  src="/images/illustration3.png"
+                  alt="Débat illustration"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+              <figcaption className="text-white/90 text-center text-lg">
+                Pour participer au débat écrivez-nous sur WhatsApp « DEBAT » au{" "}
+                <span className="font-bold">+243 997 219 984</span>
+              </figcaption>
+            </figure>
+
+            <div className="text-white flex items-baseline justify-center gap-6">
+              <h2 className="font-gramatica text-7xl sm:text-8xl lg:text-9xl font-bold">
+                Panel
+              </h2>
+              <div className="text-2xl sm:text-3xl opacity-90">
+                Partage du parcours relationnel
+              </div>
+            </div>
+
+            <div className="text-white text-center mt-32">
+              <p className="text-3xl sm:text-4xl lg:text-5xl font-light">
+                La présentation de nos panelistes arrive bientôt
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="relative bg-white py-24 h-screen">
+        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6">
+          <p className="text-3xl sm:text-4xl lg:text-5xl text-gray-900 text-center font-light">
+            La présentation de nos panelistes arrive bientôt
+          </p>
+        </div>
+      </div>{" "}
+      <div className="relative bg-gradient-to-br from-[rgb(226,34,40)] to-[rgb(200,30,35)] py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-gramatica text-6xl sm:text-7xl lg:text-8xl font-bold text-white mb-8">
+            Jeux Tombola
+          </h2>
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <div className="relative h-[400px] sm:h-[500px]">
+              <Image
+                src="/images/illustration2.png"
+                alt="Tombola illustration"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div className="text-white space-y-12">
+              <p className="text-2xl sm:text-3xl font-light">
+                Gagnez un ticket shopping chez Champion&apos;s choice et bien
+                d&apos;autres surprises
+              </p>
+
+              <div className="text-xl sm:text-2xl font-light">
+                L&apos;achat du billet te donnera automatiquement l&apos;accès à
+                la tombola
+              </div>
+            </div>{" "}
+          </div>{" "}
+        </div>{" "}
+      </div>{" "}
+      {/* Updated After Party section with vertical layout */}
+      <div className="relative min-h-screen">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/illustration1.png"
+            alt="After Party"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[rgb(226,34,40)]/80 to-[rgb(200,30,35)]/80" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="flex flex-col items-center space-y-6">
+            <h2 className="font-gramatica text-6xl sm:text-7xl lg:text-8xl font-bold text-white text-center">
+              After Party
+            </h2>
+            <p className="text-2xl sm:text-3xl text-white/90 font-light">
+              Cocktail + Networking + DJ
+            </p>
           </div>
         </div>
       </div>
