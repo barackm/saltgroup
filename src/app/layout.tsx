@@ -32,14 +32,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://saltgrp.org"),
   title: "SALT GRP",
   description:
-    "Transform your events into unforgettable experiences with SALT EVENTS",
+    "Transformez vos événements en expériences inoubliables avec SALT EVENTS",
   keywords: [
-    "event planning",
-    "corporate events",
-    "wedding planning",
-    "special occasions",
-    "premium events",
-    "event management",
+    "planification d'événements",
+    "événements d'entreprise",
+    "organisation de mariages",
+    "occasions spéciales",
+    "événements premium",
+    "gestion d'événements",
   ],
   authors: [{ name: "SALT GROUP" }],
   creator: "SALT GROUP",
@@ -50,19 +50,19 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "SALT GROUP | Transform your events into unforgettable experiences with SALT EVENTS",
+      "SALT GROUP | Transformez vos événements en expériences inoubliables avec SALT EVENTS",
     description:
-      "Transform your events into unforgettable experiences with SALT GROUP",
+      "Transformez vos événements en expériences inoubliables avec SALT GROUP",
     url: "https://www.saltgrp.org",
     siteName: "SALT GROUP",
-    locale: "en_US",
+    locale: "fr_FR",
     type: "website",
     images: [
       {
         url: "https://saltgrp.org/page1.jpeg",
         width: 1200,
         height: 630,
-        alt: "SALT GROUP - Transform your events into unforgettable experiences with SALT EVENTS",
+        alt: "SALT GROUP - Transformez vos événements en expériences inoubliables avec SALT EVENTS",
         type: "image/jpeg",
       },
     ],
@@ -70,8 +70,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "SALT GROUP | Transform your events into unforgettable experiences with SALT EVENTS",
-    description: "Transform your events into unforgettable experiences",
+      "SALT GROUP | Transformez vos événements en expériences inoubliables avec SALT EVENTS",
+    description: "Transformez vos événements en expériences inoubliables",
     images: ["https://saltgrp.org/page1.jpeg"],
     creator: "@saltevents",
   },
