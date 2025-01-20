@@ -21,6 +21,7 @@ export interface RegistrationEmailProps {
   date: string;
   time: string;
   location: string;
+  relationshipStatus: string;
 }
 
 export const RegistrationEmail = ({
@@ -33,6 +34,7 @@ export const RegistrationEmail = ({
   date,
   time,
   location,
+  relationshipStatus,
 }: RegistrationEmailProps) => (
   <Html>
     <Head />
@@ -88,6 +90,10 @@ export const RegistrationEmail = ({
                 <td style={valueCell}>
                   {eventType === "online" ? "En ligne" : "Présentielle"}
                 </td>
+              </tr>
+              <tr>
+                <td style={labelCell}>Statut relationnel:</td>
+                <td style={valueCell}>{relationshipStatus}</td>
               </tr>
             </tbody>
           </table>

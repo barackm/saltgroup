@@ -29,6 +29,7 @@ const schema = z.object({
     .string()
     .min(2, "Veuillez sélectionner le type de participation"),
   phone: z.string().min(10, "Numéro de téléphone invalide"),
+  relationshipStatus: z.string().min(1, "Veuillez sélectionner votre statut"),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -150,6 +151,20 @@ export function RegistrationFormDialog({
               error={errors.phone?.message}
               onPhoneChange={(phone) => setValue("phone", phone)}
               fullWidth
+            />
+
+            <Input
+              type="select"
+              label="Statut relationnel"
+              error={errors.relationshipStatus?.message}
+              {...register("relationshipStatus")}
+              fullWidth
+              options={[
+                { value: "", label: "Sélectionnez votre statut" },
+                { value: "en_couple", label: "En couple" },
+                { value: "avec_quelquun", label: "Avec quelqu'un" },
+                { value: "recherche", label: "À la recherche" },
+              ]}
             />
 
             <DialogFooter>
