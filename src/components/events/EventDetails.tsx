@@ -17,7 +17,7 @@ const eventData = {
   date: "16 Février 2025",
   time: "14h00 - 18h00",
   location: "Hôtel Linda Goma",
-  capacity: "200 participants",
+  capacity: "400 participants",
   price: "20",
   image: "/images/pattern1.png",
   context: `Les relations amoureuses occupent une place centrale dans la vie de nombreux jeunes, mais elles sont souvent entourées de malentendus et façonnées par des attentes irréalistes ou des pressions sociales. Ces influences peuvent entraîner des choix précipités ou des compromis nuisibles, comme le renoncement à des ambitions personnelles ou des relations fondées sur des obligations extérieures.
