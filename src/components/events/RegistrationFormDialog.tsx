@@ -63,6 +63,7 @@ export function RegistrationFormDialog({
         date: eventDate,
         time: eventTime,
         location: eventLocation,
+        relationshipStatus: data.relationshipStatus,
       });
 
       if (result.success) {

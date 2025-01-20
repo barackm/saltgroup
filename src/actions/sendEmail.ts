@@ -19,6 +19,7 @@ export async function sendRegistrationEmail(data: {
   date: string;
   time: string;
   location: string;
+  relationshipStatus: string;
 }) {
   try {
     const emailHtml = await render(RegistrationEmail(data));
