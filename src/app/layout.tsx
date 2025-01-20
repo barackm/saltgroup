@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://saltgrp.org/og-image.png",
         width: 1200,
         height: 630,
         alt: "SALT GROUP - Transform your events into unforgettable experiences with SALT EVENTS",
@@ -72,11 +72,11 @@ export const metadata: Metadata = {
     title:
       "SALT GROUP | Transform your events into unforgettable experiences with SALT EVENTS",
     description: "Transform your events into unforgettable experiences",
-    images: ["/og-image.jpg"],
+    images: ["https://saltgrp.org/og-image.jpg"],
     creator: "@saltevents",
   },
   icons: {
-    icon: "logo.png",
+    icon: "/logo.png",
     shortcut: ["/logo.png"],
     apple: [{ url: "/apple-touch-icon.png" }],
     other: [
